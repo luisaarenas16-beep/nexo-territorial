@@ -1332,6 +1332,45 @@ Responde SOLO JSON válido, sin backticks ni markdown:
         }
       });
     }
+    console.log("NEXO maslow: iniciando webhook", datos.nombre);
+    try {
+      const whResp = await fetch("/.netlify/functions/apimake", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          webhook: "https://hook.us2.make.com/blf4whranc4p1ku9ghm30f3aj354jo4i",
+          data: {
+            nombre: datos.nombre || "",
+            email: datos.email || "",
+            telefono: datos.telefono || "",
+            universidad: datos.universidad || "",
+            semestre: datos.semestre || "",
+            carrera: datos.carrera || "",
+            genero: datos.genero || "",
+            orientacion_vocacional: chasideTop2 || "",
+            inteligencia_dominante: inteligencia || "",
+            nivel_ia: nivelIA || "",
+            ia_score: iaScore || 0,
+            tiempo_libre: r.i1 || "",
+            lo_molesta_hogar: r.i2 || "",
+            para_que_lo_buscan: r.i3 || "",
+            area_inteligencia: r.i4 || "",
+            fortaleza_natural: r.f1 || "",
+            zona_comodidad: r.f2 || "",
+            familiaridad_ia: r.f3 || "",
+            impacto_profesional: r.d1 || "",
+            ambiente_ideal: r.d2 || "",
+            tipo_empresa_ideal: r.d3 || "",
+            herramientas_digitales: r.d4 || "",
+            fecha: new Date().toLocaleString('es-CO'),
+            formulario: "estudiante"
+          }
+        })
+      });
+      console.log("NEXO maslow: webhook status", whResp.status);
+    } catch(webhookError) {
+      console.log("NEXO maslow: webhook error", webhookError.message);
+    }
     setFase("resultado");
   };
 
@@ -2556,6 +2595,39 @@ Responde SOLO JSON válido, sin backticks ni markdown:
           kpi_exito:"Al menos 1 proceso mejorado con IA, documentado y adoptado por el equipo."
         }
       });
+    }
+    console.log("NEXO empresa: iniciando webhook", datos.empresa);
+    try {
+      const whResp = await fetch("/.netlify/functions/apimake", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          webhook: "https://hook.us2.make.com/htsw06w8iidx49m60r3fkmo4dx6iiryi",
+          data: {
+            empresa: datos.empresa || "",
+            nit: datos.nit || "",
+            contacto: datos.contacto || "",
+            correo: datos.correo || "",
+            sector: datos.sector || "",
+            empleados: datos.empleados || "",
+            calificacion: datos.calificacion || "",
+            claridad_estrategica: r.e_c1 || "",
+            motivacion_gerente: r.e_c2 || "",
+            molestia_organizacional: r.e_cu2 || "",
+            ambiente_trabajo: r.e_cu4 || "",
+            ventaja_competitiva: r.e_cap1 || "",
+            area_urgente: r.e_cap2 || "",
+            nivel_ia: nivelIA || "",
+            score_ia: iaScore || 0,
+            brecha_principal: AREAS_INFO_E[topGapArea]?.nombre || "",
+            fecha: new Date().toLocaleString('es-CO'),
+            formulario: "empresa"
+          }
+        })
+      });
+      console.log("NEXO empresa: webhook status", whResp.status);
+    } catch(webhookError) {
+      console.log("NEXO empresa: webhook error", webhookError.message);
     }
     setFase("resultado");
   };
