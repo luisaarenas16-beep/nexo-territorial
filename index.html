@@ -270,7 +270,7 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.6);padding:48px 0 56px;
   <div class="nav-links">
     <a href="index.html" class="active" aria-current="page">Nexo Territorial</a>
     <a href="nexo-micro.html">Nexo Micro</a>
-    <a href="unit-ai.html">UNIT.AI</a>
+    <a href="unit-ai.html">SENTRIA</a>
   </div>
   <div class="nav-cta">
     <button type="button" class="btn btn-outline btn-sm" data-open-agent="empresa">Tengo una empresa</button>
@@ -1332,21 +1332,20 @@ Responde SOLO JSON válido, sin backticks ni markdown:
         }
       });
     }
-    console.log("NEXO maslow: iniciando webhook", datos.nombre);
     try {
-      const whResp = await fetch("/.netlify/functions/apimake", {
+      await fetch("/.netlify/functions/apimake", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           webhook: "https://hook.us2.make.com/blf4whranc4p1ku9ghm30f3aj354jo4i",
           data: {
-            nombre: datos.nombre || "",
-            email: datos.email || "",
-            telefono: datos.telefono || "",
-            universidad: datos.universidad || "",
-            semestre: datos.semestre || "",
-            carrera: datos.carrera || "",
-            genero: datos.genero || "",
+            nombre: datos.nombre,
+            email: datos.email,
+            telefono: datos.telefono,
+            universidad: datos.universidad,
+            semestre: datos.semestre,
+            carrera: datos.carrera,
+            genero: datos.genero,
             orientacion_vocacional: chasideTop2 || "",
             inteligencia_dominante: inteligencia || "",
             nivel_ia: nivelIA || "",
@@ -1362,14 +1361,15 @@ Responde SOLO JSON válido, sin backticks ni markdown:
             ambiente_ideal: r.d2 || "",
             tipo_empresa_ideal: r.d3 || "",
             herramientas_digitales: r.d4 || "",
+            perfil_empresa_titulo: reporte?.empresa?.titulo || "",
+            utilidad_empresa: reporte?.empresa?.utilidad || "",
             fecha: new Date().toLocaleString('es-CO'),
             formulario: "estudiante"
           }
         })
       });
-      console.log("NEXO maslow: webhook status", whResp.status);
     } catch(webhookError) {
-      console.log("NEXO maslow: webhook error", webhookError.message);
+      console.log("Webhook estudiante error:", webhookError);
     }
     setFase("resultado");
   };
@@ -2596,38 +2596,43 @@ Responde SOLO JSON válido, sin backticks ni markdown:
         }
       });
     }
-    console.log("NEXO empresa: iniciando webhook", datos.empresa);
     try {
-      const whResp = await fetch("/.netlify/functions/apimake", {
+      await fetch("/.netlify/functions/apimake", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           webhook: "https://hook.us2.make.com/htsw06w8iidx49m60r3fkmo4dx6iiryi",
           data: {
-            empresa: datos.empresa || "",
-            nit: datos.nit || "",
-            contacto: datos.contacto || "",
-            correo: datos.correo || "",
-            sector: datos.sector || "",
-            empleados: datos.empleados || "",
-            calificacion: datos.calificacion || "",
+            empresa: datos.empresa,
+            nit: datos.nit,
+            contacto: datos.contacto,
+            correo: datos.correo,
+            sector: datos.sector,
+            empleados: datos.empleados,
+            calificacion: datos.calificacion,
             claridad_estrategica: r.e_c1 || "",
             motivacion_gerente: r.e_c2 || "",
             molestia_organizacional: r.e_cu2 || "",
             ambiente_trabajo: r.e_cu4 || "",
             ventaja_competitiva: r.e_cap1 || "",
             area_urgente: r.e_cap2 || "",
+            meta_2_anos: r.e_dir1 || "",
+            apoyo_que_valora: r.e_dir2 || "",
+            apertura_herramientas: r.e_dir3 || "",
             nivel_ia: nivelIA || "",
             score_ia: iaScore || 0,
             brecha_principal: AREAS_INFO_E[topGapArea]?.nombre || "",
+            area_chaside_ideal: reporte?.match?.area_chaside_ideal || "",
+            perfil_ideal: reporte?.match?.perfil_ideal || "",
+            titulo_proyecto: reporte?.proyecto?.titulo || "",
+            objetivo_proyecto: reporte?.proyecto?.objetivo || "",
             fecha: new Date().toLocaleString('es-CO'),
             formulario: "empresa"
           }
         })
       });
-      console.log("NEXO empresa: webhook status", whResp.status);
     } catch(webhookError) {
-      console.log("NEXO empresa: webhook error", webhookError.message);
+      console.log("Webhook empresa error:", webhookError);
     }
     setFase("resultado");
   };
