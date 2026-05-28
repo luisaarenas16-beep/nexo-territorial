@@ -45,7 +45,7 @@ h1,h2,h3,h4{font-family:'Nunito',sans-serif;font-weight:900;letter-spacing:-0.02
 .foot .unit-logo{height:104px}
 @media (max-width:980px){.unit-logo{height:80px}.foot .unit-logo{height:88px}}
 @media (max-width:560px){.unit-logo{height:64px}.foot .unit-logo{height:72px}}
-.brand-row{display:inline-flex;align-items:center;gap:12px}
+.brand-row{display:inline-flex;align-items:center;gap:12px;flex-shrink:0}
 .brand-sub{font-size:11px;color:rgba(255,255,255,0.55);font-weight:700;letter-spacing:.14em;text-transform:uppercase}
 .nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:12px 28px;background:rgba(10,10,26,.55);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.05);transition:background .3s ease}
 .nav.scrolled{background:rgba(10,10,26,.88)}
@@ -171,7 +171,11 @@ section{padding:120px 0;position:relative}
 .form .form-actions{display:flex;gap:10px;margin-top:6px}
 .form .form-back{background:transparent;border:1.5px solid rgba(255,255,255,0.12);color:var(--text-muted);border-radius:10px;padding:0 14px;font-size:13px;cursor:pointer}
 .form .form-back:hover{color:#fff;border-color:rgba(255,255,255,.3)}
-.success-msg{display:none;background:rgba(181,224,64,0.1);border:1px solid rgba(181,224,64,0.3);border-radius:12px;padding:16px 18px;color:var(--unit-lime);font-size:14px;font-weight:600;margin-top:12px;animation:fadeIn 0.3s ease}
+.success-msg{display:none;background:rgba(181,224,64,0.1);border:1px solid rgba(181,224,64,0.3);border-radius:12px;padding:18px 20px;color:var(--unit-lime);font-size:14px;font-weight:600;margin-top:12px;text-align:center;animation:fadeIn .35s ease;flex-direction:column;gap:14px}
+.success-msg.show{display:flex}
+.success-msg .msg-text{line-height:1.5}
+.success-msg .msg-again{background:transparent;border:1.5px solid rgba(181,224,64,0.45);color:var(--unit-lime);padding:10px 18px;border-radius:10px;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background .2s,color .2s,border-color .2s;align-self:center}
+.success-msg .msg-again:hover{background:rgba(181,224,64,0.18);color:#EFFCBE}px;animation:fadeIn 0.3s ease}
 .success-msg.show{display:block}
 @keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
 /* WhatsApp floating button */
@@ -255,7 +259,7 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.6);padding:48px 0 56px;
 .foot .meta{width:100%;margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,.06);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 @media (max-width:1080px){.aud-grid{grid-template-columns:1fr;gap:18px}}
 @media (max-width:980px){.nav-links{gap:2px;font-size:11px}.nav-links a{padding:7px 9px;letter-spacing:.04em}.hero{padding-top:130px}.hero-inner{grid-template-columns:1fr;gap:48px}.connector{max-width:420px;margin:0 auto}.hero-stats{grid-template-columns:1fr 1fr;gap:20px}.problem-grid{grid-template-columns:1fr;gap:20px}.bridge{flex-direction:row}.bridge .line-v{width:60px;height:2px}.steps{grid-template-columns:1fr 1fr;gap:18px}.steps::before{display:none}.skill-grid{grid-template-columns:1fr 1fr;gap:12px}.profile-grid{grid-template-columns:1fr}.cert-grid{grid-template-columns:1fr;gap:14px}.impact .numbers{grid-template-columns:1fr 1fr;gap:14px}section{padding:88px 0}}
-@media (max-width:560px){.container{padding:0 20px}.nav{padding:14px 20px}.brand-sub{display:none}.nav-cta .btn:first-child{display:none}.hero-stats{grid-template-columns:1fr}.skill-grid{grid-template-columns:1fr}.aud-card{padding:28px}.problem-col{padding:28px}.impact .num{font-size:48px}.form .row{grid-template-columns:1fr}}
+@media (max-width:560px){.container{padding:0 20px}.nav{padding:14px 20px;gap:8px}.brand-sub{display:none}.nav-cta{display:none}.unit-logo{height:48px}.hero-stats{grid-template-columns:1fr}.skill-grid{grid-template-columns:1fr}.aud-card{padding:28px}.problem-col{padding:28px}.impact .num{font-size:48px}.form .row{grid-template-columns:1fr}}
 </style>
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
@@ -431,7 +435,10 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.6);padding:48px 0 56px;
             <button type="button" class="form-back">Volver</button>
             <button type="submit" class="btn btn-lime btn-full">Agendar una llamada con NEXO <span class="arrow">→</span></button>
           </div>
-          <div class="success-msg">✓ ¡Gracias! Un miembro del equipo NEXO te contactará en menos de 24 horas.</div>
+          <div class="success-msg">
+            <span class="msg-text">✓ Listo. Le escribiremos en menos de 24 horas para coordinar la sesión.</span>
+            <button type="button" class="msg-again" data-form-reset>↻ Llenar otro formulario</button>
+          </div>
         </form>
       </div>
 
@@ -481,16 +488,8 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.6);padding:48px 0 56px;
     <div class="profile-cta reveal">
       <h3 class="profile-cta-title">¿Cuál eres tú?</h3>
       <p class="profile-cta-sub">Descúbrelo en 5 preguntas. Conoce tu perfil conductual y el reto de victoria rápida diseñado para ti.</p>
-      <button type="button" class="btn btn-grad btn-lg" id="open-agente-form">Descubrir mi perfil <span class="arrow">→</span></button>
-      <form class="mini-form" id="agente-form" novalidate>
-        <h4>Deja tus datos para guardar tu resultado</h4>
-        <div class="mini-row">
-          <div><label>Nombre</label><input type="text" name="nombre" required placeholder="Tu nombre"/></div>
-          <div><label>Correo electrónico</label><input type="email" name="correo" required placeholder="tu@correo.com"/></div>
-        </div>
-        <button type="submit" class="btn btn-grad btn-lg btn-full">Empezar evaluación <span class="arrow">→</span></button>
-        <p class="mini-meta">5 preguntas · 3 minutos · Resultado con IA personalizado</p>
-      </form>
+      <button type="button" class="btn btn-grad btn-lg" data-open-agent="agente" data-return="perfiles">Descubrir mi perfil <span class="arrow">→</span></button>
+      <p class="skills-cta-meta" style="margin-top:16px">5 preguntas · 3 minutos · Resultado con IA personalizado</p>
     </div>
   </div>
 </section>
@@ -545,7 +544,7 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.6);padding:48px 0 56px;
 
 <!-- WhatsApp floating button — EDITA aquí tu número (formato internacional, sin +) y el mensaje -->
 <a class="wa-fab" id="whatsapp-fab"
-   href="https://wa.me/573146279033?text=Hola%20NEXO%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20del%20programa"
+   href="https://wa.me/573146279033?text=%C2%A1hola%20Equipo%20UNIT%21%20%C2%BFhablamos%3F"
    target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
   <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39-.066 0-.105-.025-.176-.066-.532-.231-1.6-.748-3.04-2.176-.402-.402-.83-.95-1.165-1.495-.108-.18-.18-.295-.18-.41 0-.32.732-.732 1.025-1.165.27-.4.402-.732.402-1.165 0-.27-.165-.732-.402-1.165-.18-.295-.4-1.025-.732-1.39-.27-.295-.66-.402-1.025-.402h-.295c-.402 0-.66.165-.95.402-.402.402-1.39 1.39-1.39 3.04 0 1.65 1.165 3.04 1.39 3.298 0 0 2.45 4.07 6.18 5.74 3.04 1.39 3.65 1.165 4.32 1.05.66-.12 2.045-.83 2.34-1.65.295-.83.295-1.518.18-1.65-.108-.165-.295-.27-.66-.402zM16 4C9.373 4 4 9.373 4 16c0 2.142.564 4.155 1.552 5.9L4.07 27.06a.8.8 0 00.974.998l5.32-1.404A11.93 11.93 0 0016 28c6.627 0 12-5.373 12-12S22.627 4 16 4zm0 21.6c-1.846 0-3.626-.503-5.18-1.456l-.37-.225-3.146.83.842-3.064-.244-.385A9.55 9.55 0 016.4 16C6.4 10.71 10.71 6.4 16 6.4S25.6 10.71 25.6 16 21.29 25.6 16 25.6z"/></svg>
   <span class="wa-label">Escríbenos por WhatsApp</span>
@@ -619,25 +618,7 @@ document.querySelectorAll('[data-open-agent]').forEach(btn => {
   });
 });
 
-/* Agente conductual: mini-form (nombre + email) → open overlay */
-const agenteForm = document.getElementById('agente-form');
-const openAgenteFormBtn = document.getElementById('open-agente-form');
-if (openAgenteFormBtn && agenteForm) {
-  openAgenteFormBtn.addEventListener('click', () => {
-    openAgenteFormBtn.style.display = 'none';
-    agenteForm.classList.add('open');
-    setTimeout(() => agenteForm.querySelector('input')?.focus(), 50);
-  });
-  agenteForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    let ok = true;
-    agenteForm.querySelectorAll('[required]').forEach(f => {
-      if (!f.value.trim()) { ok = false; f.style.borderColor = '#E879C8' } else { f.style.borderColor = '' }
-    });
-    if (!ok) return;
-    openAgent('agente', 'perfiles');
-  });
-}
+/* Agente conductual: form removed — button now opens overlay directly via data-open-agent */
 
 /* Donor card: inline form (kept on landing — no overlay) */
 document.querySelectorAll('[data-form]').forEach(btn => {
@@ -717,6 +698,22 @@ document.querySelectorAll('.form').forEach(form => {
     form.querySelectorAll(':scope > div').forEach(el => {
       if (!el.classList.contains('success-msg')) el.style.display = 'none';
     });
+  });
+});
+
+/* "Llenar otro formulario" — reset form back to its open editable state */
+document.querySelectorAll('[data-form-reset]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const form = btn.closest('.form');
+    if (!form) return;
+    form.reset();
+    const success = form.querySelector('.success-msg');
+    if (success) success.classList.remove('show');
+    form.querySelectorAll(':scope > div').forEach(el => {
+      if (!el.classList.contains('success-msg')) el.style.display = '';
+    });
+    form.querySelectorAll('input,select,textarea').forEach(f => { f.style.borderColor = ''; });
+    setTimeout(() => form.querySelector('input')?.focus(), 50);
   });
 });
 </script>
