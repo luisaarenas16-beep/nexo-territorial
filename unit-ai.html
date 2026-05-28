@@ -49,9 +49,9 @@ p{margin:0}
 .unit-logo{display:inline-flex;align-items:center;height:88px}
 .unit-logo img{height:100%;width:auto;display:block;filter:drop-shadow(0 4px 24px rgba(224,123,42,.35))}
 .foot .unit-logo{height:104px}
-@media (max-width:980px){.unit-logo{height:72px}.foot .unit-logo{height:88px}}
-@media (max-width:560px){.unit-logo{height:60px}.foot .unit-logo{height:72px}}
-.brand-row{display:inline-flex;align-items:center;gap:12px}
+@media (max-width:980px){.unit-logo{height:60px}.foot .unit-logo{height:88px}}
+@media (max-width:560px){.unit-logo{height:48px}.foot .unit-logo{height:72px}}
+.brand-row{display:inline-flex;align-items:center;gap:12px;flex-shrink:0}
 
 .nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:12px 28px;background:rgba(10,10,15,.55);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(224,123,42,.08);transition:background .3s ease}
 .nav.scrolled{background:rgba(10,10,15,.92)}
@@ -172,19 +172,26 @@ section{padding:120px 0;position:relative}
 .plan .cta{margin-top:24px}
 
 /* ============ PROTECTION ============ */
-.protect{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
-.protect-card{padding:44px 38px;background:linear-gradient(180deg,rgba(224,123,42,.10),rgba(224,123,42,.02));border:1px solid var(--border);border-radius:var(--r-md);transition:transform .3s var(--ease),border-color .3s;display:flex;flex-direction:column}
+.protect-flow{margin:0 auto 64px;padding:28px 32px;background:linear-gradient(135deg,rgba(224,123,42,.08),rgba(255,95,0,.04));border:1px solid var(--border);border-radius:var(--r-md);display:flex;align-items:stretch;justify-content:space-between;gap:18px;max-width:1120px}
+.protect-step{flex:1;display:flex;align-items:center;gap:16px;min-width:0}
+.protect-step .pf-num{flex-shrink:0;width:42px;height:42px;border-radius:50%;background:var(--gradient-sentria);color:#fff;font-family:'Nunito',sans-serif;font-weight:900;font-size:17px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px -6px rgba(255,95,0,.6)}
+.protect-step .pf-text b{display:block;font-family:'Nunito',sans-serif;font-weight:900;font-size:15px;color:#fff;line-height:1.2;margin-bottom:3px;letter-spacing:-.01em}
+.protect-step .pf-text span{font-size:12.5px;color:var(--muted);line-height:1.35;display:block}
+.protect-arrow{align-self:center;color:var(--orange-bright);font-size:22px;opacity:.7;flex-shrink:0}
+.protect{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+.protect-card{padding:34px 28px;background:linear-gradient(180deg,rgba(224,123,42,.10),rgba(224,123,42,.02));border:1px solid var(--border);border-radius:var(--r-md);transition:transform .3s var(--ease),border-color .3s;display:flex;flex-direction:column;position:relative}
+.protect-card .step-tag{position:absolute;top:-12px;left:24px;padding:4px 12px;border-radius:999px;background:var(--bg-elev);border:1px solid var(--border-strong);font-family:'Nunito',sans-serif;font-weight:900;font-size:11px;letter-spacing:.14em;color:var(--orange-bright)}
 .protect-card:hover{transform:translateY(-4px);border-color:var(--border-strong)}
-.protect-card .glyph{width:72px;height:72px;border-radius:20px;background:rgba(224,123,42,.16);border:1px solid var(--border-strong);display:flex;align-items:center;justify-content:center;font-size:32px;margin-bottom:26px}
-.protect-card h3{font-size:26px;color:#fff;margin-bottom:16px;line-height:1.15}
-.protect-card .desc{font-size:16px;color:var(--soft);line-height:1.65;flex:1}
+.protect-card .glyph{width:60px;height:60px;border-radius:16px;background:rgba(224,123,42,.16);border:1px solid var(--border-strong);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:20px}
+.protect-card h3{font-size:22px;color:#fff;margin-bottom:14px;line-height:1.18}
+.protect-card .desc{font-size:15px;color:var(--soft);line-height:1.6;flex:1}
 .protect-card .cta{margin-top:28px}
 .protect-card .cta-note{margin-top:12px;font-size:12px;color:var(--muted);letter-spacing:.04em}
-.mod-list{margin:24px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;border-top:1px dashed var(--border);padding-top:20px}
-.mod-list li{display:flex;align-items:flex-start;gap:14px;font-size:14px;line-height:1.5;color:var(--soft)}
-.mod-list .mod-num{flex-shrink:0;width:32px;height:32px;border-radius:10px;background:rgba(224,123,42,.14);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Nunito',sans-serif;font-weight:900;font-size:12px;color:var(--orange-bright);letter-spacing:.02em}
-.mod-list .mod-txt b{color:#fff;font-weight:700;display:block;margin-bottom:2px;font-family:'Nunito',sans-serif;font-size:14.5px}
-.mod-list .mod-txt{font-size:13px;color:var(--muted);line-height:1.4}
+.mod-list{margin:22px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px;border-top:1px dashed var(--border);padding-top:20px}
+.mod-list li{display:flex;align-items:flex-start;gap:12px;font-size:13.5px;line-height:1.5;color:var(--soft)}
+.mod-list .mod-num{flex-shrink:0;width:28px;height:28px;border-radius:8px;background:rgba(224,123,42,.14);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Nunito',sans-serif;font-weight:900;font-size:11px;color:var(--orange-bright);letter-spacing:.02em}
+.mod-list .mod-txt b{color:#fff;font-weight:700;display:block;margin-bottom:2px;font-family:'Nunito',sans-serif;font-size:13.5px}
+.mod-list .mod-txt{font-size:12px;color:var(--muted);line-height:1.4}
 
 /* ============ FINAL CTA ============ */
 .final{position:relative;padding:140px 0;overflow:hidden;isolation:isolate;text-align:center}
@@ -230,15 +237,18 @@ footer{background:var(--bg-dark);color:rgba(245,240,232,.55);padding:48px 0 56px
 @media (max-width:980px){
   .nav-links{gap:2px;font-size:11px}
   .nav-links a{padding:7px 9px;letter-spacing:.04em}
+  .nav-cta{display:none}
   .hero{padding-top:130px}
-  .problem-grid,.feat-grid,.pricing,.protect{grid-template-columns:1fr;gap:18px}  .plan.popular{transform:none}
+  .problem-grid,.feat-grid,.pricing,.protect{grid-template-columns:1fr;gap:18px}
+  .protect-flow{flex-direction:column;gap:18px;padding:24px 22px}
+  .protect-arrow{transform:rotate(90deg)}  .plan.popular{transform:none}
   .plan.popular:hover{transform:translateY(-6px) scale(1)}
   section{padding:88px 0}
   .final{padding:88px 0}
 }
 @media (max-width:560px){
   .container{padding:0 20px}
-  .nav{padding:14px 20px}
+  .nav{padding:14px 20px;gap:8px}
   .hero-stats{grid-template-columns:1fr;max-width:340px}
 }
 </style>
@@ -270,7 +280,7 @@ footer{background:var(--bg-dark);color:rgba(245,240,232,.55);padding:48px 0 56px
       <h1 class="reveal d1">Tu negocio responde. <span class="gradient-text">Siempre.</span> Aunque no estés.</h1>
       <p class="sub reveal d2">Automatiza tu servicio al cliente con un agente inteligente que agenda, recuerda, responde y hace seguimiento por ti — 24 horas, 7 días a la semana.</p>
       <div class="ctas reveal d3">
-        <a href="https://wa.me/573146279033?text=Hola%2C%20quiero%20conocer%20SENTRIA" target="_blank" rel="noopener" class="btn btn-orange btn-lg">Hablar con SENTRIA por WhatsApp <span class="arrow">→</span></a>
+        <a href="https://wa.me/573146279033?text=%C2%A1hola%20Equipo%20UNIT%21%20%C2%BFhablamos%3F" target="_blank" rel="noopener" class="btn btn-orange btn-lg">Hablar con SENTRIA por WhatsApp <span class="arrow">→</span></a>
         <a href="#planes" class="btn btn-ghost">Ver planes y precios ↓</a>
       </div>
       <div class="hero-stats reveal d4">
@@ -416,7 +426,7 @@ footer{background:var(--bg-dark);color:rgba(245,240,232,.55);padding:48px 0 56px
           <div><span>Instalación</span><b>No incluida</b></div>
           <div><span>Conversaciones</span><b>80 / mes</b></div>
         </div>
-        <a class="btn btn-outline btn-full cta" href="https://wa.me/573146279033?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20plan%20B%C3%A1sico%20de%20SENTRIA" target="_blank" rel="noopener">Empezar con Básico <span class="arrow">→</span></a>
+        <a class="btn btn-outline btn-full cta" href="https://wa.me/573146279033?text=%C2%A1hola%20Equipo%20UNIT%21%20%C2%BFhablamos%3F" target="_blank" rel="noopener">Empezar con Básico <span class="arrow">→</span></a>
       </div>
 
       <!-- ESTÁNDAR (popular) -->
@@ -440,7 +450,7 @@ footer{background:var(--bg-dark);color:rgba(245,240,232,.55);padding:48px 0 56px
           <div><span>Instalación</span><b>No incluida</b></div>
           <div><span>Conversaciones</span><b>180 / mes</b></div>
         </div>
-        <a class="btn btn-gradient btn-full cta" href="https://wa.me/573146279033?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20plan%20Est%C3%A1ndar%20de%20SENTRIA" target="_blank" rel="noopener">Empezar con Estándar <span class="arrow">→</span></a>
+        <a class="btn btn-gradient btn-full cta" href="https://wa.me/573146279033?text=%C2%A1hola%20Equipo%20UNIT%21%20%C2%BFhablamos%3F" target="_blank" rel="noopener">Empezar con Estándar <span class="arrow">→</span></a>
       </div>
 
       <!-- PREMIUM -->
@@ -460,7 +470,7 @@ footer{background:var(--bg-dark);color:rgba(245,240,232,.55);padding:48px 0 56px
           <div><span>Instalación</span><b>Incluida</b></div>
           <div><span>Conversaciones</span><b>350 / mes</b></div>
         </div>
-        <a class="btn btn-outline btn-full cta" href="https://wa.me/573146279033?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20plan%20Premium%20de%20SENTRIA" target="_blank" rel="noopener">Empezar con Premium <span class="arrow">→</span></a>
+        <a class="btn btn-outline btn-full cta" href="https://wa.me/573146279033?text=%C2%A1hola%20Equipo%20UNIT%21%20%C2%BFhablamos%3F" target="_blank" rel="noopener">Empezar con Premium <span class="arrow">→</span></a>
       </div>
     </div>
   </div>
@@ -471,38 +481,78 @@ footer{background:var(--bg-dark);color:rgba(245,240,232,.55);padding:48px 0 56px
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">Servicios complementarios</span>
-      <h2>Más allá del servicio al cliente.<br/><span class="gradient-text">Protege lo que has construido.</span></h2>
-      <p>Tener los procesos claros facilita identificar los riesgos de tu negocio — y le da al agente de IA mayor claridad sobre qué esperar de él. Por eso, como parte de la oferta de UNIT, te acompañamos en dos frentes: <b style="color:#fff">proteger lo que ya tienes</b> y <b style="color:#fff">estructurar cómo opera tu empresa</b>.</p>
+      <h2>Más allá del servicio al cliente.<br/><span class="gradient-text">Construye una empresa sólida.</span></h2>
+      <p>Tener los procesos claros facilita identificar los riesgos de tu negocio — y le da al agente de IA mayor claridad sobre qué esperar de él. Por eso, como parte de la oferta de UNIT, te acompañamos en <b style="color:#fff">tres frentes</b> que se conectan entre sí.</p>
     </div>
-    <div class="protect">
-      <div class="protect-card reveal d1">
-        <div class="glyph">🛡</div>
-        <h3>Protege lo que has construido</h3>
-        <p class="desc">Porque lo que tomaste años en levantar merece un respaldo sólido. El seguro Todo Riesgo PYME cubre los bienes y la operación de tu empresa ante cualquier eventualidad — siniestros, robo, daños eléctricos y responsabilidad civil.</p>
-        <ul class="mod-list">
-          <li><span class="mod-num">01</span><span class="mod-txt"><b>Edificio</b> · La estructura donde opera tu negocio</span></li>
-          <li><span class="mod-num">02</span><span class="mod-txt"><b>Muebles y enseres</b> · Mobiliario, dotación y elementos de operación</span></li>
-          <li><span class="mod-num">03</span><span class="mod-txt"><b>Mercancías fijas</b> · Inventario y producto disponible para venta</span></li>
-          <li><span class="mod-num">04</span><span class="mod-txt"><b>Dinero dentro y fuera de caja fuerte</b> · Efectivo en sitio y en tránsito</span></li>
-          <li><span class="mod-num">05</span><span class="mod-txt"><b>Equipo eléctrico y electrónico</b> · Computadores, datáfonos, redes</span></li>
-          <li><span class="mod-num">06</span><span class="mod-txt"><b>Maquinaria y equipo</b> · Activos productivos de tu operación</span></li>
-          <li><span class="mod-num">07</span><span class="mod-txt"><b>RCE — Responsabilidad Civil Extracontractual</b> · Te protege ante reclamos de terceros</span></li>
-        </ul>
-        <a class="btn btn-orange btn-lg cta" href="https://wa.me/573146279033?text=Hola%2C%20quiero%20cotizar%20un%20seguro%20Todo%20Riesgo%20PYME%20con%20SENTRIA" target="_blank" rel="noopener">Contrata tu seguro Todo Riesgo PYME <span class="arrow">→</span></a>
+
+    <div class="protect-flow reveal d1" aria-label="Flujo de tres pasos para fortalecer tu empresa">
+      <div class="protect-step">
+        <div class="pf-num">1</div>
+        <div class="pf-text"><b>Organiza tus procesos</b><span>Documenta cómo opera realmente tu negocio</span></div>
       </div>
-      <div class="protect-card reveal d2">
+      <span class="protect-arrow" aria-hidden="true">→</span>
+      <div class="protect-step">
+        <div class="pf-num">2</div>
+        <div class="pf-text"><b>Identifica tus riesgos</b><span>Mapea amenazas reales según tu industria y activos</span></div>
+      </div>
+      <span class="protect-arrow" aria-hidden="true">→</span>
+      <div class="protect-step">
+        <div class="pf-num">3</div>
+        <div class="pf-text"><b>Da contexto a la IA</b><span>Con esa claridad, el agente trabaja a tu favor</span></div>
+      </div>
+    </div>
+
+    <div class="protect">
+      <!-- 1. ESTRUCTURA -->
+      <div class="protect-card reveal d1">
+        <div class="step-tag">PASO 01</div>
         <div class="glyph">🧭</div>
         <h3>Estructura y fortalece la operación de tu empresa</h3>
-        <p class="desc">Un agente guía paso a paso por los 6 módulos que toda PYME necesita tener claros: diagnóstico empresarial, roles y responsabilidades, indicadores de gestión, procesos clave, rutinas de equipo y coaching para tu gente. Sin teoría — trabajando sobre tu negocio real.</p>
+        <p class="desc">Un agente guía paso a paso por los 6 módulos que toda PYME necesita tener claros. Sin teoría — trabajando sobre tu negocio real.</p>
         <ul class="mod-list">
           <li><span class="mod-num">01</span><span class="mod-txt"><b>Diagnóstico Empresarial</b> · Conocemos tu empresa, equipo y retos reales</span></li>
-          <li><span class="mod-num">02</span><span class="mod-txt"><b>Roles y Responsabilidades</b> · Claridad de quién hace qué en tu equipo</span></li>
+          <li><span class="mod-num">02</span><span class="mod-txt"><b>Roles y Responsabilidades</b> · Claridad de quién hace qué</span></li>
           <li><span class="mod-num">03</span><span class="mod-txt"><b>Indicadores de Gestión</b> · Los KPIs que realmente importan</span></li>
           <li><span class="mod-num">04</span><span class="mod-txt"><b>Procesos Clave</b> · Tu operación documentada paso a paso</span></li>
           <li><span class="mod-num">05</span><span class="mod-txt"><b>Rutinas de Equipo</b> · La cadencia que sostiene los resultados</span></li>
           <li><span class="mod-num">06</span><span class="mod-txt"><b>Formato de Coaching</b> · Desarrollo y acompañamiento de tu gente</span></li>
         </ul>
         <a class="btn btn-gradient btn-lg cta" href="https://claude.ai/public/artifacts/6c10e680-b060-44f9-ace3-5612aed757bd" target="_blank" rel="noopener">Comienza aquí con un agente <span class="arrow">→</span></a>
+      </div>
+
+      <!-- 2. IDENTIFICACIÓN DE RIESGOS -->
+      <div class="protect-card reveal d2">
+        <div class="step-tag">PASO 02</div>
+        <div class="glyph">🎯</div>
+        <h3>Identificación de riesgos según tu industria</h3>
+        <p class="desc">Una herramienta corta te hace preguntas sobre tus procesos y tu listado de activos, y mapea los riesgos específicos a los que está expuesto tu negocio — los que sí importan, no los genéricos.</p>
+        <ul class="mod-list">
+          <li><span class="mod-num">01</span><span class="mod-txt"><b>Riesgos operacionales</b> · Procesos críticos del día a día</span></li>
+          <li><span class="mod-num">02</span><span class="mod-txt"><b>Riesgos financieros</b> · Flujo de caja, cartera, márgenes</span></li>
+          <li><span class="mod-num">03</span><span class="mod-txt"><b>Riesgos de activos</b> · Bienes, inventario y equipos</span></li>
+          <li><span class="mod-num">04</span><span class="mod-txt"><b>Riesgos legales y regulatorios</b> · Cumplimiento normativo</span></li>
+          <li><span class="mod-num">05</span><span class="mod-txt"><b>Riesgos tecnológicos</b> · Datos, sistemas y ciberseguridad</span></li>
+          <li><span class="mod-num">06</span><span class="mod-txt"><b>Riesgos reputacionales</b> · Marca, servicio y experiencia</span></li>
+        </ul>
+        <a class="btn btn-gradient btn-lg cta" href="https://tally.so/r/vGLpE0" target="_blank" rel="noopener">Inicia tu identificación de riesgos rápida <span class="arrow">→</span></a>
+      </div>
+
+      <!-- 3. PROTEGE -->
+      <div class="protect-card reveal d3">
+        <div class="step-tag">PASO 03</div>
+        <div class="glyph">🛡</div>
+        <h3>Protege lo que has construido</h3>
+        <p class="desc">Con tus riesgos ya mapeados, el seguro Todo Riesgo PYME blinda los bienes y la operación de tu empresa ante cualquier eventualidad.</p>
+        <ul class="mod-list">
+          <li><span class="mod-num">01</span><span class="mod-txt"><b>Edificio</b> · La estructura donde opera tu negocio</span></li>
+          <li><span class="mod-num">02</span><span class="mod-txt"><b>Muebles y enseres</b> · Mobiliario y dotación</span></li>
+          <li><span class="mod-num">03</span><span class="mod-txt"><b>Mercancías fijas</b> · Inventario y producto</span></li>
+          <li><span class="mod-num">04</span><span class="mod-txt"><b>Dinero dentro y fuera de caja fuerte</b> · Efectivo en sitio y en tránsito</span></li>
+          <li><span class="mod-num">05</span><span class="mod-txt"><b>Equipo eléctrico y electrónico</b> · Computadores, redes</span></li>
+          <li><span class="mod-num">06</span><span class="mod-txt"><b>Maquinaria y equipo</b> · Activos productivos</span></li>
+          <li><span class="mod-num">07</span><span class="mod-txt"><b>RCE — Responsabilidad Civil</b> · Reclamos de terceros</span></li>
+        </ul>
+        <a class="btn btn-orange btn-lg cta" href="https://wa.me/573146279033?text=%C2%A1hola%20Equipo%20UNIT%21%20%C2%BFhablamos%3F" target="_blank" rel="noopener">Contrata tu seguro Todo Riesgo PYME <span class="arrow">→</span></a>
       </div>
     </div>
   </div>
@@ -518,7 +568,7 @@ footer{background:var(--bg-dark);color:rgba(245,240,232,.55);padding:48px 0 56px
       <h2 style="margin-top:18px">¿Cuántos clientes más vas a perder <span class="gradient-text">antes de automatizar?</span></h2>
       <p class="sub">Una conversación de 15 minutos es suficiente para mostrarte cómo SENTRIA puede funcionar para tu tipo de negocio.</p>
       <div class="ctas">
-        <a href="https://wa.me/573146279033?text=Hola%20SENTRIA%2C%20quiero%20automatizar%20mi%20negocio" target="_blank" rel="noopener" class="btn btn-gradient btn-lg">Escribir a SENTRIA por WhatsApp <span class="arrow">→</span></a>
+        <a href="https://wa.me/573146279033?text=%C2%A1hola%20Equipo%20UNIT%21%20%C2%BFhablamos%3F" target="_blank" rel="noopener" class="btn btn-gradient btn-lg">Escribir a SENTRIA por WhatsApp <span class="arrow">→</span></a>
       </div>
       <div class="small">
         <span>Fácil</span>
@@ -542,7 +592,7 @@ footer{background:var(--bg-dark);color:rgba(245,240,232,.55);padding:48px 0 56px
 
 <!-- ============ WHATSAPP FAB ============ -->
 <a class="wa-fab" id="whatsapp-fab"
-   href="https://wa.me/573146279033?text=Hola%20SENTRIA%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n"
+   href="https://wa.me/573146279033?text=%C2%A1hola%20Equipo%20UNIT%21%20%C2%BFhablamos%3F"
    target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
   <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39-.066 0-.105-.025-.176-.066-.532-.231-1.6-.748-3.04-2.176-.402-.402-.83-.95-1.165-1.495-.108-.18-.18-.295-.18-.41 0-.32.732-.732 1.025-1.165.27-.4.402-.732.402-1.165 0-.27-.165-.732-.402-1.165-.18-.295-.4-1.025-.732-1.39-.27-.295-.66-.402-1.025-.402h-.295c-.402 0-.66.165-.95.402-.402.402-1.39 1.39-1.39 3.04 0 1.65 1.165 3.04 1.39 3.298 0 0 2.45 4.07 6.18 5.74 3.04 1.39 3.65 1.165 4.32 1.05.66-.12 2.045-.83 2.34-1.65.295-.83.295-1.518.18-1.65-.108-.165-.295-.27-.66-.402zM16 4C9.373 4 4 9.373 4 16c0 2.142.564 4.155 1.552 5.9L4.07 27.06a.8.8 0 00.974.998l5.32-1.404A11.93 11.93 0 0016 28c6.627 0 12-5.373 12-12S22.627 4 16 4zm0 21.6c-1.846 0-3.626-.503-5.18-1.456l-.37-.225-3.146.83.842-3.064-.244-.385A9.55 9.55 0 016.4 16C6.4 10.71 10.71 6.4 16 6.4S25.6 10.71 25.6 16 21.29 25.6 16 25.6z"/></svg>
   <span class="wa-label">Escríbenos por WhatsApp</span>
