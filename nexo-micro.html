@@ -53,9 +53,9 @@ p{margin:0}
 .unit-logo{display:inline-flex;align-items:center;height:88px}
 .unit-logo img{height:100%;width:auto;display:block;filter:drop-shadow(0 4px 24px rgba(74,171,255,.35))}
 .foot .unit-logo{height:104px}
-@media (max-width:980px){.unit-logo{height:72px}.foot .unit-logo{height:88px}}
-@media (max-width:560px){.unit-logo{height:60px}.foot .unit-logo{height:72px}}
-.brand-row{display:inline-flex;align-items:center;gap:12px}
+@media (max-width:980px){.unit-logo{height:60px}.foot .unit-logo{height:88px}}
+@media (max-width:560px){.unit-logo{height:48px}.foot .unit-logo{height:72px}}
+.brand-row{display:inline-flex;align-items:center;gap:12px;flex-shrink:0}
 .brand-sub{font-size:11px;color:rgba(255,255,255,0.55);font-weight:700;letter-spacing:.14em;text-transform:uppercase}
 
 .nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:12px 28px;background:rgba(8,15,26,.55);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(74,171,255,.06);transition:background .3s ease}
@@ -249,7 +249,11 @@ section{padding:120px 0;position:relative}
 .form input:focus,.form select:focus{border-color:var(--green-bright);background:rgba(8,15,26,.92)}
 .form input::placeholder{color:rgba(180,210,255,.35)}
 .form .note{margin-top:14px;font-size:13px;color:var(--muted);line-height:1.5;text-align:center}
-.success-msg{display:none;margin-top:18px;padding:18px 20px;background:rgba(30,123,75,.1);border:1px solid rgba(30,123,75,.3);border-radius:12px;color:#2ECC71;font-size:15px;text-align:center;animation:fadeIn .35s ease}
+.success-msg{display:none;margin-top:18px;padding:18px 20px;background:rgba(30,123,75,.1);border:1px solid rgba(30,123,75,.3);border-radius:12px;color:#2ECC71;font-size:15px;text-align:center;animation:fadeIn .35s ease;flex-direction:column;gap:14px}
+.success-msg.show{display:flex}
+.success-msg .msg-text{line-height:1.5}
+.success-msg .msg-again{background:transparent;border:1.5px solid rgba(46,204,113,.45);color:#5BFFAE;padding:10px 18px;border-radius:10px;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background .2s,color .2s,border-color .2s;align-self:center}
+.success-msg .msg-again:hover{background:rgba(46,204,113,.18);border-color:rgba(91,255,174,.7);color:#A6F5C9}}
 .success-msg.show{display:block}
 .error-msg{display:none;margin-top:12px;padding:12px 16px;background:rgba(224,123,42,.1);border:1px solid rgba(224,123,42,.35);border-radius:10px;color:#FFB87A;font-size:14px;text-align:center}
 .error-msg.show{display:block}
@@ -287,6 +291,7 @@ footer{background:var(--bg-dark);color:rgba(240,248,255,.55);padding:48px 0 56px
 @media (max-width:980px){
   .nav-links{gap:2px;font-size:11px}
   .nav-links a{padding:7px 9px;letter-spacing:.04em}
+  .nav-cta{display:none}
   .hero{padding-top:130px}
   .problem-grid,.steps,.arch-grid,.tech-grid{grid-template-columns:1fr;gap:18px}
   .timeline{grid-template-columns:1fr 1fr;gap:36px}
@@ -661,7 +666,10 @@ footer{background:var(--bg-dark);color:rgba(240,248,255,.55);padding:48px 0 56px
         </div>
         <button type="submit" class="btn btn-orange btn-lg btn-full" id="submit-btn">Agenda la sesión de co-diseño de 45 min <span class="arrow">→</span></button>
         <p class="note">La sesión es para diseñar juntos la integración con sus sistemas y validar si hay fit. Sin compromisos.</p>
-        <div class="success-msg" id="success-msg">✓ Listo. Le escribiremos en menos de 24 horas para coordinar la sesión.</div>
+        <div class="success-msg" id="success-msg">
+          <span class="msg-text">✓ Listo. Le escribiremos en menos de 24 horas para coordinar la sesión.</span>
+          <button type="button" class="msg-again" id="again-btn">↻ Llenar otro formulario</button>
+        </div>
         <div class="error-msg" id="error-msg">Completa todos los campos para continuar.</div>
       </form>
     </div>
@@ -681,7 +689,7 @@ footer{background:var(--bg-dark);color:rgba(240,248,255,.55);padding:48px 0 56px
 
 <!-- ============ WHATSAPP FAB ============ -->
 <a class="wa-fab" id="whatsapp-fab"
-   href="https://wa.me/573146279033?text=Hola%20NEXO%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20de%20NEXO%20Micro"
+   href="https://wa.me/573146279033?text=%C2%A1hola%20Equipo%20UNIT%21%20%C2%BFhablamos%3F"
    target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
   <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39-.066 0-.105-.025-.176-.066-.532-.231-1.6-.748-3.04-2.176-.402-.402-.83-.95-1.165-1.495-.108-.18-.18-.295-.18-.41 0-.32.732-.732 1.025-1.165.27-.4.402-.732.402-1.165 0-.27-.165-.732-.402-1.165-.18-.295-.4-1.025-.732-1.39-.27-.295-.66-.402-1.025-.402h-.295c-.402 0-.66.165-.95.402-.402.402-1.39 1.39-1.39 3.04 0 1.65 1.165 3.04 1.39 3.298 0 0 2.45 4.07 6.18 5.74 3.04 1.39 3.65 1.165 4.32 1.05.66-.12 2.045-.83 2.34-1.65.295-.83.295-1.518.18-1.65-.108-.165-.295-.27-.66-.402zM16 4C9.373 4 4 9.373 4 16c0 2.142.564 4.155 1.552 5.9L4.07 27.06a.8.8 0 00.974.998l5.32-1.404A11.93 11.93 0 0016 28c6.627 0 12-5.373 12-12S22.627 4 16 4zm0 21.6c-1.846 0-3.626-.503-5.18-1.456l-.37-.225-3.146.83.842-3.064-.244-.385A9.55 9.55 0 016.4 16C6.4 10.71 10.71 6.4 16 6.4S25.6 10.71 25.6 16 21.29 25.6 16 25.6z"/></svg>
   <span class="wa-label">Escríbenos por WhatsApp</span>
@@ -745,6 +753,19 @@ footer{background:var(--bg-dark);color:rgba(240,248,255,.55);padding:48px 0 56px
     form.querySelectorAll('input,select,button').forEach(function(el){el.style.display='none'});
     form.querySelector('.note').style.display='none';
     ok.classList.add('show');
+  });
+
+  // "Llenar otro formulario" — reset to editable state
+  document.getElementById('again-btn').addEventListener('click',function(){
+    form.reset();
+    ok.classList.remove('show');
+    err.classList.remove('show');
+    form.querySelectorAll('input,select,button').forEach(function(el){el.style.display=''});
+    var note=form.querySelector('.note');
+    if(note) note.style.display='';
+    btn.disabled=false;
+    btn.innerHTML='Agenda la sesión de co-diseño de 45 min <span class="arrow">→</span>';
+    setTimeout(function(){form.querySelector('input')?.focus();},50);
   });
 })();
 </script>
