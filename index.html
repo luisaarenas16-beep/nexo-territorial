@@ -260,6 +260,14 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.6);padding:48px 0 56px;
 @media (max-width:1080px){.aud-grid{grid-template-columns:1fr;gap:18px}}
 @media (max-width:980px){.nav-links{gap:2px;font-size:11px}.nav-links a{padding:7px 9px;letter-spacing:.04em}.hero{padding-top:130px}.hero-inner{grid-template-columns:1fr;gap:48px}.connector{max-width:420px;margin:0 auto}.hero-stats{grid-template-columns:1fr 1fr;gap:20px}.problem-grid{grid-template-columns:1fr;gap:20px}.bridge{flex-direction:row}.bridge .line-v{width:60px;height:2px}.steps{grid-template-columns:1fr 1fr;gap:18px}.steps::before{display:none}.skill-grid{grid-template-columns:1fr 1fr;gap:12px}.profile-grid{grid-template-columns:1fr}.cert-grid{grid-template-columns:1fr;gap:14px}.impact .numbers{grid-template-columns:1fr 1fr;gap:14px}section{padding:88px 0}}
 @media (max-width:560px){.container{padding:0 20px}.nav{padding:14px 20px;gap:8px}.brand-sub{display:none}.nav-cta{display:none}.unit-logo{height:48px}.hero-stats{grid-template-columns:1fr}.skill-grid{grid-template-columns:1fr}.aud-card{padding:28px}.problem-col{padding:28px}.impact .num{font-size:48px}.form .row{grid-template-columns:1fr}}
+
+/* Instagram FAB */
+.ig-fab{position:fixed;right:24px;bottom:92px;z-index:60;display:flex;align-items:center;gap:0;color:#fff;text-decoration:none;border-radius:999px;padding:14px 18px 14px 16px;font-family:'Inter',sans-serif;font-weight:700;font-size:14px;background:linear-gradient(45deg,#F58529 0%,#FEDA77 22%,#DD2A7B 58%,#8134AF 100%);box-shadow:0 10px 30px -8px rgba(221,42,123,.5),0 4px 12px rgba(0,0,0,.25);transition:transform .2s ease,box-shadow .25s ease,padding .25s ease;cursor:pointer}
+.ig-fab:hover{transform:translateY(-2px);box-shadow:0 16px 38px -8px rgba(221,42,123,.7),0 6px 16px rgba(0,0,0,.3)}
+.ig-fab svg{width:28px;height:28px;flex-shrink:0;display:block}
+.ig-fab .ig-label{max-width:0;overflow:hidden;white-space:nowrap;transition:max-width .35s ease,margin .35s ease,opacity .25s ease;opacity:0;margin-left:0}
+.ig-fab:hover .ig-label,.ig-fab:focus-visible .ig-label{max-width:240px;margin-left:10px;opacity:1}
+@media (max-width:560px){.ig-fab{right:16px;bottom:80px;padding:12px}.ig-fab .ig-label{display:none}}
 </style>
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
@@ -273,6 +281,7 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.6);padding:48px 0 56px;
     <span class="brand-sub" style="display:none">NEXO Territorial</span>
   </a>
   <div class="nav-links">
+    <a href="unit-partners.html">Unit Partners</a>
     <a href="index.html" class="active" aria-current="page">Nexo Territorial</a>
     <a href="nexo-micro.html">Nexo Micro</a>
     <a href="unit-ai.html">SENTRIA</a>
@@ -543,6 +552,11 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.6);padding:48px 0 56px;
 </footer>
 
 <!-- WhatsApp floating button — EDITA aquí tu número (formato internacional, sin +) y el mensaje -->
+<!-- Instagram floating button -->
+<a class="ig-fab" href="https://www.instagram.com/unitgroups" target="_blank" rel="noopener" aria-label="Síguenos en Instagram">
+  <svg viewBox="0 0 24 24" aria-hidden="true" fill="#fff"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.38-2.13C20.32 1.35 19.65.94 18.86.63 18.1.33 17.22.13 15.95.07 14.67.01 14.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.41-10.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
+  <span class="ig-label">Síguenos en Instagram</span>
+</a>
 <a class="wa-fab" id="whatsapp-fab"
    href="https://wa.me/573146279033?text=%C2%A1hola%20Equipo%20UNIT%21%20%C2%BFhablamos%3F"
    target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
