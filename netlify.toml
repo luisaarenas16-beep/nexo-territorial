@@ -3,3 +3,18 @@
 
 [build]
   publish = "."
+
+[[redirects]]
+  from = "/unit-partners"
+  to = "/unit-partners.html"
+  status = 200
+
+[[redirects]]
+  from = "/nexo-micro"
+  to = "/nexo-micro.html"
+  status = 200
+
+[[redirects]]
+  from = "/sentria"
+  to = "/unit-ai.html"
+  status = 200
