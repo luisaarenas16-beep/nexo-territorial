@@ -159,6 +159,7 @@ section{padding:120px 0;position:relative}
 .aud-card.company li::before{background:var(--unit-purple)}
 .aud-card.donor li::before{background:var(--unit-lime)}
 .aud-card .cta-wrap{margin-top:auto}
+.aud-card .cta-wrap.cta-stack{display:flex;flex-direction:column;gap:10px}
 .form{display:none;margin-top:auto;flex-direction:column;gap:14px}
 .form.open{display:flex}
 .aud-card.has-open-form .summary{display:none}
@@ -396,8 +397,33 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.6);padding:48px 0 56px;
             <li>Entra a una empresa real como Agente de Innovación NEXO.</li>
             <li>Empieza tu camino de experiencia laboral con un enfoque de liderazgo transformacional.</li>
           </ul>
-          <div class="cta-wrap"><button type="button" class="btn btn-blue btn-full" data-open-agent="maslow">Empieza tu perfil — es gratis <span class="arrow">→</span></button></div>
+          <div class="cta-wrap cta-stack">
+            <button type="button" class="btn btn-blue btn-full" data-form="student-reg">Registrarme a NEXO <span class="arrow">→</span></button>
+            <button type="button" class="btn btn-outline btn-full" data-open-agent="maslow">Empieza tu perfil <span class="arrow">→</span></button>
+          </div>
         </div>
+        <form class="form" data-form-id="student-reg" name="estudiantes-registro" method="POST" data-netlify="true" data-formulario="estudiante-registro" data-webhook="https://hook.us2.make.com/nx7wtjh9r1kwqi2pix2dd2xdanssgdo0" novalidate>
+          <input type="hidden" name="form-name" value="estudiantes-registro"/>
+          <div><label>Nombre completo</label><input type="text" name="nombre" required placeholder="Tu nombre completo"/></div>
+          <div><label>Correo electrónico</label><input type="email" name="correo" required placeholder="tu@correo.com"/></div>
+          <div class="row">
+            <div><label>Teléfono</label><input type="tel" name="telefono" required placeholder="+57 300 123 4567"/></div>
+            <div><label>Semestre</label><select name="semestre" required><option value="">Selecciona</option><option value="1">1° Semestre</option><option value="2">2° Semestre</option><option value="3">3° Semestre</option><option value="4">4° Semestre</option><option value="5">5° Semestre</option><option value="6">6° Semestre</option><option value="7">7° Semestre</option><option value="8">8° Semestre</option><option value="9">9° Semestre</option><option value="10">10° Semestre</option></select></div>
+          </div>
+          <div><label>Universidad</label><input type="text" name="universidad" required placeholder="Ej: UNIT Colombia"/></div>
+          <div class="row">
+            <div><label>Sexo</label><select name="sexo" required><option value="">Selecciona</option><option value="Femenino">Femenino</option><option value="Masculino">Masculino</option></select></div>
+            <div><label>Carrera</label><input type="text" name="carrera" required placeholder="Ej: Ing. Industrial"/></div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="form-back">Volver</button>
+            <button type="submit" class="btn btn-blue btn-full">Enviar registro <span class="arrow">→</span></button>
+          </div>
+          <div class="success-msg">
+            <span class="msg-text">✓ ¡Registro recibido! Te escribiremos muy pronto con los siguientes pasos.</span>
+            <button type="button" class="msg-again" data-form-reset>↻ Llenar otro formulario</button>
+          </div>
+        </form>
       </div>
 
       <div class="aud-card company reveal d1" id="company-card">
@@ -413,8 +439,35 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.6);padding:48px 0 56px;
             <li>4 semanas de proyecto con entregables reales.</li>
             <li>Diagnóstico + solución + hoja de ruta.</li>
           </ul>
-          <div class="cta-wrap"><button type="button" class="btn btn-purple btn-full" data-open-agent="empresa">Registrar mi empresa <span class="arrow">→</span></button></div>
+          <div class="cta-wrap cta-stack">
+            <button type="button" class="btn btn-purple btn-full" data-form="company-reg">Registrarme a NEXO <span class="arrow">→</span></button>
+            <button type="button" class="btn btn-outline btn-full" data-open-agent="empresa">Completar mi perfil <span class="arrow">→</span></button>
+          </div>
         </div>
+        <form class="form" data-form-id="company-reg" name="empresas-registro" method="POST" data-netlify="true" data-formulario="empresa-registro" data-webhook="https://hook.us2.make.com/603uf7d1qodd8wt1wvyev9bgz7u5r9cs" novalidate>
+          <input type="hidden" name="form-name" value="empresas-registro"/>
+          <div><label>Nombre de la empresa</label><input type="text" name="empresa" required placeholder="Ej: Panadería La Esperanza"/></div>
+          <div class="row">
+            <div><label>Tipo</label><select name="tipo" required><option value="">Selecciona</option><option value="Persona natural">Persona natural</option><option value="Persona jurídica">Persona jurídica</option></select></div>
+            <div><label>Persona de contacto</label><input type="text" name="contacto" required placeholder="Nombre y apellido"/></div>
+          </div>
+          <div class="row">
+            <div><label>Correo</label><input type="email" name="correo" required placeholder="contacto@empresa.com"/></div>
+            <div><label>Teléfono de contacto</label><input type="tel" name="telefono" required placeholder="+57 300 123 4567"/></div>
+          </div>
+          <div class="row">
+            <div><label>Número de empleados</label><select name="empleados" required><option value="">Selecciona</option><option value="1-5">1-5</option><option value="6-10">6-10</option><option value="11-20">11-20</option><option value="21-50">21-50</option><option value="51-100">51-100</option><option value="101-200">101-200</option></select></div>
+            <div><label>Sector</label><input type="text" name="sector" required placeholder="Ej: Alimentos"/></div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="form-back">Volver</button>
+            <button type="submit" class="btn btn-purple btn-full">Enviar registro <span class="arrow">→</span></button>
+          </div>
+          <div class="success-msg">
+            <span class="msg-text">✓ ¡Registro recibido! Te contactaremos muy pronto.</span>
+            <button type="button" class="msg-again" data-form-reset>↻ Llenar otro formulario</button>
+          </div>
+        </form>
       </div>
 
       <div class="aud-card donor reveal d2">
@@ -431,7 +484,7 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.6);padding:48px 0 56px;
           </ul>
           <div class="cta-wrap"><button class="btn btn-lime btn-full" data-form="donor">Quiero ser donante o patrocinador <span class="arrow">→</span></button></div>
         </div>
-        <form class="form" data-form-id="donor" name="donantes" method="POST" data-netlify="true" novalidate>
+        <form class="form" data-form-id="donor" name="donantes" method="POST" data-netlify="true" data-formulario="donante" novalidate>
           <input type="hidden" name="form-name" value="donantes"/>
           <div><label>Nombre completo</label><input type="text" name="nombre" required placeholder="Tu nombre"/></div>
           <div class="row">
@@ -671,34 +724,22 @@ document.querySelectorAll('.form').forEach(form => {
     const originalLabel = submitBtn ? submitBtn.innerHTML : '';
     if (submitBtn) { submitBtn.disabled = true; submitBtn.style.opacity = '0.6'; submitBtn.innerHTML = 'Enviando…'; }
 
-    // Collect form data
+    // Collect all named fields generically
     const fd = new FormData(form);
-    const datos = {
-      nombre:   fd.get('nombre')   || '',
-      telefono: fd.get('telefono') || '',
-      correo:   fd.get('correo')   || '',
-      empresa:  fd.get('empresa')  || '',
-      cargo:    fd.get('cargo')    || '',
-    };
+    const data = {};
+    fd.forEach((v, k) => { if (k !== 'form-name') data[k] = v; });
+    data.fecha      = new Date().toLocaleString('es-CO');
+    data.formulario = form.dataset.formulario || form.getAttribute('name') || '';
 
-    // Send to Make.com webhook (donantes form only)
-    if (form.getAttribute('name') === 'donantes') {
+    // Resolve webhook: explicit data-webhook, or donantes default
+    const webhook = form.dataset.webhook
+      || (form.getAttribute('name') === 'donantes' ? 'https://hook.us2.make.com/sdryxpo4vb4uay2x5jixc26weoqhaso7' : '');
+    if (webhook) {
       try {
         await fetch("/.netlify/functions/apimake", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            webhook: "https://hook.us2.make.com/sdryxpo4vb4uay2x5jixc26weoqhaso7",
-            data: {
-              nombre:     datos.nombre,
-              telefono:   datos.telefono,
-              correo:     datos.correo,
-              empresa:    datos.empresa,
-              cargo:      datos.cargo,
-              fecha:      new Date().toLocaleString('es-CO'),
-              formulario: "donante"
-            }
-          })
+          body: JSON.stringify({ webhook, data })
         });
       } catch (err) {
         console.warn('Webhook submit failed:', err);
@@ -1076,6 +1117,213 @@ const CHASIDE_ROLES = {
 // ──────────────────────────────────────────────────────────────────────────────
 //  COMPONENTE PRINCIPAL
 // ──────────────────────────────────────────────────────────────────────────────
+// ─── PDF HTML Generator (Estudiante) ──────────────────────────────────────────
+function buildQAListM(r) {
+  return BLOQUES.map(bloque => {
+    const preguntas = bloque.preguntas.map(q => {
+      const val = r[q.id]; if (val === undefined) return null;
+      let answerLabel = val;
+      if (q.tipo === "sino") answerLabel = val === "si" ? "SÍ" : "NO";
+      else if (q.tipo === "escala") answerLabel = `${val} / 5`;
+      else if (q.opciones) { const f = q.opciones.find(o => o.v === val); answerLabel = f ? (f.label || val) + (f.sub ? " — " + f.sub : "") : val; }
+      return { pregunta: q.texto, respuesta: answerLabel, tipo: q.tipo, area: q.area || null, raw: val };
+    }).filter(Boolean);
+    return preguntas.length ? { titulo: bloque.titulo, icon: bloque.icon, nivel: bloque.nivel, preguntas } : null;
+  }).filter(Boolean);
+}
+
+function generarHTMLReporteEstudiante(datos, resp, reporte, calcChaside) {
+  const est = reporte.estudiante || {}, emp = reporte.empresa || {};
+  const qaList   = buildQAListM(resp);
+  const chScores = calcChaside(resp);
+  const chSorted = Object.entries(chScores).sort((a,b)=>b[1]-a[1]);
+  const topAreaKey = chSorted[0]?.[0] || "E";
+  const rolIA   = CHASIDE_ROLES[topAreaKey] || CHASIDE_ROLES.E;
+  const topArea = AREAS_INFO[topAreaKey] || AREAS_INFO.E;
+  const iaScore = [resp.ia2,resp.ia3,resp.ia4,resp.ia6,resp.ia7].map(v=>parseInt(v)||0).reduce((a,b)=>a+b,0);
+  const nivelIA = iaScore>=20?"Líder en IA":iaScore>=13?"Usuario activo de IA":iaScore>=7?"En adopción de IA":"Iniciando camino en IA";
+  const fecha   = new Date().toLocaleDateString("es-CO",{year:"numeric",month:"long",day:"numeric"});
+
+  const chRows = chSorted.map(([area,score])=>{
+    const ai=AREAS_INFO[area];
+    const cls=score>=2?"consolidated":score===1?"moderate":"critical";
+    const lbl=score>=2?"DOMINANTE":score===1?"PRESENTE":"BAJO";
+    return `<tr><td>${ai.icon} ${ai.nombre}</td><td style="text-align:center">${score}/2</td><td><span class="${cls}">${lbl}</span></td></tr>`;
+  }).join("");
+
+  const herr = (rolIA.herramientas||[]).map((h,i)=>`<div class="fv">${i+1}. <strong>${h.n}</strong> — ${h.u}</div>`).join("");
+
+  const qaSections = qaList.map(bloque => {
+    const pregsHtml = bloque.preguntas.map(p => {
+      const badge = p.tipo==="sino" ? (p.raw==="si"?"badge-si":"badge-no") : "badge-opt";
+      const areaTag = p.area && AREAS_INFO[p.area] ? `<div class="qa-area">${AREAS_INFO[p.area].icon} ${AREAS_INFO[p.area].nombre}</div>` : "";
+      return `<div class="qi">${areaTag}<div class="qq">${p.pregunta}</div><div class="qa"><span class="${badge}">${p.respuesta}</span></div></div>`;
+    }).join("");
+    return `<div class="sec"><div class="st">Nivel ${bloque.nivel} — ${bloque.icon} ${bloque.titulo}</div>${pregsHtml}</div>`;
+  }).join("");
+
+  const semanas = [emp.semana1,emp.semana2,emp.semana3,emp.semana4];
+  const metaLine = [datos.carrera, datos.semestre && `${datos.semestre}° semestre`, datos.universidad].filter(Boolean).join(" · ");
+  const contactLine = [datos.email, datos.telefono].filter(Boolean).join(" · ");
+
+  return `<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>NEXO — ${datos.nombre||"Estudiante"}</title>
+<style>
+@page{size:A4;margin:14mm 18mm 18mm}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;font-size:9.5pt;color:#111;background:#fff;line-height:1.5}
+.hdr{background:#0E0A1E;color:#fff;padding:15px 18px;margin-bottom:12px;border-radius:6px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:18pt;font-weight:900;letter-spacing:-1px}.logo span{color:#9B87F5}
+.logo-sub{font-size:7.5pt;color:rgba(255,255,255,.6);margin-top:3px}
+.hdr-r{text-align:right;font-size:7.5pt;color:rgba(255,255,255,.65);line-height:1.7}
+.ebanner{background:#f5f3ff;border:1.5px solid #9B87F5;border-radius:8px;padding:11px 15px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
+.ename{font-size:14pt;font-weight:900;color:#0E0A1E;margin-bottom:2px}
+.emeta{font-size:8.5pt;color:#555}
+.note{background:#fffde7;border-left:3px solid #f9a825;border-radius:4px;padding:7px 11px;margin-bottom:12px;font-size:8pt;color:#666;font-style:italic}
+.sec{margin-bottom:11px;border:1px solid #e0e0e0;border-radius:7px;padding:11px;break-inside:avoid}
+.st{font-size:10.5pt;font-weight:bold;color:#5b21b6;margin-bottom:9px;border-bottom:2px solid #9B87F5;padding-bottom:4px}
+.qi{margin-bottom:6px;padding:6px 9px;background:#fafafa;border-left:3px solid #9B87F5;border-radius:4px;break-inside:avoid}
+.qa-area{font-size:6.5pt;font-weight:bold;color:#5b21b6;letter-spacing:1px;text-transform:uppercase;margin-bottom:2px}
+.qq{font-size:8.5pt;color:#444;margin-bottom:2px;line-height:1.4}
+.qa{font-size:9pt;font-weight:bold}
+.badge-si{background:#e8f5e9;color:#1b5e20;padding:1px 9px;border-radius:4px}
+.badge-no{background:#ffebee;color:#c62828;padding:1px 9px;border-radius:4px}
+.badge-opt{background:#ede9fe;color:#5b21b6;padding:1px 9px;border-radius:4px}
+.ab{margin-bottom:12px;break-inside:avoid}
+.ah{background:#0E0A1E;color:#fff;padding:7px 13px;border-radius:5px 5px 0 0;font-size:10.5pt;font-weight:bold}
+.abt{border:1px solid #ccc;border-top:none;border-radius:0 0 5px 5px;padding:12px}
+.fl{font-size:6.5pt;font-weight:bold;color:#5b21b6;letter-spacing:1.5px;text-transform:uppercase;margin:9px 0 2px}
+.fv{font-size:9pt;color:#111;line-height:1.5}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:9px}
+.box{background:#f8f8f8;border:1px solid #e0e0e0;border-radius:5px;padding:9px}
+.critical{color:#c62828;background:#ffebee;padding:1px 7px;border-radius:3px;font-size:7.5pt;font-weight:bold}
+.moderate{color:#e65100;background:#fff3e0;padding:1px 7px;border-radius:3px;font-size:7.5pt;font-weight:bold}
+.consolidated{color:#1b5e20;background:#e8f5e9;padding:1px 7px;border-radius:3px;font-size:7.5pt;font-weight:bold}
+table{width:100%;border-collapse:collapse;font-size:8.5pt;margin-top:9px}
+th{background:#0E0A1E;color:#fff;padding:5px 7px;text-align:left;font-size:7.5pt}
+td{padding:4px 7px;border-bottom:1px solid #eee;vertical-align:top}
+tr:nth-child(even) td{background:#f9f9f9}
+.kpi{background:#ede9fe;border:1px solid #9B87F5;border-radius:5px;padding:9px;margin-top:10px}
+.pb{page-break-before:always}
+.foot{margin-top:18px;border-top:1px solid #ccc;padding-top:7px;display:flex;justify-content:space-between;font-size:7pt;color:#999}
+@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}.no-print{display:none!important}}
+</style></head><body>
+
+<div class="no-print" style="position:fixed;top:0;left:0;right:0;background:#0E0A1E;padding:10px 20px;z-index:9999;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 12px rgba(0,0,0,.4)">
+  <div>
+    <span style="color:#9B87F5;font-weight:900;font-size:15px;letter-spacing:-0.5px">unit nexo</span>
+    <span style="color:rgba(255,255,255,.5);font-size:11px;margin-left:10px">Reporte de Caracterización — Estudiante</span>
+  </div>
+  <button onclick="window.print()" style="background:linear-gradient(135deg,#9B87F5,#E87DC8);color:#fff;border:none;border-radius:8px;padding:9px 22px;font-size:13px;font-weight:800;cursor:pointer;font-family:Arial">🖨️ Imprimir / Guardar como PDF</button>
+</div>
+<div class="no-print" style="height:52px"></div>
+
+<div class="hdr">
+  <div><div class="logo">unit <span>nexo</span></div><div class="logo-sub">NEXO Territorial · Caracterización de Talento con IA</div></div>
+  <div class="hdr-r"><div>Perfil de Estudiante 2025</div><div>${fecha}</div></div>
+</div>
+
+<div class="ebanner">
+  <div><div class="ename">${datos.nombre||""}</div><div class="emeta">${metaLine}${contactLine?" · "+contactLine:""}</div></div>
+  <div style="text-align:right">
+    <div style="font-size:6.5pt;font-weight:bold;color:#5b21b6;letter-spacing:1px">SCORE IA</div>
+    <div style="font-size:22pt;font-weight:900;color:#0E0A1E;line-height:1">${iaScore}<span style="font-size:9pt;color:#999">/25</span></div>
+    <div style="font-size:7pt;color:#5b21b6;font-weight:bold">${nivelIA}</div>
+  </div>
+</div>
+
+<div class="note">Este documento contiene la caracterización completa del estudiante en el programa NEXO Territorial: respuestas nivel a nivel, orientación vocacional CHASIDE, perfil de IA, rol de liderazgo y la carta de presentación para la empresa.</div>
+
+${qaSections}
+
+<div class="pb"></div>
+
+<div class="ab">
+  <div class="ah">🧭 Análisis — Perfil del Estudiante</div>
+  <div class="abt">
+    <div class="two" style="margin-top:0">
+      <div>
+        <div class="fl">Perfil asignado</div>
+        <div class="fv" style="font-size:12pt;font-weight:900;color:#5b21b6">${est.nombre||""}</div>
+        <div class="fl">En sus palabras</div>
+        <div class="fv" style="font-style:italic">"${est.frase||""}"</div>
+      </div>
+      <div class="box" style="text-align:center;background:#f5f3ff;border-color:#9B87F5">
+        <div class="fl" style="text-align:center">Score IA</div>
+        <div style="font-size:26pt;font-weight:900;color:#5b21b6;line-height:1">${iaScore}<span style="font-size:9pt;color:#999">/25</span></div>
+        <div style="font-size:7.5pt;color:#5b21b6;font-weight:bold;margin-top:2px">${nivelIA}</div>
+      </div>
+    </div>
+    <div class="fl">Mayor fortaleza</div><div class="fv">${est.fortaleza||""}</div>
+    <div class="fl">Inteligencia dominante</div><div class="fv">${est.inteligencia||""}</div>
+    <div class="fl">Orientación vocacional</div><div class="fv">${est.orientacion_vocacional||""}</div>
+    <div class="fl">Perfil en IA</div><div class="fv">${est.perfil_ia||""}</div>
+    <div class="two">
+      <div class="box" style="border-color:#FF6B6B;background:#ffebee"><div class="fl" style="color:#c62828">⚠️ Zona ciega</div><div class="fv">${est.zona_ciega||""}</div></div>
+      <div class="box" style="border-color:#2ECC71;background:#e8f5e9"><div class="fl" style="color:#1b5e20">✨ Potencial con IA</div><div class="fv">${est.ia_potencial||""}</div></div>
+    </div>
+    ${est.liderazgo_inmediato?`<div class="fl">🚀 Acción de liderazgo inmediata</div><div class="fv" style="font-weight:bold">${est.liderazgo_inmediato}</div>`:""}
+    ${est.paso1?`<div class="fl">👣 Primer paso esta semana</div><div class="fv">${est.paso1}</div>`:""}
+    ${est.pregunta?`<div class="kpi"><div style="font-size:7pt;font-weight:bold;color:#5b21b6;letter-spacing:1px;text-transform:uppercase;margin-bottom:2px">💡 Pregunta para reflexionar</div><div style="font-size:9.5pt;font-weight:bold;color:#5b21b6;font-style:italic">"${est.pregunta}"</div></div>`:""}
+  </div>
+</div>
+
+<div class="ab">
+  <div class="ah">🎯 Orientación Vocacional CHASIDE</div>
+  <div class="abt">
+    <div class="fl" style="margin-top:0">Área vocacional dominante</div>
+    <div class="fv" style="font-weight:bold;font-size:11pt;margin-bottom:6px">${topArea.icon} ${topArea.nombre}</div>
+    <table>
+      <thead><tr><th>Área vocacional</th><th style="width:55px;text-align:center">SÍ</th><th style="width:95px">Nivel</th></tr></thead>
+      <tbody>${chRows}</tbody>
+    </table>
+    <div style="margin-top:8px;font-size:7.5pt;color:#888;font-style:italic">* Test CHASIDE — cada área tiene 2 preguntas. Mayor cantidad de SÍ = mayor afinidad vocacional.</div>
+  </div>
+</div>
+
+<div class="ab">
+  <div class="ah">${rolIA.icon} Rol de Liderazgo en IA — ${rolIA.rol}</div>
+  <div class="abt">
+    <div class="fl" style="margin-top:0">Enfoque del rol</div><div class="fv">${rolIA.enfoque||""}</div>
+    <div class="fl">Herramientas de IA recomendadas</div>
+    ${herr}
+    <div class="two">
+      <div class="box"><div class="fl">Tipo de negocio ideal</div><div class="fv">${rolIA.negocio||""}</div></div>
+      <div class="box"><div class="fl">Problema que resuelve</div><div class="fv">${rolIA.problema||""}</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="ab">
+  <div class="ah">🤝 Carta de Presentación para la Empresa</div>
+  <div class="abt">
+    <div style="font-size:11pt;font-weight:900;color:#5b21b6;margin-bottom:3px">${emp.titulo||""}</div>
+    <div class="fv" style="margin-bottom:9px">${emp.perfil_3_lineas||""}</div>
+    <div class="two" style="margin-top:0">
+      <div class="box"><div class="fl">Puede apoyar en</div><div class="fv">${emp.utilidad||""}</div></div>
+      <div class="box"><div class="fl">Relación con IA</div><div class="fv">${emp.nivel_ia||""}</div></div>
+    </div>
+    <table>
+      <thead><tr><th style="width:75px">Semana</th><th>Actividades y enfoque</th></tr></thead>
+      <tbody>
+        <tr><td style="font-weight:bold;color:#c62828">Semana 1</td><td>${semanas[0]||""}</td></tr>
+        <tr><td style="font-weight:bold;color:#e65100">Semana 2</td><td>${semanas[1]||""}</td></tr>
+        <tr><td style="font-weight:bold;color:#5b21b6">Semana 3</td><td>${semanas[2]||""}</td></tr>
+        <tr><td style="font-weight:bold;color:#1b5e20">Semana 4</td><td>${semanas[3]||""}</td></tr>
+      </tbody>
+    </table>
+    ${emp.advertencia?`<div class="kpi" style="background:#fff3e0;border-color:#FF9F1C"><div style="font-size:7pt;font-weight:bold;color:#e65100;letter-spacing:1px;text-transform:uppercase;margin-bottom:2px">⚠️ Importante para la empresa</div><div style="font-size:9.5pt;font-weight:bold;color:#e65100">${emp.advertencia}</div></div>`:""}
+  </div>
+</div>
+
+<div class="foot">
+  <span>NEXO Territorial · UNIT Colombia · 2025</span>
+  <span>${datos.nombre||""} — Caracterización de Estudiante Programa NEXO</span>
+  <span>${fecha}</span>
+</div>
+
+</body></html>`;
+}
+
 function NexoMaslow() {
   const [fase, setFase]         = useState("bienvenida");
   const [datos, setDatos]       = useState({ nombre:"", email:"", telefono:"", universidad:"", semestre:"", carrera:"", genero:"" });
@@ -1086,6 +1334,7 @@ function NexoMaslow() {
   const [reporte, setReporte]   = useState(null);
   const [lmsg, setLmsg]         = useState("");
   const [sel, setSel]           = useState(null);
+  const [pdfLoading, setPdfLoading] = useState(false);
   const [vista, setVista]       = useState("estudiante");
 
   // ── CSS global ─────────────────────────────────────────────────────────────
@@ -1165,11 +1414,6 @@ function NexoMaslow() {
     const e = {};
     if (!datos.nombre.trim())        e.nombre      = "Este campo es requerido";
     if (!datos.email.includes("@"))  e.email       = "Ingresa un email válido";
-    if (!datos.telefono.trim())      e.telefono    = "Este campo es requerido";
-    if (!datos.universidad.trim())   e.universidad = "Este campo es requerido";
-    if (!datos.semestre)             e.semestre    = "Selecciona tu semestre";
-    if (!datos.carrera.trim())       e.carrera     = "Este campo es requerido";
-    if (!datos.genero)               e.genero      = "Selecciona tu género";
     setErrores(e);
     return Object.keys(e).length === 0;
   };
@@ -1394,6 +1638,24 @@ Responde SOLO JSON válido, sin backticks ni markdown:
     setErrores({});
   };
 
+  const descargarPDF = () => {
+    if (!reporte) return;
+    setPdfLoading(true);
+    try {
+      const html = generarHTMLReporteEstudiante(datos, resp, reporte, calcChaside);
+      const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+      const url  = URL.createObjectURL(blob);
+      const a    = document.createElement('a');
+      a.href     = url;
+      a.download = `NEXO_${(datos.nombre || 'Estudiante').replace(/[^a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]/g,'_')}.html`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    } catch(e) { console.error(e); alert('Error: ' + e.message); }
+    setPdfLoading(false);
+  };
+
   // ── UI Components ──────────────────────────────────────────────────────────
   const Logo = () => (
     <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:24 }}>
@@ -1492,68 +1754,6 @@ Responde SOLO JSON válido, sin backticks ni markdown:
             style={{ width:"100%", background:"rgba(255,255,255,0.06)", border:`1.5px solid ${errores.email?"#FF6B6B":"rgba(155,135,245,0.2)"}`, borderRadius:12, padding:"13px 14px", fontSize:14, color:TEXT, fontFamily:fb, boxSizing:"border-box" }}/>
           {errores.email && <p style={{ margin:"4px 0 0", fontSize:11, color:"#FF6B6B" }}>{errores.email}</p>}
         </div>
-        {/* ── Teléfono ── */}
-        <div style={{ marginBottom:14 }}>
-          <label style={{ display:"block", fontSize:11, fontWeight:700, color:UP, letterSpacing:"0.1em", marginBottom:6 }}>📱 TELÉFONO</label>
-          <input type="tel" placeholder="Ej: 300 123 4567" value={datos.telefono}
-            onChange={e => setDatos(p => ({ ...p, telefono:e.target.value }))}
-            style={{ width:"100%", background:"rgba(255,255,255,0.06)", border:`1.5px solid ${errores.telefono?"#FF6B6B":"rgba(155,135,245,0.2)"}`, borderRadius:12, padding:"13px 14px", fontSize:14, color:TEXT, fontFamily:fb, boxSizing:"border-box" }}/>
-          {errores.telefono && <p style={{ margin:"4px 0 0", fontSize:11, color:"#FF6B6B" }}>{errores.telefono}</p>}
-        </div>
-        {/* ── Universidad ── */}
-        <div style={{ marginBottom:14 }}>
-          <label style={{ display:"block", fontSize:11, fontWeight:700, color:UP, letterSpacing:"0.1em", marginBottom:6 }}>🎓 UNIVERSIDAD</label>
-          <input type="text" placeholder="Ej: UNIT Colombia" value={datos.universidad}
-            onChange={e => setDatos(p => ({ ...p, universidad:e.target.value }))}
-            style={{ width:"100%", background:"rgba(255,255,255,0.06)", border:`1.5px solid ${errores.universidad?"#FF6B6B":"rgba(155,135,245,0.2)"}`, borderRadius:12, padding:"13px 14px", fontSize:14, color:TEXT, fontFamily:fb, boxSizing:"border-box" }}/>
-          {errores.universidad && <p style={{ margin:"4px 0 0", fontSize:11, color:"#FF6B6B" }}>{errores.universidad}</p>}
-        </div>
-
-        <div style={{ marginBottom:14 }}>
-          <label style={{ display:"block", fontSize:11, fontWeight:700, color:UP, letterSpacing:"0.1em", marginBottom:6 }}>
-            📅 SEMESTRE
-          </label>
-          <select
-            value={datos.semestre}
-            onChange={e => setDatos(p => ({ ...p, semestre:e.target.value }))}
-            style={{
-              width:"100%", background:"rgba(255,255,255,0.06)",
-              border:`1.5px solid ${errores.semestre ? "#FF6B6B" : "rgba(155,135,245,0.2)"}`,
-              borderRadius:12, padding:"13px 14px", fontSize:14,
-              color:datos.semestre ? TEXT : MUT, fontFamily:fb, boxSizing:"border-box", cursor:"pointer"
-            }}
-          >
-            <option value="">Selecciona tu semestre</option>
-            {[1,2,3,4,5,6,7,8,9,10].map(s => <option key={s} value={s}>{s}° Semestre</option>)}
-          </select>
-          {errores.semestre && <p style={{ margin:"4px 0 0", fontSize:11, color:"#FF6B6B" }}>{errores.semestre}</p>}
-        </div>
-
-        {/* ── Género ── */}
-        <div style={{ marginBottom:14 }}>
-          <label style={{ display:"block", fontSize:11, fontWeight:700, color:UP, letterSpacing:"0.1em", marginBottom:8 }}>⚧ GÉNERO</label>
-          <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8 }}>
-            {[{v:"Femenino",v2:"♀️"},{v:"Masculino",v2:"♂️"}].map(g => {
-              const sel = datos.genero === g.v;
-              return (
-                <button key={g.v} type="button" onClick={() => setDatos(p=>({...p,genero:g.v}))}
-                  style={{ background:sel?"rgba(155,135,245,0.2)":"rgba(255,255,255,0.06)", border:`1.5px solid ${sel?"#9B87F5":"rgba(155,135,245,0.2)"}`, borderRadius:12, padding:"13px", cursor:"pointer", color:sel?"#9B87F5":"#F5F0FF", fontFamily:"'Inter',sans-serif", fontSize:14, fontWeight:sel?700:500, transition:"all .2s" }}>
-                  {g.v2} {g.v}
-                </button>
-              );
-            })}
-          </div>
-          {errores.genero && <p style={{ margin:"4px 0 0", fontSize:11, color:"#FF6B6B" }}>{errores.genero}</p>}
-        </div>
-        {/* ── Carrera ── */}
-        <div style={{ marginBottom:14 }}>
-          <label style={{ display:"block", fontSize:11, fontWeight:700, color:UP, letterSpacing:"0.1em", marginBottom:6 }}>📖 CARRERA</label>
-          <input type="text" placeholder="Ej: Ingeniería Industrial" value={datos.carrera}
-            onChange={e => setDatos(p => ({ ...p, carrera:e.target.value }))}
-            style={{ width:"100%", background:"rgba(255,255,255,0.06)", border:`1.5px solid ${errores.carrera?"#FF6B6B":"rgba(155,135,245,0.2)"}`, borderRadius:12, padding:"13px 14px", fontSize:14, color:TEXT, fontFamily:fb, boxSizing:"border-box" }}/>
-          {errores.carrera && <p style={{ margin:"4px 0 0", fontSize:11, color:"#FF6B6B" }}>{errores.carrera}</p>}
-        </div>
-
         <GBtn onClick={async () => {
           if (!validarDatos()) return;
           try {
@@ -1801,6 +2001,14 @@ Responde SOLO JSON válido, sin backticks ni markdown:
     const iaColor = iaScore >= 20 ? "46,204,113" : iaScore >= 13 ? "155,135,245" : iaScore >= 7 ? "255,159,28" : "255,107,107";
     const promptRadar = `Actúa como un consultor de innovación para microempresas. Mi perfil vocacional es ${AREAS_INFO[topAreaKey]?.nombre} y mi rol en IA es "${rolIA.rol}". Estoy asesorando a una pyme de [tipo de negocio]. Tienen el problema de [describir problema]. Dame 3 soluciones prácticas usando herramientas de IA gratuitas o de bajo costo que yo pueda liderar.`;
 
+    const PdfBtn = ({top}) => (
+      <button className="nb" onClick={descargarPDF} disabled={pdfLoading}
+        style={{ background:pdfLoading?"rgba(155,135,245,0.1)":"linear-gradient(135deg,rgba(155,135,245,.18),rgba(232,125,200,.14))", color:pdfLoading?MUT:UP, border:"1.5px solid rgba(155,135,245,0.4)", borderRadius:12, padding:"13px", fontSize:14, fontWeight:800, cursor:pdfLoading?"not-allowed":"pointer", width:"100%", fontFamily:ff, marginBottom:top?16:0, display:"flex", alignItems:"center", justifyContent:"center", gap:8 }}>
+        <span style={{ fontSize:18 }}>{pdfLoading?"⏳":"📄"}</span>
+        {pdfLoading?"Preparando reporte…":"⬇️ Descargar diagnóstico completo (HTML)"}
+      </button>
+    );
+
     return (
       <div style={W}>
         <div style={INN} className="nf">
@@ -1810,9 +2018,11 @@ Responde SOLO JSON válido, sin backticks ni markdown:
           <div style={{ background:"rgba(155,135,245,0.06)", border:"1px solid rgba(155,135,245,0.15)", borderRadius:14, padding:"14px 16px", marginBottom:16 }}>
             <p style={{ margin:0, fontSize:10, color:MUT, fontWeight:700, letterSpacing:"0.1em", marginBottom:6 }}>ESTUDIANTE CARACTERIZADO</p>
             <p style={{ margin:0, fontFamily:ff, fontSize:17, fontWeight:900, color:TEXT, marginBottom:2 }}>{datos.nombre}</p>
-            <p style={{ margin:0, fontSize:12, color:MUT }}>{datos.carrera} · {datos.semestre}° semestre</p>
-            <p style={{ margin:0, fontSize:12, color:MUT }}>{datos.universidad}</p>
+            {(datos.carrera || datos.semestre) && <p style={{ margin:0, fontSize:12, color:MUT }}>{[datos.carrera, datos.semestre && `${datos.semestre}° semestre`].filter(Boolean).join(" · ")}</p>}
+            {datos.universidad && <p style={{ margin:0, fontSize:12, color:MUT }}>{datos.universidad}</p>}
           </div>
+
+          <PdfBtn top={true}/>
 
           {/* Toggle vista — 3 tabs */}
           <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr 1fr", gap:4, marginBottom:20, background:"rgba(255,255,255,0.04)", borderRadius:12, padding:4 }}>
@@ -2068,7 +2278,8 @@ Responde SOLO JSON válido, sin backticks ni markdown:
             </button>
           </div>}
 
-          <div style={{ marginTop:14 }}>
+          <div style={{ marginTop:14, display:"flex", flexDirection:"column", gap:8 }}>
+            <PdfBtn top={false}/>
             <GBtn onClick={reset} outline small>← Nueva caracterización</GBtn>
           </div>
         </div>
@@ -2088,24 +2299,7 @@ window.NexoMaslow = NexoMaslow;
 (function(){
 const { useState, useEffect } = React;
 
-const SECTORES = [
-  "Manufactura y Producción",
-  "Comercio al por menor (Retail)",
-  "Comercio al por mayor y Distribución",
-  "Servicios Profesionales y Consultoría",
-  "Salud y Bienestar",
-  "Educación y Formación",
-  "Alimentos y Bebidas",
-  "Construcción e Inmobiliario",
-  "Transporte y Logística",
-  "Tecnología e Innovación",
-  "Agropecuario y Agroindustria",
-  "Turismo y Hospitalidad",
-  "Arte, Cultura y Entretenimiento",
-  "Servicios Financieros",
-  "Belleza, Estética y Cuidado Personal",
-  "Otro",
-];
+const SECTORES = ["Manufactura y Producción","Comercio al por menor (Retail)","Comercio al por mayor y Distribución","Servicios Profesionales y Consultoría","Salud y Bienestar","Educación y Formación","Alimentos y Bebidas","Construcción e Inmobiliario","Transporte y Logística","Tecnología e Innovación","Agropecuario y Agroindustria","Turismo y Hospitalidad","Arte, Cultura y Entretenimiento","Servicios Financieros","Belleza, Estética y Cuidado Personal","Otro"];
 
 const DIAG_Q = [
   { id:"dc1", area:"C", texto:"¿Tienen indicadores de gestión (KPIs) que revisan al menos mensualmente?" },
@@ -2125,13 +2319,13 @@ const DIAG_Q = [
 ];
 
 const AREAS_INFO_E = {
-  C:{ nombre:"Analítica y Datos",      icon:"📊", col:"78,205,196"  },
-  H:{ nombre:"Procesos y Doc.",        icon:"📋", col:"255,159,28"  },
-  A:{ nombre:"Marca y Contenido",      icon:"🎨", col:"232,125,200" },
-  S:{ nombre:"Experiencia Cliente",    icon:"🤝", col:"46,204,113"  },
-  I:{ nombre:"Tecnología Digital",     icon:"💻", col:"155,135,245" },
-  D:{ nombre:"Operaciones y Control",  icon:"⚙️", col:"255,107,107" },
-  E:{ nombre:"Crecimiento Comercial",  icon:"🚀", col:"247,220,111" },
+  C:{ nombre:"Analítica y Datos",     icon:"📊", col:"78,205,196"  },
+  H:{ nombre:"Procesos y Doc.",       icon:"📋", col:"255,159,28"  },
+  A:{ nombre:"Marca y Contenido",     icon:"🎨", col:"232,125,200" },
+  S:{ nombre:"Experiencia Cliente",   icon:"🤝", col:"46,204,113"  },
+  I:{ nombre:"Tecnología Digital",    icon:"💻", col:"155,135,245" },
+  D:{ nombre:"Operaciones y Control", icon:"⚙️", col:"255,107,107" },
+  E:{ nombre:"Crecimiento Comercial", icon:"🚀", col:"247,220,111" },
 };
 
 const MATCH_CHASIDE = {
@@ -2145,229 +2339,315 @@ const MATCH_CHASIDE = {
 };
 
 const BLOQUES_E = [
-  {
-    id:"inicio_e", nivel:1, titulo:"Punto de Partida", icon:"🏢", color:"#FF6B6B",
+  { id:"inicio_e", nivel:1, titulo:"Punto de Partida", icon:"🏢", color:"#FF6B6B",
     intro:"Sin respuestas correctas. Solo cuéntenos cómo está su empresa hoy.",
     preguntas:[
-      { id:"e_c1", tipo:"opcion",
-        texto:"¿Qué tan claro tiene usted la dirección de su empresa para los próximos 12 meses?",
-        opciones:[
-          {v:"A", label:"Muy claro",              sub:"Tenemos plan con metas definidas y lo seguimos"},
-          {v:"B", label:"Más o menos claro",      sub:"Tengo ideas pero no están formalizadas"},
-          {v:"C", label:"Vamos al día",            sub:"Respondemos a lo que va pasando"},
-          {v:"D", label:"Necesitamos replantear", sub:"No hay claridad estratégica hoy"},
-        ]
-      },
-      { id:"e_c2", tipo:"opcion",
-        texto:"¿Cuál es la razón principal por la que dirige este negocio?",
-        opciones:[
-          {v:"A", label:"Es mi pasión y una oportunidad",     sub:"Lo elegí con convicción y propósito"},
-          {v:"B", label:"Lo heredé y lo he mantenido",        sub:"Viene de mi familia"},
-          {v:"C", label:"Surgió como oportunidad y funcionó", sub:"No estaba planeado pero creció"},
-          {v:"D", label:"Era la opción disponible",           sub:"Más necesidad que vocación en su momento"},
-        ]
-      },
+      { id:"e_c1", tipo:"opcion", texto:"¿Qué tan claro tiene usted la dirección de su empresa para los próximos 12 meses?",
+        opciones:[{v:"A",label:"Muy claro",sub:"Tenemos plan con metas definidas y lo seguimos"},{v:"B",label:"Más o menos claro",sub:"Tengo ideas pero no están formalizadas"},{v:"C",label:"Vamos al día",sub:"Respondemos a lo que va pasando"},{v:"D",label:"Necesitamos replantear",sub:"No hay claridad estratégica hoy"}]},
+      { id:"e_c2", tipo:"opcion", texto:"¿Cuál es la razón principal por la que dirige este negocio?",
+        opciones:[{v:"A",label:"Es mi pasión y una oportunidad",sub:"Lo elegí con convicción y propósito"},{v:"B",label:"Lo heredé y lo he mantenido",sub:"Viene de mi familia"},{v:"C",label:"Surgió como oportunidad y funcionó",sub:"No estaba planeado pero creció"},{v:"D",label:"Era la opción disponible",sub:"Más necesidad que vocación en su momento"}]},
     ]
   },
-  {
-    id:"diagnostico", nivel:2, titulo:"Diagnóstico Organizacional", icon:"🔍", color:"#4ECDC4",
+  { id:"diagnostico", nivel:2, titulo:"Diagnóstico Organizacional", icon:"🔍", color:"#4ECDC4",
     intro:"SÍ o NO con honestidad. Esto determina dónde su empresa puede crecer más.",
     preguntas: DIAG_Q.map(q => ({...q, tipo:"sino"}))
   },
-  {
-    id:"cultura_e", nivel:3, titulo:"Cultura y Liderazgo", icon:"🌱", color:"#FF9F1C",
+  { id:"cultura_e", nivel:3, titulo:"Cultura y Liderazgo", icon:"🌱", color:"#FF9F1C",
     intro:"La cultura de la empresa es su gerente. Cuéntenos cómo lidera.",
     preguntas:[
-      { id:"e_cu1", tipo:"opcion",
-        texto:"Cuando no hay urgencias en la empresa, ¿qué hace usted normalmente?",
-        hint:"Lo que hace en el tiempo 'tranquilo' revela qué tipo de líder es.",
-        opciones:[
-          {v:"A", label:"Planeo y trabajo en estrategia",          sub:"Pienso en el futuro y cómo mejorar"},
-          {v:"B", label:"Visito clientes o exploro el mercado",    sub:"Salgo a conocer el entorno"},
-          {v:"C", label:"Resuelvo pendientes del día",             sub:"Siempre hay algo operativo que atender"},
-          {v:"D", label:"Capacito o conecto con mi equipo",        sub:"Invierto tiempo en las personas"},
-          {v:"E", label:"Observo y detecto mejoras internas",      sub:"Analizo cuellos de botella y procesos"},
-        ]
-      },
-      { id:"e_cu2", tipo:"opcion",
-        texto:"¿Qué es lo que más le molesta del estado actual de su empresa?",
-        hint:"Lo que le incomoda revela dónde está el mayor dolor organizacional.",
-        opciones:[
-          {v:"A", label:"Todo depende de que yo esté presente",           sub:"Sin mí las cosas no funcionan igual"},
-          {v:"B", label:"Las ventas no crecen como deberían",             sub:"Estamos estancados comercialmente"},
-          {v:"C", label:"El equipo no funciona sin supervisión constante", sub:"Necesito controlar todo el tiempo"},
-          {v:"D", label:"No sabemos exactamente qué tan rentables somos", sub:"Los números no son claros"},
-          {v:"E", label:"Nuestra imagen no refleja nuestra calidad real",  sub:"El mercado no nos ve como somos"},
-          {v:"F", label:"Estamos atrasados en tecnología",                 sub:"Vemos el cambio pero no nos subimos"},
-        ]
-      },
-      { id:"e_cu3", tipo:"opcion",
-        texto:"¿Para qué lo busca su equipo a usted principalmente?",
-        opciones:[
-          {v:"A", label:"Tomar decisiones — decido casi todo",       sub:"El equipo espera mi aprobación para actuar"},
-          {v:"B", label:"Resolver problemas técnicos o de proceso",  sub:"Soy el que sabe cómo hacer las cosas"},
-          {v:"C", label:"Motivarlos cuando están desmotivados",      sub:"Soy la energía y el motor del equipo"},
-          {v:"D", label:"Aprobar presupuesto o recursos",            sub:"Las decisiones económicas pasan por mí"},
-          {v:"E", label:"Explicarles hacia dónde vamos",             sub:"Necesitan mi visión para funcionar"},
-        ]
-      },
-      { id:"e_cu4", tipo:"opcion",
-        texto:"¿Cuál de estas frases describe mejor el ambiente de trabajo hoy?",
-        opciones:[
-          {v:"A", label:"Dinámico — siempre algo nuevo",                  sub:"Nos adaptamos constantemente al cambio"},
-          {v:"B", label:"Organizado — con procesos y rutinas claras",     sub:"Tenemos estructura y la seguimos"},
-          {v:"C", label:"Familiar — mucha confianza pero poca estructura",sub:"Somos un buen equipo, nos falta orden"},
-          {v:"D", label:"Reactivo — siempre apagando incendios",          sub:"No alcanzamos a planear, solo respondemos"},
-          {v:"E", label:"En transición — queremos cambiar pero cuesta",   sub:"El cambio es lento pero está ocurriendo"},
-        ]
-      },
+      { id:"e_cu1", tipo:"opcion", texto:"Cuando no hay urgencias en la empresa, ¿qué hace usted normalmente?", hint:"Lo que hace en el tiempo tranquilo revela qué tipo de líder es.",
+        opciones:[{v:"A",label:"Planeo y trabajo en estrategia",sub:"Pienso en el futuro y cómo mejorar"},{v:"B",label:"Visito clientes o exploro el mercado",sub:"Salgo a conocer el entorno"},{v:"C",label:"Resuelvo pendientes del día",sub:"Siempre hay algo operativo que atender"},{v:"D",label:"Capacito o conecto con mi equipo",sub:"Invierto tiempo en las personas"},{v:"E",label:"Observo y detecto mejoras internas",sub:"Analizo cuellos de botella y procesos"}]},
+      { id:"e_cu2", tipo:"opcion", texto:"¿Qué es lo que más le molesta del estado actual de su empresa?", hint:"Lo que le incomoda revela dónde está el mayor dolor organizacional.",
+        opciones:[{v:"A",label:"Todo depende de que yo esté presente",sub:"Sin mí las cosas no funcionan igual"},{v:"B",label:"Las ventas no crecen como deberían",sub:"Estamos estancados comercialmente"},{v:"C",label:"El equipo no funciona sin supervisión constante",sub:"Necesito controlar todo el tiempo"},{v:"D",label:"No sabemos exactamente qué tan rentables somos",sub:"Los números no son claros"},{v:"E",label:"Nuestra imagen no refleja nuestra calidad real",sub:"El mercado no nos ve como somos"},{v:"F",label:"Estamos atrasados en tecnología",sub:"Vemos el cambio pero no nos subimos"}]},
+      { id:"e_cu3", tipo:"opcion", texto:"¿Para qué lo busca su equipo a usted principalmente?",
+        opciones:[{v:"A",label:"Tomar decisiones — decido casi todo",sub:"El equipo espera mi aprobación para actuar"},{v:"B",label:"Resolver problemas técnicos o de proceso",sub:"Soy el que sabe cómo hacer las cosas"},{v:"C",label:"Motivarlos cuando están desmotivados",sub:"Soy la energía y el motor del equipo"},{v:"D",label:"Aprobar presupuesto o recursos",sub:"Las decisiones económicas pasan por mí"},{v:"E",label:"Explicarles hacia dónde vamos",sub:"Necesitan mi visión para funcionar"}]},
+      { id:"e_cu4", tipo:"opcion", texto:"¿Cuál de estas frases describe mejor el ambiente de trabajo hoy?",
+        opciones:[{v:"A",label:"Dinámico — siempre algo nuevo",sub:"Nos adaptamos constantemente al cambio"},{v:"B",label:"Organizado — con procesos y rutinas claras",sub:"Tenemos estructura y la seguimos"},{v:"C",label:"Familiar — mucha confianza pero poca estructura",sub:"Somos un buen equipo, nos falta orden"},{v:"D",label:"Reactivo — siempre apagando incendios",sub:"No alcanzamos a planear, solo respondemos"},{v:"E",label:"En transición — queremos cambiar pero cuesta",sub:"El cambio es lento pero está ocurriendo"}]},
     ]
   },
-  {
-    id:"capacidades_e", nivel:4, titulo:"Lo Que Ya Tienen", icon:"⚡", color:"#9B87F5",
+  { id:"capacidades_e", nivel:4, titulo:"Lo Que Ya Tienen", icon:"⚡", color:"#9B87F5",
     intro:"Saber qué funciona bien es tan valioso como encontrar las brechas.",
     preguntas:[
-      { id:"e_cap1", tipo:"opcion",
-        texto:"¿Qué hace mejor su empresa que la mayoría de sus competidores directos?",
-        hint:"Sea honesto — esto define su ventaja real de mercado.",
-        opciones:[
-          {v:"A", label:"La calidad de nuestros productos o servicios",    sub:"En eso no nos gana nadie cerca"},
-          {v:"B", label:"La relación cercana con nuestros clientes",       sub:"Nos conocen y confían en nosotros"},
-          {v:"C", label:"El precio y la agilidad de respuesta",            sub:"Somos rápidos y competitivos en costo"},
-          {v:"D", label:"El conocimiento técnico de nuestro equipo",       sub:"Sabemos lo que hacemos mejor que otros"},
-          {v:"E", label:"La creatividad e innovación en lo que ofrecemos", sub:"Siempre proponemos algo diferente"},
-          {v:"F", label:"No tenemos una ventaja clara definida aún",       sub:"Es algo en lo que necesitamos trabajar"},
-        ]
-      },
-      { id:"e_cap2", tipo:"opcion",
-        texto:"¿Cuál es el área que más necesita mejorar urgentemente?",
-        opciones:[
-          {v:"A", label:"Ventas y captación de clientes nuevos",   sub:"El embudo comercial no está rindiendo"},
-          {v:"B", label:"Operaciones y eficiencia interna",        sub:"Muchos reprocesos y pérdidas de tiempo"},
-          {v:"C", label:"Tecnología y digitalización",            sub:"Hacemos cosas a mano que se pueden automatizar"},
-          {v:"D", label:"Gestión del equipo y cultura",           sub:"El talento humano necesita más estructura"},
-          {v:"E", label:"Comunicación, marca e imagen",           sub:"No proyectamos bien lo que realmente somos"},
-          {v:"F", label:"Control financiero y rentabilidad",      sub:"No tenemos claridad sobre nuestros números"},
-        ]
-      },
+      { id:"e_cap1", tipo:"opcion", texto:"¿Qué hace mejor su empresa que la mayoría de sus competidores directos?", hint:"Sea honesto — esto define su ventaja real de mercado.",
+        opciones:[{v:"A",label:"La calidad de nuestros productos o servicios",sub:"En eso no nos gana nadie cerca"},{v:"B",label:"La relación cercana con nuestros clientes",sub:"Nos conocen y confían en nosotros"},{v:"C",label:"El precio y la agilidad de respuesta",sub:"Somos rápidos y competitivos en costo"},{v:"D",label:"El conocimiento técnico de nuestro equipo",sub:"Sabemos lo que hacemos mejor que otros"},{v:"E",label:"La creatividad e innovación en lo que ofrecemos",sub:"Siempre proponemos algo diferente"},{v:"F",label:"No tenemos una ventaja clara definida aún",sub:"Es algo en lo que necesitamos trabajar"}]},
+      { id:"e_cap2", tipo:"opcion", texto:"¿Cuál es el área que más necesita mejorar urgentemente?",
+        opciones:[{v:"A",label:"Ventas y captación de clientes nuevos",sub:"El embudo comercial no está rindiendo"},{v:"B",label:"Operaciones y eficiencia interna",sub:"Muchos reprocesos y pérdidas de tiempo"},{v:"C",label:"Tecnología y digitalización",sub:"Hacemos cosas a mano que se pueden automatizar"},{v:"D",label:"Gestión del equipo y cultura",sub:"El talento humano necesita más estructura"},{v:"E",label:"Comunicación, marca e imagen",sub:"No proyectamos bien lo que realmente somos"},{v:"F",label:"Control financiero y rentabilidad",sub:"No tenemos claridad sobre nuestros números"}]},
     ]
   },
-  {
-    id:"estrategia_e", nivel:5, titulo:"Para Dónde Va", icon:"🔥", color:"#E87DC8",
+  { id:"estrategia_e", nivel:5, titulo:"Para Dónde Va", icon:"🔥", color:"#E87DC8",
     intro:"No necesita tenerlo todo definido. Solo cuéntenos qué imagina.",
     preguntas:[
-      { id:"e_dir1", tipo:"opcion",
-        texto:"¿Qué quiere lograr con su empresa en los próximos 2 años?",
-        hint:"Elija la que más le emocione, aunque le parezca muy ambiciosa.",
-        opciones:[
-          {v:"A", label:"Crecer en ventas y abrir nuevos mercados",        sub:"Expansión y más clientes"},
-          {v:"B", label:"Mejorar la rentabilidad sin necesariamente crecer",sub:"Más eficientes con lo que tenemos"},
-          {v:"C", label:"Digitalizar y modernizar los procesos",           sub:"Tecnología como motor de cambio"},
-          {v:"D", label:"Consolidar el equipo y reducir mi dependencia",   sub:"Que funcione sin que yo esté en todo"},
-          {v:"E", label:"Lanzar un nuevo producto o servicio",             sub:"Innovar en lo que ofrecemos"},
-        ]
-      },
-      { id:"e_dir2", tipo:"opcion",
-        texto:"¿Qué tipo de apoyo externo le generaría más valor HOY?",
-        opciones:[
-          {v:"A", label:"Mejorar presencia digital y ventas",          sub:"Que más clientes nos encuentren"},
-          {v:"B", label:"Organizar y optimizar procesos internos",     sub:"Que todo funcione de forma ordenada"},
-          {v:"C", label:"Implementar tecnología y automatizar tareas", sub:"Reducir tiempos y errores con IA"},
-          {v:"D", label:"Analizar datos y mejorar decisiones",         sub:"Saber qué está pasando realmente"},
-          {v:"E", label:"Fortalecer marca e imagen",                   sub:"Que el mundo nos vea como somos"},
-        ]
-      },
-      { id:"e_dir3", tipo:"opcion",
-        texto:"¿Qué tan abierta está su empresa a implementar herramientas nuevas aunque no estén 100% probadas?",
-        opciones:[
-          {v:"A", label:"Muy abierta — somos innovadores",    sub:"Si hay potencial, lo intentamos"},
-          {v:"B", label:"Abierta con evidencia previa",       sub:"Lo hacemos si hay casos similares"},
-          {v:"C", label:"Con cautela",                        sub:"Preferimos lo que ya conocemos"},
-          {v:"D", label:"Poco abiertos al cambio",            sub:"El riesgo nos frena, preferimos estabilidad"},
-        ]
-      },
+      { id:"e_dir1", tipo:"opcion", texto:"¿Qué quiere lograr con su empresa en los próximos 2 años?", hint:"Elija la que más le emocione, aunque le parezca muy ambiciosa.",
+        opciones:[{v:"A",label:"Crecer en ventas y abrir nuevos mercados",sub:"Expansión y más clientes"},{v:"B",label:"Mejorar la rentabilidad sin necesariamente crecer",sub:"Más eficientes con lo que tenemos"},{v:"C",label:"Digitalizar y modernizar los procesos",sub:"Tecnología como motor de cambio"},{v:"D",label:"Consolidar el equipo y reducir mi dependencia",sub:"Que funcione sin que yo esté en todo"},{v:"E",label:"Lanzar un nuevo producto o servicio",sub:"Innovar en lo que ofrecemos"}]},
+      { id:"e_dir2", tipo:"opcion", texto:"¿Qué tipo de apoyo externo le generaría más valor HOY?",
+        opciones:[{v:"A",label:"Mejorar presencia digital y ventas",sub:"Que más clientes nos encuentren"},{v:"B",label:"Organizar y optimizar procesos internos",sub:"Que todo funcione de forma ordenada"},{v:"C",label:"Implementar tecnología y automatizar tareas",sub:"Reducir tiempos y errores con IA"},{v:"D",label:"Analizar datos y mejorar decisiones",sub:"Saber qué está pasando realmente"},{v:"E",label:"Fortalecer marca e imagen",sub:"Que el mundo nos vea como somos"}]},
+      { id:"e_dir3", tipo:"opcion", texto:"¿Qué tan abierta está su empresa a implementar herramientas nuevas aunque no estén 100% probadas?",
+        opciones:[{v:"A",label:"Muy abierta — somos innovadores",sub:"Si hay potencial, lo intentamos"},{v:"B",label:"Abierta con evidencia previa",sub:"Lo hacemos si hay casos similares"},{v:"C",label:"Con cautela",sub:"Preferimos lo que ya conocemos"},{v:"D",label:"Poco abiertos al cambio",sub:"El riesgo nos frena, preferimos estabilidad"}]},
     ]
   },
-  {
-    id:"ia_empresa", nivel:6, titulo:"Relación con la IA", icon:"🤖", color:"#2ECC71",
+  { id:"ia_empresa", nivel:6, titulo:"Relación con la IA", icon:"🤖", color:"#2ECC71",
     intro:"La IA ya está transformando los negocios. ¿Dónde está su empresa?",
     preguntas:[
-      { id:"eia1", tipo:"numero",
-        texto:"¿Cuántas herramientas de IA usa su empresa actualmente?",
-        hint:"ChatGPT, Gemini, Canva IA, Copilot, Notion IA, chatbots de atención…",
-        opciones:[
-          {v:"0", label:"0",  sub:"No usamos ninguna"},
-          {v:"1", label:"1",  sub:"Una herramienta"},
-          {v:"2", label:"2",  sub:"Dos herramientas"},
-          {v:"3", label:"3",  sub:"Tres herramientas"},
-          {v:"4", label:"4",  sub:"Cuatro herramientas"},
-          {v:"5+",label:"+5", sub:"Cinco o más"},
-        ]
-      },
-      { id:"eia2", tipo:"escala",
-        texto:"¿Qué tan importante considera la IA para el futuro de su negocio?",
-        escalaMin:"Nada importante", escalaMax:"Absolutamente esencial",
-        opciones:[{v:"1"},{v:"2"},{v:"3"},{v:"4"},{v:"5"}]
-      },
-      { id:"eia3", tipo:"escala",
-        texto:"\"Queremos ser de las empresas que LIDERAN la IA en nuestro sector — no de las que se quedan atrás.\"",
-        hint:"¿Qué tan identificado se siente con esta afirmación?",
-        escalaMin:"No nos representa", escalaMax:"Nos representa totalmente",
-        opciones:[{v:"1"},{v:"2"},{v:"3"},{v:"4"},{v:"5"}]
-      },
-      { id:"eia4", tipo:"escala",
-        texto:"\"Estamos dispuestos a cambiar procesos internos si la IA nos hace más eficientes.\"",
-        escalaMin:"No estamos listos", escalaMax:"Totalmente dispuestos",
-        opciones:[{v:"1"},{v:"2"},{v:"3"},{v:"4"},{v:"5"}]
-      },
-      { id:"eia5", tipo:"opcion",
-        texto:"¿Cuánto tiempo invierte su equipo voluntariamente en explorar herramientas de IA?",
-        hint:"Solo cuente lo que hacen por iniciativa propia, no por obligación.",
-        opciones:[
-          {v:"0", label:"Ninguno",            sub:"No lo hacemos todavía"},
-          {v:"1", label:"Menos de 1h/semana", sub:"Muy esporádico"},
-          {v:"2", label:"1 a 3 horas/semana", sub:"Algunos del equipo lo hacen"},
-          {v:"3", label:"Más de 3h/semana",   sub:"Es parte de nuestra rutina"},
-        ]
-      },
-      { id:"eia6", tipo:"escala",
-        texto:"Cuando implementan algo nuevo y no funciona a la primera, ¿cómo reacciona su equipo?",
-        hint:"1 = lo abandonamos   |   5 = persistimos hasta que funciona",
-        escalaMin:"Lo abandonamos", escalaMax:"Persistimos siempre",
-        opciones:[{v:"1"},{v:"2"},{v:"3"},{v:"4"},{v:"5"}]
-      },
-      { id:"eia7", tipo:"escala",
-        texto:"¿Está dispuesto a que un estudiante universitario lidere un proyecto de IA en su empresa?",
-        hint:"El programa NEXO acompaña el proceso durante 4 meses.",
-        escalaMin:"Me genera desconfianza", escalaMax:"Completamente dispuesto",
-        opciones:[{v:"1"},{v:"2"},{v:"3"},{v:"4"},{v:"5"}]
-      },
-      { id:"eia8", tipo:"opcion",
-        texto:"¿En qué área le interesa más implementar IA primero?",
-        opciones:[
-          {v:"A", label:"Automatización de tareas repetitivas",      sub:"Ahorrar tiempo en lo que siempre se hace igual"},
-          {v:"B", label:"Análisis de ventas y datos del negocio",    sub:"Entender qué está pasando realmente"},
-          {v:"C", label:"Atención al cliente (chatbots, respuestas)",sub:"Responder más rápido y con más calidad"},
-          {v:"D", label:"Creación de contenido y marketing",         sub:"Publicidad, redes, catálogos con IA"},
-          {v:"E", label:"Control de inventario y operaciones",       sub:"Menos errores, más eficiencia"},
-          {v:"F", label:"Quiero orientación — no tengo claridad",   sub:"Estoy abierto a la recomendación del programa"},
-        ]
-      },
+      { id:"eia1", tipo:"numero", texto:"¿Cuántas herramientas de IA usa su empresa actualmente?", hint:"ChatGPT, Gemini, Canva IA, Copilot, Notion IA, chatbots de atención…",
+        opciones:[{v:"0",label:"0",sub:"No usamos ninguna"},{v:"1",label:"1",sub:"Una herramienta"},{v:"2",label:"2",sub:"Dos herramientas"},{v:"3",label:"3",sub:"Tres herramientas"},{v:"4",label:"4",sub:"Cuatro herramientas"},{v:"5+",label:"+5",sub:"Cinco o más"}]},
+      { id:"eia2", tipo:"escala", texto:"¿Qué tan importante considera la IA para el futuro de su negocio?", escalaMin:"Nada importante", escalaMax:"Absolutamente esencial", opciones:[{v:"1"},{v:"2"},{v:"3"},{v:"4"},{v:"5"}]},
+      { id:"eia3", tipo:"escala", texto:"\"Queremos ser de las empresas que LIDERAN la IA en nuestro sector — no de las que se quedan atrás.\"", hint:"¿Qué tan identificado se siente con esta afirmación?", escalaMin:"No nos representa", escalaMax:"Nos representa totalmente", opciones:[{v:"1"},{v:"2"},{v:"3"},{v:"4"},{v:"5"}]},
+      { id:"eia4", tipo:"escala", texto:"\"Estamos dispuestos a cambiar procesos internos si la IA nos hace más eficientes.\"", escalaMin:"No estamos listos", escalaMax:"Totalmente dispuestos", opciones:[{v:"1"},{v:"2"},{v:"3"},{v:"4"},{v:"5"}]},
+      { id:"eia5", tipo:"opcion", texto:"¿Cuánto tiempo invierte su equipo voluntariamente en explorar herramientas de IA?", hint:"Solo cuente lo que hacen por iniciativa propia, no por obligación.",
+        opciones:[{v:"0",label:"Ninguno",sub:"No lo hacemos todavía"},{v:"1",label:"Menos de 1h/semana",sub:"Muy esporádico"},{v:"2",label:"1 a 3 horas/semana",sub:"Algunos del equipo lo hacen"},{v:"3",label:"Más de 3h/semana",sub:"Es parte de nuestra rutina"}]},
+      { id:"eia6", tipo:"escala", texto:"Cuando implementan algo nuevo y no funciona a la primera, ¿cómo reacciona su equipo?", hint:"1 = lo abandonamos   |   5 = persistimos hasta que funciona", escalaMin:"Lo abandonamos", escalaMax:"Persistimos siempre", opciones:[{v:"1"},{v:"2"},{v:"3"},{v:"4"},{v:"5"}]},
+      { id:"eia7", tipo:"escala", texto:"¿Está dispuesto a que un estudiante universitario lidere un proyecto de IA en su empresa?", hint:"El programa NEXO acompaña el proceso durante 4 meses.", escalaMin:"Me genera desconfianza", escalaMax:"Completamente dispuesto", opciones:[{v:"1"},{v:"2"},{v:"3"},{v:"4"},{v:"5"}]},
+      { id:"eia8", tipo:"opcion", texto:"¿En qué área le interesa más implementar IA primero?",
+        opciones:[{v:"A",label:"Automatización de tareas repetitivas",sub:"Ahorrar tiempo en lo que siempre se hace igual"},{v:"B",label:"Análisis de ventas y datos del negocio",sub:"Entender qué está pasando realmente"},{v:"C",label:"Atención al cliente (chatbots, respuestas)",sub:"Responder más rápido y con más calidad"},{v:"D",label:"Creación de contenido y marketing",sub:"Publicidad, redes, catálogos con IA"},{v:"E",label:"Control de inventario y operaciones",sub:"Menos errores, más eficiencia"},{v:"F",label:"Quiero orientación — no tengo claridad",sub:"Estoy abierto a la recomendación del programa"}]},
     ]
   },
 ];
 
+// ─── PDF HTML Generator ───────────────────────────────────────────────────────
+function buildQAList(r) {
+  return BLOQUES_E.map(bloque => {
+    const preguntas = bloque.preguntas.map(q => {
+      const val = r[q.id]; if (val === undefined) return null;
+      let answerLabel = val;
+      if (q.tipo === "sino") { answerLabel = val === "si" ? "SÍ" : "NO"; }
+      else if (q.opciones) { const f = q.opciones.find(o => o.v === val); answerLabel = f ? f.label + (f.sub ? " — " + f.sub : "") : val; }
+      return { pregunta: q.texto, respuesta: answerLabel, tipo: q.tipo, area: q.area || null, raw: val };
+    }).filter(Boolean);
+    return preguntas.length ? { titulo: bloque.titulo, icon: bloque.icon, nivel: bloque.nivel, preguntas } : null;
+  }).filter(Boolean);
+}
+
+function generarHTMLReporte(datos, resp, reporte, calcGaps) {
+  const qaList  = buildQAList(resp);
+  const gaps    = calcGaps(resp);
+  const iaScore = [resp.eia2,resp.eia3,resp.eia4,resp.eia6,resp.eia7].map(v=>parseInt(v)||0).reduce((a,b)=>a+b,0);
+  const nivelIA = iaScore>=20?"Lista para liderar IA":iaScore>=13?"En adopción activa":iaScore>=7?"Iniciando camino en IA":"Etapa pre-digital";
+  const fecha   = new Date().toLocaleDateString("es-CO",{year:"numeric",month:"long",day:"numeric"});
+  const emp=reporte.empresa, match=reporte.match, proy=reporte.proyecto;
+  const matchData = MATCH_CHASIDE[match?.area_chaside_ideal||"I"]||MATCH_CHASIDE.I;
+
+  const gapRows = Object.entries(gaps).sort((a,b)=>b[1]-a[1]).map(([area,score])=>{
+    const ai=AREAS_INFO_E[area];
+    const cls=score===2?"critical":score===1?"moderate":"consolidated";
+    const lbl=score===2?"CRÍTICO":score===1?"MODERADO":"CONSOLIDADO";
+    const desc=score===2?"Ninguno implementado":score===1?"1 de 2 necesita atención":"Ambos cubiertos ✓";
+    return `<tr><td>${ai.icon} ${ai.nombre}</td><td style="text-align:center">${score}/2</td><td><span class="${cls}">${lbl}</span></td><td style="font-size:8pt;color:#555">${desc}</td></tr>`;
+  }).join("");
+
+  const qaSections = qaList.map(bloque => {
+    const pregsHtml = bloque.preguntas.map(p => {
+      const badge = p.tipo==="sino" ? (p.raw==="si"?"badge-si":"badge-no") : "badge-opt";
+      const areaTag = p.area && AREAS_INFO_E[p.area] ? `<div class="qa-area">${AREAS_INFO_E[p.area].icon} ${AREAS_INFO_E[p.area].nombre}</div>` : "";
+      return `<div class="qi">${areaTag}<div class="qq">${p.pregunta}</div><div class="qa"><span class="${badge}">${p.respuesta}</span></div></div>`;
+    }).join("");
+    return `<div class="sec"><div class="st">Nivel ${bloque.nivel} — ${bloque.icon} ${bloque.titulo}</div>${pregsHtml}</div>`;
+  }).join("");
+
+  return `<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>NEXO — ${datos.empresa}</title>
+<style>
+@page{size:A4;margin:14mm 18mm 18mm}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;font-size:9.5pt;color:#111;background:#fff;line-height:1.5}
+.hdr{background:#0E0A1E;color:#fff;padding:15px 18px;margin-bottom:12px;border-radius:6px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:18pt;font-weight:900;letter-spacing:-1px}.logo span{color:#4ECDC4}
+.logo-sub{font-size:7.5pt;color:rgba(255,255,255,.6);margin-top:3px}
+.hdr-r{text-align:right;font-size:7.5pt;color:rgba(255,255,255,.65);line-height:1.7}
+.ebanner{background:#f0fdfc;border:1.5px solid #4ECDC4;border-radius:8px;padding:11px 15px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
+.ename{font-size:14pt;font-weight:900;color:#0E0A1E;margin-bottom:2px}
+.emeta{font-size:8.5pt;color:#555}
+.note{background:#fffde7;border-left:3px solid #f9a825;border-radius:4px;padding:7px 11px;margin-bottom:12px;font-size:8pt;color:#666;font-style:italic}
+.sec{margin-bottom:11px;border:1px solid #e0e0e0;border-radius:7px;padding:11px;break-inside:avoid}
+.st{font-size:10.5pt;font-weight:bold;color:#065f65;margin-bottom:9px;border-bottom:2px solid #4ECDC4;padding-bottom:4px}
+.qi{margin-bottom:6px;padding:6px 9px;background:#fafafa;border-left:3px solid #4ECDC4;border-radius:4px;break-inside:avoid}
+.qa-area{font-size:6.5pt;font-weight:bold;color:#065f65;letter-spacing:1px;text-transform:uppercase;margin-bottom:2px}
+.qq{font-size:8.5pt;color:#444;margin-bottom:2px;line-height:1.4}
+.qa{font-size:9pt;font-weight:bold}
+.badge-si{background:#e8f5e9;color:#1b5e20;padding:1px 9px;border-radius:4px}
+.badge-no{background:#ffebee;color:#c62828;padding:1px 9px;border-radius:4px}
+.badge-opt{background:#e8eaf6;color:#283593;padding:1px 9px;border-radius:4px}
+.ab{margin-bottom:12px;break-inside:avoid}
+.ah{background:#0E0A1E;color:#fff;padding:7px 13px;border-radius:5px 5px 0 0;font-size:10.5pt;font-weight:bold}
+.abt{border:1px solid #ccc;border-top:none;border-radius:0 0 5px 5px;padding:12px}
+.fl{font-size:6.5pt;font-weight:bold;color:#065f65;letter-spacing:1.5px;text-transform:uppercase;margin:9px 0 2px}
+.fv{font-size:9pt;color:#111;line-height:1.5}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:9px}
+.box{background:#f8f8f8;border:1px solid #e0e0e0;border-radius:5px;padding:9px}
+.critical{color:#c62828;background:#ffebee;padding:1px 7px;border-radius:3px;font-size:7.5pt;font-weight:bold}
+.moderate{color:#e65100;background:#fff3e0;padding:1px 7px;border-radius:3px;font-size:7.5pt;font-weight:bold}
+.consolidated{color:#1b5e20;background:#e8f5e9;padding:1px 7px;border-radius:3px;font-size:7.5pt;font-weight:bold}
+table{width:100%;border-collapse:collapse;font-size:8.5pt;margin-top:9px}
+th{background:#0E0A1E;color:#fff;padding:5px 7px;text-align:left;font-size:7.5pt}
+td{padding:4px 7px;border-bottom:1px solid #eee;vertical-align:top}
+tr:nth-child(even) td{background:#f9f9f9}
+.kpi{background:#e8f5e9;border:1px solid #4CAF50;border-radius:5px;padding:9px;margin-top:10px}
+.match-box{background:#e8eaf6;border:1.5px solid #9B87F5;border-radius:6px;padding:9px;margin-bottom:9px}
+.pb{page-break-before:always}
+.foot{margin-top:18px;border-top:1px solid #ccc;padding-top:7px;display:flex;justify-content:space-between;font-size:7pt;color:#999}
+@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}.no-print{display:none!important}}
+</style></head><body>
+
+<div class="no-print" style="position:fixed;top:0;left:0;right:0;background:#0E0A1E;padding:10px 20px;z-index:9999;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 12px rgba(0,0,0,.4)">
+  <div>
+    <span style="color:#4ECDC4;font-weight:900;font-size:15px;letter-spacing:-0.5px">unit nexo</span>
+    <span style="color:rgba(255,255,255,.5);font-size:11px;margin-left:10px">Reporte de Caracterización Empresarial</span>
+  </div>
+  <button onclick="window.print()" style="background:linear-gradient(135deg,#4ECDC4,#9B87F5);color:#fff;border:none;border-radius:8px;padding:9px 22px;font-size:13px;font-weight:800;cursor:pointer;font-family:Arial">🖨️ Imprimir / Guardar como PDF</button>
+</div>
+<div class="no-print" style="height:52px"></div>
+
+<div class="hdr">
+  <div><div class="logo">unit <span>nexo</span></div><div class="logo-sub">NEXO Territorial · Programa de Consultoría Ágil con IA</div></div>
+  <div class="hdr-r"><div>Caracterización Empresarial 2025</div><div>${fecha}</div></div>
+</div>
+
+<div class="ebanner">
+  <div><div class="ename">${datos.empresa}</div><div class="emeta">${datos.calificacion} · ${datos.empleados} empleados · ${datos.sector}</div></div>
+  <div style="text-align:right">
+    <div style="font-size:6.5pt;font-weight:bold;color:#065f65;letter-spacing:1px">SCORE IA</div>
+    <div style="font-size:22pt;font-weight:900;color:#0E0A1E;line-height:1">${iaScore}<span style="font-size:9pt;color:#999">/25</span></div>
+    <div style="font-size:7pt;color:#065f65;font-weight:bold">${nivelIA}</div>
+  </div>
+</div>
+
+<div class="note">Este documento contiene la caracterización completa del programa NEXO Territorial: las respuestas nivel a nivel, análisis de brechas, perfil IA y propuesta de match con el perfil de estudiante ideal.</div>
+
+${qaSections}
+
+<div class="pb"></div>
+
+<div class="tab-sep" style="background:linear-gradient(135deg,rgba(78,205,196,.12),rgba(155,135,245,.08));border:2px solid rgba(78,205,196,.35)">
+  <div class="tab-icon">🏢</div>
+  <div><div class="tab-label" style="color:#065f65">Empresa</div><div class="tab-sub">Perfil organizacional, madurez, cultura y oportunidades con IA</div></div>
+</div>
+
+<div class="ab">
+  <div class="ah">🏢 Análisis — Perfil de la Empresa</div>
+  <div class="abt">
+    <div class="two" style="margin-top:0">
+      <div>
+        <div class="fl">Perfil asignado</div>
+        <div class="fv" style="font-size:12pt;font-weight:900;color:#065f65">${emp.nombre_perfil}</div>
+        <div class="fl">Frase de la gerencia</div>
+        <div class="fv" style="font-style:italic">"${emp.frase}"</div>
+      </div>
+      <div class="box" style="text-align:center;background:#f0fdfc;border-color:#4ECDC4">
+        <div class="fl" style="text-align:center">Score IA</div>
+        <div style="font-size:26pt;font-weight:900;color:#065f65;line-height:1">${iaScore}<span style="font-size:9pt;color:#999">/25</span></div>
+        <div style="font-size:7.5pt;color:#065f65;font-weight:bold;margin-top:2px">${nivelIA}</div>
+        <div style="font-size:7pt;color:#777;margin-top:3px">Disp. cambio: ${resp.eia4||"?"}/5 · Acepta estudiante: ${resp.eia7||"?"}/5</div>
+      </div>
+    </div>
+    <div class="fl">Nivel de Madurez Organizacional</div><div class="fv">${emp.nivel_madurez}</div>
+    <div class="fl">Cultura y Liderazgo</div><div class="fv">${emp.cultura}</div>
+    <div class="two">
+      <div class="box" style="border-color:#4ECDC4;background:#f0fdfc"><div class="fl" style="color:#065f65">💎 Fortaleza Oculta</div><div class="fv">${emp.fortaleza_oculta}</div></div>
+      <div class="box" style="border-color:#e57373;background:#ffebee"><div class="fl" style="color:#c62828">⚠️ Riesgo del Match</div><div class="fv">${emp.riesgo_match}</div></div>
+    </div>
+    <div class="fl">🚀 Oportunidad Principal con IA</div><div class="fv" style="font-weight:bold">${emp.oportunidad_ia}</div>
+  </div>
+</div>
+
+<div class="tab-sep" style="background:linear-gradient(135deg,rgba(255,107,107,.1),rgba(255,159,28,.07));border:2px solid rgba(255,107,107,.3)">
+  <div class="tab-icon">📊</div>
+  <div><div class="tab-label" style="color:#a33">Brechas</div><div class="tab-sub">Diagnóstico organizacional en 7 áreas — oportunidades de mejora identificadas</div></div>
+</div>
+
+<div class="ab">
+  <div class="ah">📊 Análisis — Mapa de Brechas Organizacionales</div>
+  <div class="abt">
+    <div class="fl" style="margin-top:0">Brecha más urgente detectada</div>
+    <div class="fv" style="font-weight:bold;margin-bottom:9px">${emp.brecha_principal}</div>
+    <table>
+      <thead><tr><th>Área organizacional</th><th style="width:45px;text-align:center">NOs</th><th style="width:105px">Nivel</th><th>Diagnóstico</th></tr></thead>
+      <tbody>${gapRows}</tbody>
+    </table>
+    <div style="margin-top:8px;font-size:7.5pt;color:#888;font-style:italic">* Cada área tiene 2 preguntas. Mayor cantidad de NOs = mayor brecha = mayor oportunidad para el proyecto NEXO.</div>
+  </div>
+</div>
+
+<div class="ab">
+  <div class="ah">🔍 Detalle Completo del Diagnóstico Organizacional (14 preguntas)</div>
+  <div class="abt">
+    ${DIAG_Q.map(q => {
+      const isOk = resp[q.id]==="si";
+      const ai = AREAS_INFO_E[q.area];
+      return `<div style="display:flex;gap:8px;align-items:flex-start;padding:6px 8px;margin-bottom:5px;background:${isOk?"rgba(46,204,113,.06)":"rgba(255,107,107,.05)"};border-radius:5px;border:1px solid ${isOk?"rgba(46,204,113,.15)":"rgba(255,107,107,.12)"}">
+        <span style="font-size:12pt;flex-shrink:0">${isOk?"✅":"❌"}</span>
+        <div><span style="font-size:6.5pt;font-weight:bold;color:rgb(${ai.col});letter-spacing:.5px">${ai.nombre} · </span><span style="font-size:8.5pt;color:#444;line-height:1.4">${q.texto}</span></div>
+      </div>`;
+    }).join("")}
+  </div>
+</div>
+
+<div class="tab-sep" style="background:linear-gradient(135deg,rgba(155,135,245,.12),rgba(78,205,196,.08));border:2px solid rgba(155,135,245,.35)">
+  <div class="tab-icon">🤝</div>
+  <div><div class="tab-label" style="color:#4527a0">Match</div><div class="tab-sub">Perfil CHASIDE ideal del estudiante, proyecto de 4 semanas y KPI de éxito</div></div>
+</div>
+
+<div class="ab">
+  <div class="ah">🤝 Análisis — Perfil del Estudiante Ideal</div>
+  <div class="abt">
+    <div class="match-box">
+      <div style="font-size:7pt;font-weight:bold;color:#4527a0;letter-spacing:1px;text-transform:uppercase;margin-bottom:3px">Perfil CHASIDE ideal para esta empresa</div>
+      <div style="font-size:14pt;font-weight:900;color:#311b92">${matchData.icon} ${matchData.area}</div>
+    </div>
+    <div class="fl">Descripción del estudiante ideal</div><div class="fv">${match.perfil_ideal}</div>
+    <div class="fl">Por qué este perfil es el correcto</div><div class="fv">${match.por_que_encaja}</div>
+    <div class="two">
+      <div class="box"><div class="fl">Nivel de IA requerido</div><div class="fv">${match.nivel_ia_requerido}</div></div>
+      <div class="box"><div class="fl">Ambiente de trabajo ideal</div><div class="fv">${match.ambiente_ideal}</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="ab">
+  <div class="ah">🎯 Proyecto NEXO — Plan de 4 Semanas</div>
+  <div class="abt">
+    <div style="font-size:11pt;font-weight:900;color:#065f65;margin-bottom:3px">${proy.titulo}</div>
+    <div class="fv"><strong>Objetivo:</strong> ${proy.objetivo}</div>
+    <div class="fv" style="margin-bottom:9px"><strong>Entregable:</strong> ${proy.entregable}</div>
+    <table>
+      <thead><tr><th style="width:75px">Semana</th><th>Actividades y enfoque</th></tr></thead>
+      <tbody>
+        <tr><td style="font-weight:bold;color:#c62828">Semana 1</td><td>${proy.semana1}</td></tr>
+        <tr><td style="font-weight:bold;color:#e65100">Semana 2</td><td>${proy.semana2}</td></tr>
+        <tr><td style="font-weight:bold;color:#065f65">Semana 3</td><td>${proy.semana3}</td></tr>
+        <tr><td style="font-weight:bold;color:#1b5e20">Semana 4</td><td>${proy.semana4}</td></tr>
+      </tbody>
+    </table>
+    <div class="fl" style="margin-top:10px">🛠️ Herramientas de IA a implementar</div>
+    <div class="fv">1. ${proy.herramienta1}</div>
+    <div class="fv">2. ${proy.herramienta2}</div>
+    <div class="fv" style="margin-bottom:0">3. ${proy.herramienta3}</div>
+    <div class="kpi">
+      <div style="font-size:7pt;font-weight:bold;color:#1b5e20;letter-spacing:1px;text-transform:uppercase;margin-bottom:2px">📏 KPI de Éxito a 4 Semanas</div>
+      <div style="font-size:9.5pt;font-weight:bold;color:#1b5e20">${proy.kpi_exito}</div>
+    </div>
+  </div>
+</div>
+
+<div class="foot">
+  <span>NEXO Territorial · UNIT Colombia · 2025</span>
+  <span>${datos.empresa} — Caracterización Empresarial Programa NEXO</span>
+  <span>${fecha}</span>
+</div>
+
+</body></html>`;
+}
+
+// ─── Main App ─────────────────────────────────────────────────────────────────
 function NexoEmpresa() {
-  const [fase, setFase]       = useState("bienvenida");
-  const [datos, setDatos]     = useState({ empresa:"", nit:"", contacto:"", correo:"", sector:"", empleados:"", calificacion:"" });
-  const [errores, setErrores] = useState({});
+  const [fase, setFase]           = useState("bienvenida");
+  const [datos, setDatos]         = useState({ empresa:"", sector:"", calificacion:"", empleados:"" });
+  const [errores, setErrores]     = useState({});
   const [bloqueIdx, setBloqueIdx] = useState(0);
-  const [pregIdx, setPregIdx]   = useState(0);
-  const [resp, setResp]         = useState({});
-  const [reporte, setReporte]   = useState(null);
-  const [lmsg, setLmsg]         = useState("");
-  const [sel, setSel]           = useState(null);
-  const [vista, setVista]       = useState("empresa");
+  const [pregIdx, setPregIdx]     = useState(0);
+  const [resp, setResp]           = useState({});
+  const [reporte, setReporte]     = useState(null);
+  const [lmsg, setLmsg]           = useState("");
+  const [sel, setSel]             = useState(null);
+  const [vista, setVista]         = useState("empresa");
+  const [pdfLoading, setPdfLoading] = useState(false);
 
   useEffect(() => {
     const s = document.createElement("style");
@@ -2376,16 +2656,12 @@ function NexoEmpresa() {
       @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
       @keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
       @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-      .nf{animation:fadeUp .35s ease both}
-      .fi{animation:fadeIn .25s ease both}
-      .no{transition:all .15s!important}
-      .no:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.25)!important}
-      .nb{transition:opacity .15s!important}
-      .nb:hover{opacity:.82!important}
+      .nf{animation:fadeUp .35s ease both}.fi{animation:fadeIn .25s ease both}
+      .no{transition:all .15s!important}.no:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.25)!important}
+      .nb{transition:opacity .15s!important}.nb:hover{opacity:.82!important}
       input,select{outline:none!important;-webkit-appearance:none;appearance:none;}
       select option{background:#110c2a;color:#F5F0FF;}
-      ::-webkit-scrollbar{width:4px}
-      ::-webkit-scrollbar-thumb{background:rgba(78,205,196,.3);border-radius:4px}
+      ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:rgba(78,205,196,.3);border-radius:4px}
     `;
     document.head.appendChild(s);
     return () => document.head.removeChild(s);
@@ -2393,219 +2669,106 @@ function NexoEmpresa() {
 
   useEffect(() => {
     if (fase !== "generando") return;
-    const ms = [
-      "Analizando brechas organizacionales…",
-      "Calculando nivel de madurez en IA…",
-      "Identificando perfil de estudiante ideal…",
-      "Diseñando plan de 4 semanas…",
-      "Finalizando perfil NEXO de la empresa…"
-    ];
-    let i = 0; setLmsg(ms[0]);
-    const iv = setInterval(() => { i=(i+1)%ms.length; setLmsg(ms[i]); }, 1900);
-    return () => clearInterval(iv);
+    const ms = ["Analizando brechas organizacionales…","Calculando nivel de madurez en IA…","Identificando perfil de estudiante ideal…","Diseñando plan de 4 semanas…","Finalizando perfil NEXO de la empresa…"];
+    let i=0; setLmsg(ms[0]);
+    const iv = setInterval(()=>{ i=(i+1)%ms.length; setLmsg(ms[i]); }, 1900);
+    return ()=>clearInterval(iv);
   }, [fase]);
 
-  const BG   = "#0E0A1E";
-  const CARD = "rgba(255,255,255,0.05)";
-  const CARDB= "rgba(78,205,196,0.15)";
-  const TEXT = "#F5F0FF";
-  const MUT  = "rgba(200,185,255,0.5)";
-  const AC   = "#4ECDC4";
-  const AC2  = "#9B87F5";
-  const ff   = "'Nunito','Segoe UI',system-ui,sans-serif";
-  const fb   = "'Inter','Segoe UI',system-ui,sans-serif";
+  const BG="  #0E0A1E", CARD="rgba(255,255,255,0.05)", CARDB="rgba(78,205,196,0.15)", TEXT="#F5F0FF", MUT="rgba(200,185,255,0.5)", AC="#4ECDC4", AC2="#9B87F5";
+  const ff="'Nunito','Segoe UI',system-ui,sans-serif", fb="'Inter','Segoe UI',system-ui,sans-serif";
+  const W  ={minHeight:"100vh",background:BG,color:TEXT,fontFamily:fb,display:"flex",flexDirection:"column",alignItems:"center",padding:"0 16px 80px"};
+  const INN={width:"100%",maxWidth:"540px",paddingTop:"44px"};
+  const H1 ={fontFamily:ff,fontSize:"clamp(24px,6vw,32px)",fontWeight:900,lineHeight:1.1,letterSpacing:"-0.02em",margin:0};
+  const SUB={fontSize:14,color:MUT,lineHeight:1.65,margin:"10px 0 0"};
+  const CD ={background:CARD,border:`1px solid ${CARDB}`,borderRadius:16,padding:"18px"};
+  const colMap=["255,107,107","78,205,196","255,159,28","155,135,245","232,125,200","46,204,113"];
 
-  const W   = { minHeight:"100vh", background:BG, color:TEXT, fontFamily:fb, display:"flex", flexDirection:"column", alignItems:"center", padding:"0 16px 80px" };
-  const INN = { width:"100%", maxWidth:"540px", paddingTop:"44px" };
-  const H1  = { fontFamily:ff, fontSize:"clamp(24px,6vw,32px)", fontWeight:900, lineHeight:1.1, letterSpacing:"-0.02em", margin:0 };
-  const SUB = { fontSize:14, color:MUT, lineHeight:1.65, margin:"10px 0 0" };
-  const CD  = { background:CARD, border:`1px solid ${CARDB}`, borderRadius:16, padding:"18px" };
-  const colMap = ["255,107,107","78,205,196","255,159,28","155,135,245","232,125,200","46,204,113"];
-
-  const bloque   = BLOQUES_E[bloqueIdx];
-  const pregunta = bloque?.preguntas[pregIdx];
-  const totalPregs = BLOQUES_E.reduce((a,b) => a + b.preguntas.length, 0);
-  const pregActual = BLOQUES_E.slice(0,bloqueIdx).reduce((a,b) => a + b.preguntas.length, 0) + pregIdx;
+  const bloque    = BLOQUES_E[bloqueIdx];
+  const pregunta  = bloque?.preguntas[pregIdx];
+  const totalPregs= BLOQUES_E.reduce((a,b)=>a+b.preguntas.length,0);
+  const pregActual= BLOQUES_E.slice(0,bloqueIdx).reduce((a,b)=>a+b.preguntas.length,0)+pregIdx;
 
   const calcGaps = (r) => {
-    const gaps = {};
-    DIAG_Q.forEach(q => {
-      if (!gaps[q.area]) gaps[q.area] = 0;
-      if (r[q.id] === "no") gaps[q.area]++;
-    });
-    return gaps;
+    const g={};
+    DIAG_Q.forEach(q=>{ if(!g[q.area])g[q.area]=0; if(r[q.id]==="no")g[q.area]++; });
+    return g;
   };
 
   const validar = () => {
-    const e = {};
-    if (!datos.empresa.trim())       e.empresa      = "Requerido";
-    if (!datos.nit.trim())           e.nit          = "Requerido";
-    if (!datos.contacto.trim())      e.contacto     = "Requerido";
-    if (!datos.correo.includes("@")) e.correo       = "Email inválido";
-    if (!datos.sector)               e.sector       = "Selecciona un sector";
-    if (!datos.empleados)            e.empleados    = "Requerido";
-    if (!datos.calificacion)         e.calificacion = "Selecciona la calificación";
+    const e={};
+    if (!datos.empresa.trim()) e.empresa="Requerido";
+    if (!datos.sector)         e.sector="Selecciona un sector";
+    if (!datos.calificacion)   e.calificacion="Selecciona la calificación";
+    if (!datos.empleados)      e.empleados="Requerido";
     setErrores(e);
-    return Object.keys(e).length === 0;
+    return Object.keys(e).length===0;
   };
 
   const responder = (v) => {
     setSel(v);
-    setTimeout(() => {
-      const nuevas = { ...resp, [pregunta.id]: v };
+    setTimeout(()=>{
+      const nuevas={...resp,[pregunta.id]:v};
       setResp(nuevas); setSel(null);
-      if (pregIdx < bloque.preguntas.length - 1) {
-        setPregIdx(p => p+1);
-      } else if (bloqueIdx < BLOQUES_E.length - 1) {
-        setBloqueIdx(b => b+1); setPregIdx(0);
-        setFase("transicion");
-        setTimeout(() => setFase("quiz"), 1800);
-      } else {
-        generar(nuevas);
-      }
-    }, 280);
+      if(pregIdx<bloque.preguntas.length-1){ setPregIdx(p=>p+1); }
+      else if(bloqueIdx<BLOQUES_E.length-1){ setBloqueIdx(b=>b+1); setPregIdx(0); setFase("transicion"); setTimeout(()=>setFase("quiz"),1800); }
+      else{ generar(nuevas); }
+    },280);
   };
 
+  const descargarPDF = () => {
+    if (!reporte) return;
+    setPdfLoading(true);
+    try {
+      const html = generarHTMLReporte(datos, resp, reporte, calcGaps);
+      const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+      const url  = URL.createObjectURL(blob);
+      const a    = document.createElement('a');
+      a.href     = url;
+      a.download = `NEXO_${(datos.empresa || 'Empresa').replace(/[^a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]/g,'_')}.html`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    } catch(e) { console.error(e); alert('Error: ' + e.message); }
+    setPdfLoading(false);
+  };
   const generar = async (r) => {
     setFase("generando");
-    const gaps = calcGaps(r);
-    const gapSorted = Object.entries(gaps).sort((a,b) => b[1]-a[1]);
-    const topGapArea = gapSorted[0]?.[0] || "I";
-    const gapLabel = gapSorted.map(([area,score]) => `${AREAS_INFO_E[area].icon} ${AREAS_INFO_E[area].nombre}: ${score}/2 NO`).join(" | ");
-    const iaScore = [r.eia2,r.eia3,r.eia4,r.eia6,r.eia7].map(v=>parseInt(v)||0).reduce((a,b)=>a+b,0);
-    const nivelIA = iaScore>=20?"Empresa lista para liderar IA":iaScore>=13?"Empresa en adopción activa de IA":iaScore>=7?"Empresa iniciando camino en IA":"Empresa en etapa pre-digital";
-    const diagSi = DIAG_Q.filter(q=>r[q.id]==="si").map(q=>q.texto).join("\n- ");
-    const diagNo = DIAG_Q.filter(q=>r[q.id]==="no").map(q=>q.texto).join("\n- ");
+    const gaps=calcGaps(r), gapSorted=Object.entries(gaps).sort((a,b)=>b[1]-a[1]);
+    const topGapArea=gapSorted[0]?.[0]||"I";
+    const gapLabel=gapSorted.map(([area,score])=>`${AREAS_INFO_E[area].icon} ${AREAS_INFO_E[area].nombre}: ${score}/2 NO`).join(" | ");
+    const iaScore=[r.eia2,r.eia3,r.eia4,r.eia6,r.eia7].map(v=>parseInt(v)||0).reduce((a,b)=>a+b,0);
+    const nivelIA=iaScore>=20?"Empresa lista para liderar IA":iaScore>=13?"Empresa en adopción activa de IA":iaScore>=7?"Empresa iniciando camino en IA":"Empresa en etapa pre-digital";
+    const diagSi=DIAG_Q.filter(q=>r[q.id]==="si").map(q=>q.texto).join("\n- ");
+    const diagNo=DIAG_Q.filter(q=>r[q.id]==="no").map(q=>q.texto).join("\n- ");
 
-    const prompt = `Eres NEXO, consultor del programa NEXO Territorial de UNIT Colombia. Analizas perfiles de empresas para conectarlas con estudiantes universitarios como consultores ágiles de IA durante 4 meses.
+    const prompt=`Eres NEXO, consultor del programa NEXO Territorial de UNIT Colombia. Analizas perfiles de empresas para conectarlas con estudiantes universitarios como consultores ágiles de IA durante 4 meses.
 
-DATOS DE LA EMPRESA:
-- Nombre: ${datos.empresa}
-- NIT: ${datos.nit}
-- Contacto: ${datos.contacto} | ${datos.correo}
-- Sector: ${datos.sector}
-- Empleados: ${datos.empleados} | Calificación: ${datos.calificacion}
+DATOS: Empresa: ${datos.empresa} | Sector: ${datos.sector} | Empleados: ${datos.empleados} | Calificación: ${datos.calificacion}
 
-NIVEL 1 — PUNTO DE PARTIDA GERENCIAL:
-- Claridad estratégica: ${r.e_c1}
-- Motivación del gerente: ${r.e_c2}
+N1 PUNTO DE PARTIDA: Claridad: ${r.e_c1} | Motivación: ${r.e_c2}
+N2 DIAGNÓSTICO: ${gapLabel}
+Consolidado: ${diagSi||"ninguno"} | Brechas: ${diagNo||"ninguna"}
+N3 CULTURA: Tiempo libre: ${r.e_cu1} | Molestia: ${r.e_cu2} | Para qué lo buscan: ${r.e_cu3} | Ambiente: ${r.e_cu4}
+N4 CAPACIDADES: Ventaja: ${r.e_cap1} | Mejorar urgente: ${r.e_cap2}
+N5 DIRECCIÓN: Meta 2 años: ${r.e_dir1} | Apoyo: ${r.e_dir2} | Apertura: ${r.e_dir3}
+N6 IA: Herramientas: ${r.eia1||0} | ImportanciaIA: ${r.eia2||1}/5 | LiderarIA: ${r.eia3||1}/5 | CambioProc: ${r.eia4||1}/5 | HorasIA: ${r.eia5||0} | Tolerancia: ${r.eia6||1}/5 | AceptaEstudiante: ${r.eia7||1}/5 | ÁreaIA: ${r.eia8} | Score: ${iaScore}/25 → ${nivelIA} | MayorBrecha: ${AREAS_INFO_E[topGapArea]?.nombre}
 
-NIVEL 2 — DIAGNÓSTICO ORGANIZACIONAL (brechas detectadas):
-${gapLabel}
-Tienen consolidado:
-${diagSi ? `- ${diagSi}` : "Ningún proceso consolidado aún"}
-Brechas (respondieron NO):
-${diagNo ? `- ${diagNo}` : "Sin brechas detectadas"}
+REGLAS: Solo información real. NO inventes datos. Perfil CHASIDE debe corresponder a la mayor brecha. Plan realista para la madurez detectada.
 
-NIVEL 3 — CULTURA Y LIDERAZGO:
-- Actividad en tiempo libre: ${r.e_cu1}
-- Principal molestia organizacional: ${r.e_cu2}
-- Para qué buscan al gerente: ${r.e_cu3}
-- Ambiente de trabajo actual: ${r.e_cu4}
-
-NIVEL 4 — CAPACIDADES ACTUALES:
-- Mayor ventaja competitiva: ${r.e_cap1}
-- Área más urgente de mejorar: ${r.e_cap2}
-
-NIVEL 5 — DIRECCIÓN ESTRATÉGICA:
-- Meta a 2 años: ${r.e_dir1}
-- Tipo de apoyo que más valora: ${r.e_dir2}
-- Apertura a herramientas nuevas: ${r.e_dir3}
-
-NIVEL 6 — PERFIL IA:
-- Herramientas IA usadas hoy: ${r.eia1||"0"}
-- Importancia IA (1-5): ${r.eia2||"1"}
-- Quiere liderar IA (1-5): ${r.eia3||"1"}
-- Disposición al cambio (1-5): ${r.eia4||"1"}
-- Horas explorando IA: Nivel ${r.eia5||"0"}
-- Tolerancia frustración (1-5): ${r.eia6||"1"}
-- Acepta ser liderado por estudiante (1-5): ${r.eia7||"1"}
-- Área de interés IA: ${r.eia8}
-- Score global IA (0-25): ${iaScore} → ${nivelIA}
-- Área con mayor brecha: ${AREAS_INFO_E[topGapArea]?.nombre||"Por definir"}
-
-REGLAS:
-- Solo usa información real. NO inventes datos ni competencias.
-- Usa "muestra potencial para", "la empresa podría", "sería valioso".
-- Sé honesto sobre la madurez real.
-- El área CHASIDE del estudiante ideal debe corresponder a la mayor brecha detectada.
-- El plan de 4 semanas debe ser REALISTA para el nivel de madurez identificado.
-
-Responde SOLO JSON válido, sin backticks ni markdown:
-{
-  "empresa":{
-    "nombre_perfil":"Nombre creativo del perfil en 3-4 palabras (ej: La Empresa en Transición, El Negocio con Hambre de Crecer)",
-    "frase":"Frase en primera persona del gerente que capture su motivación y mayor reto. Directa y honesta.",
-    "nivel_madurez":"Nivel de madurez organizacional y qué significa para el proyecto. 1-2 líneas.",
-    "cultura":"Cómo es la cultura según respuestas del gerente. 1-2 líneas honestas.",
-    "brecha_principal":"Gap más crítico detectado y por qué es el más urgente. 1 línea.",
-    "fortaleza_oculta":"Una fortaleza que la empresa ya tiene y puede aprovecharse como base. 1 línea.",
-    "riesgo_match":"Un riesgo real que puede dificultar el match o el proyecto. 1 línea honesta.",
-    "oportunidad_ia":"La oportunidad más concreta de IA para esta empresa según sus brechas. 1-2 líneas."
-  },
-  "match":{
-    "area_chaside_ideal":"Una sola letra: C, H, A, S, I, D, o E",
-    "perfil_ideal":"Descripción del estudiante ideal para esta empresa. 2-3 líneas.",
-    "por_que_encaja":"Por qué ese perfil CHASIDE es el correcto para la brecha detectada. 1-2 líneas.",
-    "nivel_ia_requerido":"Qué nivel de IA necesita el estudiante para impactar aquí. 1 línea.",
-    "ambiente_ideal":"Qué tipo de ambiente necesita el estudiante para rendir en esta empresa. 1 línea."
-  },
-  "proyecto":{
-    "titulo":"Nombre creativo del proyecto de 4 meses. Específico al sector y brecha.",
-    "objetivo":"Objetivo principal en 1 línea concreta.",
-    "entregable":"Qué entregará el estudiante al final. 1 línea.",
-    "semana1":"Semana 1 — observación e inmersión. Específico.",
-    "semana2":"Semana 2 — diagnóstico y propuesta de solución. Específico.",
-    "semana3":"Semana 3 — implementación de la herramienta IA. Específico.",
-    "semana4":"Semana 4 — medición, ajuste y transferencia de conocimiento. Específico.",
-    "herramienta1":"Primera herramienta de IA a implementar y por qué.",
-    "herramienta2":"Segunda herramienta de IA a implementar.",
-    "herramienta3":"Tercera herramienta o recurso clave.",
-    "kpi_exito":"Cómo se medirá el éxito al finalizar. 1 línea concreta."
-  }
-}`;
+Responde SOLO JSON sin backticks:
+{"empresa":{"nombre_perfil":"3-4 palabras creativas","frase":"frase 1a persona del gerente directa y honesta","nivel_madurez":"1-2 líneas","cultura":"1-2 líneas honestas","brecha_principal":"1 línea","fortaleza_oculta":"1 línea","riesgo_match":"1 línea","oportunidad_ia":"1-2 líneas"},"match":{"area_chaside_ideal":"C|H|A|S|I|D|E","perfil_ideal":"2-3 líneas","por_que_encaja":"1-2 líneas","nivel_ia_requerido":"1 línea","ambiente_ideal":"1 línea"},"proyecto":{"titulo":"nombre creativo específico","objetivo":"1 línea","entregable":"1 línea","semana1":"específico","semana2":"específico","semana3":"específico","semana4":"específico","herramienta1":"IA tool + por qué","herramienta2":"IA tool","herramienta3":"IA tool o recurso","kpi_exito":"1 línea concreta"}}`;
 
     try {
-      const res = await fetch("/.netlify/functions/apiclaude", {
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body: JSON.stringify({ model:"claude-sonnet-4-20250514", max_tokens:1600, messages:[{ role:"user", content:prompt }] })
-      });
-      const d = await res.json();
-      const txt = d.content.map(i=>i.text||"").join("");
+      const res=await fetch("/.netlify/functions/apiclaude",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:1600,messages:[{role:"user",content:prompt}]})});
+      const d=await res.json(), txt=d.content.map(i=>i.text||"").join("");
       setReporte(JSON.parse(txt.replace(/```json|```/g,"").trim()));
-    } catch(e) {
+    } catch {
       setReporte({
-        empresa:{
-          nombre_perfil:"El Negocio con Potencial",
-          frase:"Queremos crecer, pero necesitamos ayuda para saber por dónde empezar.",
-          nivel_madurez:"Empresa en etapa de formalización — tiene bases pero le falta estructura digital y organizacional.",
-          cultura:"Cultura centrada en el gerente, con equipo comprometido pero sin procesos formales.",
-          brecha_principal:`Área de ${AREAS_INFO_E[topGapArea]?.nombre||"procesos"} — sin sistemas estructurados que soporten el crecimiento.`,
-          fortaleza_oculta:"Conocimiento profundo del mercado y relaciones sólidas con clientes existentes.",
-          riesgo_match:"El ritmo de cambio puede ser lento si el gerente no libera tiempo para el proyecto.",
-          oportunidad_ia:"Automatizar tareas repetitivas con IA para liberar tiempo del equipo en lo que realmente importa."
-        },
-        match:{
-          area_chaside_ideal:topGapArea,
-          perfil_ideal:`Estudiante con perfil en ${MATCH_CHASIDE[topGapArea]?.area||"tecnología"} que pueda diagnosticar y proponer soluciones prácticas con IA desde la semana 1.`,
-          por_que_encaja:"Su perfil vocacional coincide exactamente con la brecha más crítica detectada en la empresa.",
-          nivel_ia_requerido:"Usuario activo de IA con disposición a aprender y a enseñar herramientas específicas.",
-          ambiente_ideal:"Empresa con gerente disponible al menos 30 min/semana para acompañar el proceso."
-        },
-        proyecto:{
-          titulo:"Proyecto Diagnóstico y Digitalización NEXO",
-          objetivo:"Identificar y resolver con IA el proceso más crítico de la empresa en 4 semanas.",
-          entregable:"Un proceso mejorado implementado, documentado y con el equipo capacitado para mantenerlo.",
-          semana1:"Observar el negocio, mapear procesos y entrevistar al equipo clave.",
-          semana2:"Presentar diagnóstico y proponer 3 soluciones con IA al gerente.",
-          semana3:"Implementar la solución priorizada con el equipo.",
-          semana4:"Medir resultados, ajustar y capacitar al equipo para que la mantenga.",
-          herramienta1:"ChatGPT / Claude — para analizar procesos y generar propuestas.",
-          herramienta2:"Make / Zapier — para automatizar flujos sin programar.",
-          herramienta3:"Notion IA — para documentar procesos y crear manuales del equipo.",
-          kpi_exito:"Al menos 1 proceso mejorado con IA, documentado y adoptado por el equipo."
-        }
+        empresa:{nombre_perfil:"El Negocio con Potencial",frase:"Queremos crecer, pero necesitamos ayuda para saber por dónde empezar.",nivel_madurez:"Empresa en etapa de formalización — tiene bases pero le falta estructura digital y organizacional.",cultura:"Cultura centrada en el gerente, con equipo comprometido pero sin procesos formales.",brecha_principal:`Área de ${AREAS_INFO_E[topGapArea]?.nombre||"procesos"} sin sistemas estructurados que soporten el crecimiento.`,fortaleza_oculta:"Conocimiento profundo del mercado y relaciones sólidas con clientes existentes.",riesgo_match:"El ritmo de cambio puede ser lento si el gerente no libera tiempo para el proyecto.",oportunidad_ia:"Automatizar tareas repetitivas con IA para liberar tiempo del equipo en lo que realmente importa."},
+        match:{area_chaside_ideal:topGapArea,perfil_ideal:`Estudiante con perfil en ${MATCH_CHASIDE[topGapArea]?.area||"tecnología"} que proponga soluciones prácticas con IA desde la semana 1.`,por_que_encaja:"Su perfil vocacional coincide exactamente con la brecha más crítica detectada.",nivel_ia_requerido:"Usuario activo de IA con disposición a aprender y a enseñar.",ambiente_ideal:"Empresa con gerente disponible al menos 30 min/semana para acompañar el proceso."},
+        proyecto:{titulo:"Proyecto Diagnóstico y Digitalización NEXO",objetivo:"Identificar y resolver con IA el proceso más crítico de la empresa en 4 semanas.",entregable:"Un proceso mejorado, documentado y con el equipo capacitado para mantenerlo.",semana1:"Observar el negocio, mapear procesos y entrevistar al equipo clave.",semana2:"Presentar diagnóstico y proponer 3 soluciones con IA al gerente.",semana3:"Implementar la solución priorizada con el equipo.",semana4:"Medir resultados, ajustar y capacitar al equipo para mantenerla.",herramienta1:"ChatGPT / Claude — analizar procesos y generar propuestas de solución.",herramienta2:"Make / Zapier — automatizar flujos sin programar.",herramienta3:"Notion IA — documentar procesos y crear manuales del equipo.",kpi_exito:"Al menos 1 proceso mejorado con IA, documentado y adoptado por el equipo."}
       });
     }
     try {
@@ -2616,9 +2779,6 @@ Responde SOLO JSON válido, sin backticks ni markdown:
           webhook: "https://hook.us2.make.com/htsw06w8iidx49m60r3fkmo4dx6iiryi",
           data: {
             empresa: datos.empresa,
-            nit: datos.nit,
-            contacto: datos.contacto,
-            correo: datos.correo,
             sector: datos.sector,
             empleados: datos.empleados,
             calificacion: datos.calificacion,
@@ -2634,619 +2794,326 @@ Responde SOLO JSON válido, sin backticks ni markdown:
             nivel_ia: nivelIA || "",
             score_ia: iaScore || 0,
             brecha_principal: AREAS_INFO_E[topGapArea]?.nombre || "",
-            area_chaside_ideal: reporte?.match?.area_chaside_ideal || "",
-            perfil_ideal: reporte?.match?.perfil_ideal || "",
-            titulo_proyecto: reporte?.proyecto?.titulo || "",
-            objetivo_proyecto: reporte?.proyecto?.objetivo || "",
             fecha: new Date().toLocaleString('es-CO'),
-            formulario: "empresa"
+            formulario: "empresa-perfil"
           }
         })
       });
-    } catch(webhookError) {
-      console.log("Webhook empresa error:", webhookError);
-    }
+    } catch(webhookError) { console.log("Webhook empresa error:", webhookError); }
     setFase("resultado");
   };
 
   const reset = () => {
     setFase("bienvenida"); setBloqueIdx(0); setPregIdx(0);
     setResp({}); setReporte(null); setSel(null); setVista("empresa");
-    setDatos({ empresa:"", nit:"", contacto:"", correo:"", sector:"", empleados:"", calificacion:"" });
+    setDatos({empresa:"",sector:"",calificacion:"",empleados:""});
     setErrores({});
   };
 
   const Logo = () => (
-    <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:24 }}>
-      <div style={{ background:"linear-gradient(135deg,#4ECDC4,#9B87F5)", borderRadius:10, padding:"4px 12px" }}>
-        <span style={{ fontFamily:ff, fontWeight:900, fontSize:18, color:"#fff", letterSpacing:"-0.03em" }}>unit</span>
+    <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:24}}>
+      <div style={{background:"linear-gradient(135deg,#4ECDC4,#9B87F5)",borderRadius:10,padding:"4px 12px"}}>
+        <span style={{fontFamily:ff,fontWeight:900,fontSize:18,color:"#fff",letterSpacing:"-0.03em"}}>unit</span>
       </div>
-      <span style={{ fontSize:11, color:MUT, fontWeight:600, letterSpacing:"0.12em" }}>NEXO TERRITORIAL · EMPRESA</span>
+      <span style={{fontSize:11,color:MUT,fontWeight:600,letterSpacing:"0.12em"}}>NEXO TERRITORIAL · EMPRESA</span>
     </div>
   );
 
-  const GBtn = ({ onClick, children, outline, small }) => (
-    <button className="nb" onClick={onClick} style={{
-      background: outline?"transparent":"linear-gradient(135deg,#4ECDC4,#9B87F5)",
-      color: outline?AC:"#fff",
-      border: outline?`1.5px solid rgba(78,205,196,0.3)`:"none",
-      borderRadius:12, padding:small?"12px":"15px", fontSize:small?13:15,
-      fontWeight:700, cursor:"pointer", width:"100%", fontFamily:ff
-    }}>{children}</button>
+  const GBtn = ({onClick,children,outline,small}) => (
+    <button className="nb" onClick={onClick} style={{background:outline?"transparent":"linear-gradient(135deg,#4ECDC4,#9B87F5)",color:outline?AC:"#fff",border:outline?"1.5px solid rgba(78,205,196,0.3)":"none",borderRadius:12,padding:small?"12px":"15px",fontSize:small?13:15,fontWeight:700,cursor:"pointer",width:"100%",fontFamily:ff}}>{children}</button>
   );
 
-  const Tag = ({ children, col }) => (
-    <span style={{ display:"inline-block", background:`rgba(${col||"78,205,196"},.12)`, border:`1px solid rgba(${col||"78,205,196"},.25)`, borderRadius:100, padding:"3px 12px", fontSize:11, color:`rgb(${col||"78,205,196"})`, fontWeight:700, letterSpacing:"0.08em" }}>{children}</span>
-  );
-
-  // ── BIENVENIDA ──────────────────────────────────────────────────────────────
-  if (fase === "bienvenida") return (
-    <div style={W}>
-      <div style={INN} className="nf">
-        <Logo/>
-        <div style={{ display:"inline-block", background:"linear-gradient(135deg,rgba(78,205,196,.15),rgba(155,135,245,.15))", border:"1px solid rgba(78,205,196,.3)", borderRadius:100, padding:"4px 14px", fontSize:11, color:AC, fontWeight:700, letterSpacing:"0.1em", marginBottom:14 }}>
-          CARACTERIZACIÓN NEXO · EMPRESA 2025
-        </div>
-        <h1 style={H1}>El diagnóstico que su<br/>
-          <span style={{ background:"linear-gradient(135deg,#4ECDC4,#9B87F5)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", backgroundClip:"text" }}>empresa necesitaba</span>
-        </h1>
-        <p style={{ ...SUB, marginBottom:24 }}>
-          Preguntas sobre su empresa, cultura organizacional y relación con la IA. Al final recibe el perfil de su empresa y el estudiante ideal para el mejor match.
-        </p>
-
-        <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr 1fr", gap:8, marginBottom:24 }}>
-          {BLOQUES_E.map((b,i) => (
-            <div key={i} style={{ background:CARD, border:`1px solid rgba(${colMap[i]||"78,205,196"},.2)`, borderRadius:12, padding:"12px 8px", textAlign:"center" }}>
-              <span style={{ fontSize:20 }}>{b.icon}</span>
-              <div style={{ fontFamily:ff, fontSize:10, fontWeight:800, color:`rgb(${colMap[i]||"78,205,196"})`, margin:"4px 0 2px", letterSpacing:"0.08em" }}>N{b.nivel}</div>
-              <div style={{ fontSize:10, color:MUT, lineHeight:1.3 }}>{b.titulo}</div>
-            </div>
-          ))}
-        </div>
-
-        <div style={{ ...CD, marginBottom:24, background:"rgba(78,205,196,0.05)", border:"1px solid rgba(78,205,196,0.2)" }}>
-          <div style={{ display:"flex", gap:10, alignItems:"flex-start" }}>
-            <span style={{ fontSize:22, flexShrink:0 }}>🔍</span>
-            <div>
-              <p style={{ margin:"0 0 4px", fontSize:12, fontWeight:700, color:AC }}>Diagnóstico honesto de su empresa</p>
-              <p style={{ margin:0, fontSize:12, color:MUT, lineHeight:1.5 }}>Identificamos sus brechas organizacionales y de IA para conectarle con el estudiante que más impacto puede generar en su negocio.</p>
-            </div>
-          </div>
-        </div>
-
-        <GBtn onClick={() => setFase("datos")}>Comenzar caracterización →</GBtn>
-        <p style={{ ...SUB, fontSize:11, textAlign:"center", marginTop:12 }}>{totalPregs} preguntas · ~10 minutos</p>
+  // ── BIENVENIDA ──
+  if(fase==="bienvenida") return (<div style={W}><div style={INN} className="nf">
+    <Logo/>
+    <div style={{display:"inline-block",background:"linear-gradient(135deg,rgba(78,205,196,.15),rgba(155,135,245,.15))",border:"1px solid rgba(78,205,196,.3)",borderRadius:100,padding:"4px 14px",fontSize:11,color:AC,fontWeight:700,letterSpacing:"0.1em",marginBottom:14}}>CARACTERIZACIÓN NEXO · EMPRESA 2025</div>
+    <h1 style={H1}>El diagnóstico que su<br/><span style={{background:"linear-gradient(135deg,#4ECDC4,#9B87F5)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",backgroundClip:"text"}}>empresa necesitaba</span></h1>
+    <p style={{...SUB,marginBottom:24}}>Preguntas sobre su empresa, cultura organizacional y relación con la IA. Al final recibe el perfil completo y puede descargar el reporte en PDF.</p>
+    <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:8,marginBottom:24}}>
+      {BLOQUES_E.map((b,i)=>(<div key={i} style={{background:CARD,border:`1px solid rgba(${colMap[i]||"78,205,196"},.2)`,borderRadius:12,padding:"12px 8px",textAlign:"center"}}>
+        <span style={{fontSize:20}}>{b.icon}</span>
+        <div style={{fontFamily:ff,fontSize:10,fontWeight:800,color:`rgb(${colMap[i]||"78,205,196"})`,margin:"4px 0 2px",letterSpacing:"0.08em"}}>N{b.nivel}</div>
+        <div style={{fontSize:10,color:MUT,lineHeight:1.3}}>{b.titulo}</div>
+      </div>))}
+    </div>
+    <div style={{...CD,marginBottom:24,background:"rgba(78,205,196,0.05)",border:"1px solid rgba(78,205,196,0.2)"}}>
+      <div style={{display:"flex",gap:10,alignItems:"flex-start"}}>
+        <span style={{fontSize:22,flexShrink:0}}>📄</span>
+        <div><p style={{margin:"0 0 4px",fontSize:12,fontWeight:700,color:AC}}>PDF completo al final</p><p style={{margin:0,fontSize:12,color:MUT,lineHeight:1.5}}>Incluye todas las preguntas, respuestas y el análisis completo de brechas, perfil IA y plan de match generado por IA.</p></div>
       </div>
     </div>
-  );
+    <GBtn onClick={()=>setFase("datos")}>Comenzar caracterización →</GBtn>
+    <p style={{...SUB,fontSize:11,textAlign:"center",marginTop:12}}>{totalPregs} preguntas · ~10 minutos</p>
+  </div></div>);
 
-  // ── DATOS ───────────────────────────────────────────────────────────────────
-  if (fase === "datos") return (
-    <div style={W}>
-      <div style={INN} className="nf">
-        <Logo/>
-        <div style={{ display:"inline-block", background:"rgba(78,205,196,.1)", border:"1px solid rgba(78,205,196,.25)", borderRadius:100, padding:"4px 14px", fontSize:11, color:AC, fontWeight:700, letterSpacing:"0.1em", marginBottom:12 }}>
-          PASO 1 DE 2 — DATOS DE LA EMPRESA
-        </div>
-        <h2 style={{ ...H1, fontSize:"clamp(20px,5vw,26px)", marginBottom:6 }}>Datos de la empresa</h2>
-        <p style={{ ...SUB, marginBottom:24 }}>Esta información es confidencial y se usa solo dentro del programa NEXO.</p>
+  // ── DATOS ──
+  if(fase==="datos") return (<div style={W}><div style={INN} className="nf">
+    <Logo/>
+    <div style={{display:"inline-block",background:"rgba(78,205,196,.1)",border:"1px solid rgba(78,205,196,.25)",borderRadius:100,padding:"4px 14px",fontSize:11,color:AC,fontWeight:700,letterSpacing:"0.1em",marginBottom:12}}>PASO 1 DE 2 — DATOS DE LA EMPRESA</div>
+    <h2 style={{...H1,fontSize:"clamp(20px,5vw,26px)",marginBottom:6}}>Datos de la empresa</h2>
+    <p style={{...SUB,marginBottom:24}}>Solo lo esencial para iniciar el diagnóstico.</p>
 
-        {[
-          { label:"NOMBRE DE LA EMPRESA", icon:"🏢", field:"empresa", ph:"Ej: Panadería La Esperanza" },
-          { label:"NIT", icon:"🔢", field:"nit", ph:"Ej: 900.123.456-7" },
-          { label:"PERSONA DE CONTACTO", icon:"👤", field:"contacto", ph:"Ej: Carlos Rodríguez" },
-          { label:"CORREO ELECTRÓNICO", icon:"📧", field:"correo", type:"email", ph:"contacto@empresa.com" },
-        ].map(f => (
-          <div key={f.field} style={{ marginBottom:14 }}>
-            <label style={{ display:"block", fontSize:11, fontWeight:700, color:AC, letterSpacing:"0.1em", marginBottom:6 }}>{f.icon} {f.label}</label>
-            <input type={f.type||"text"} placeholder={f.ph} value={datos[f.field]}
-              onChange={e => setDatos(p=>({...p,[f.field]:e.target.value}))}
-              style={{ width:"100%", background:"rgba(255,255,255,0.06)", border:`1.5px solid ${errores[f.field]?"#FF6B6B":"rgba(78,205,196,0.2)"}`, borderRadius:12, padding:"13px 14px", fontSize:14, color:TEXT, fontFamily:fb, boxSizing:"border-box" }}/>
-            {errores[f.field] && <p style={{ margin:"4px 0 0", fontSize:11, color:"#FF6B6B" }}>{errores[f.field]}</p>}
-          </div>
+    <div style={{marginBottom:14}}>
+      <label style={{display:"block",fontSize:11,fontWeight:700,color:AC,letterSpacing:"0.1em",marginBottom:6}}>🏢 NOMBRE DE LA EMPRESA</label>
+      <input type="text" placeholder="Ej: Panadería La Esperanza" value={datos.empresa} onChange={e=>setDatos(p=>({...p,empresa:e.target.value}))}
+        style={{width:"100%",background:"rgba(255,255,255,0.06)",border:`1.5px solid ${errores.empresa?"#FF6B6B":"rgba(78,205,196,0.2)"}`,borderRadius:12,padding:"13px 14px",fontSize:14,color:TEXT,fontFamily:fb,boxSizing:"border-box"}}/>
+      {errores.empresa&&<p style={{margin:"4px 0 0",fontSize:11,color:"#FF6B6B"}}>{errores.empresa}</p>}
+    </div>
+
+    <div style={{marginBottom:14}}>
+      <label style={{display:"block",fontSize:11,fontWeight:700,color:AC,letterSpacing:"0.1em",marginBottom:6}}>🏭 SECTOR</label>
+      <select value={datos.sector} onChange={e=>setDatos(p=>({...p,sector:e.target.value}))}
+        style={{width:"100%",background:"rgba(255,255,255,0.06)",border:`1.5px solid ${errores.sector?"#FF6B6B":"rgba(78,205,196,0.2)"}`,borderRadius:12,padding:"13px 14px",fontSize:14,color:datos.sector?TEXT:MUT,fontFamily:fb,boxSizing:"border-box",cursor:"pointer"}}>
+        <option value="">Selecciona el sector</option>
+        {SECTORES.map(s=><option key={s} value={s}>{s}</option>)}
+      </select>
+      {errores.sector&&<p style={{margin:"4px 0 0",fontSize:11,color:"#FF6B6B"}}>{errores.sector}</p>}
+    </div>
+
+    <div style={{marginBottom:14}}>
+      <label style={{display:"block",fontSize:11,fontWeight:700,color:AC,letterSpacing:"0.1em",marginBottom:8}}>📊 CALIFICACIÓN EMPRESARIAL</label>
+      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:8}}>
+        {[{v:"Microempresa",icon:"🌱"},{v:"Pequeña",icon:"🌿"},{v:"Mediana",icon:"🌳"}].map(c=>{
+          const isS=datos.calificacion===c.v;
+          return (<button key={c.v} type="button" onClick={()=>setDatos(p=>({...p,calificacion:c.v}))}
+            style={{background:isS?"rgba(78,205,196,0.2)":"rgba(255,255,255,0.06)",border:`1.5px solid ${isS?"#4ECDC4":"rgba(78,205,196,0.2)"}`,borderRadius:12,padding:"14px 8px",cursor:"pointer",color:isS?"#4ECDC4":"#F5F0FF",fontFamily:ff,textAlign:"center",transition:"all .2s"}}>
+            <div style={{fontSize:20,marginBottom:6}}>{c.icon}</div>
+            <div style={{fontSize:12,fontWeight:800}}>{c.v}</div>
+          </button>);
+        })}
+      </div>
+      {errores.calificacion&&<p style={{margin:"4px 0 0",fontSize:11,color:"#FF6B6B"}}>{errores.calificacion}</p>}
+    </div>
+
+    <div style={{marginBottom:24}}>
+      <label style={{display:"block",fontSize:11,fontWeight:700,color:AC,letterSpacing:"0.1em",marginBottom:6}}>👥 NÚMERO DE EMPLEADOS</label>
+      <select value={datos.empleados} onChange={e=>setDatos(p=>({...p,empleados:e.target.value}))}
+        style={{width:"100%",background:"rgba(255,255,255,0.06)",border:`1.5px solid ${errores.empleados?"#FF6B6B":"rgba(78,205,196,0.2)"}`,borderRadius:12,padding:"13px 14px",fontSize:14,color:datos.empleados?TEXT:MUT,fontFamily:fb,boxSizing:"border-box",cursor:"pointer"}}>
+        <option value="">Selecciona el rango</option>
+        {["1-5","6-10","11-20","21-50","51-100","101-200"].map(r=><option key={r} value={r}>{r} empleados</option>)}
+      </select>
+      {errores.empleados&&<p style={{margin:"4px 0 0",fontSize:11,color:"#FF6B6B"}}>{errores.empleados}</p>}
+    </div>
+
+    <GBtn onClick={()=>{if(validar())setFase("quiz");}}>Iniciar diagnóstico →</GBtn>
+    <button className="nb" onClick={()=>setFase("bienvenida")} style={{background:"transparent",color:MUT,border:"none",padding:"12px",fontSize:13,cursor:"pointer",width:"100%",marginTop:6,fontFamily:fb}}>← Volver</button>
+  </div></div>);
+
+  // ── TRANSICIÓN ──
+  if(fase==="transicion"){
+    const b=BLOQUES_E[bloqueIdx], col=colMap[bloqueIdx]||"78,205,196";
+    return(<div style={{...W,justifyContent:"center",textAlign:"center"}}><div className="nf">
+      <Logo/>
+      <div style={{fontSize:56,lineHeight:1,marginBottom:14}}>{b.icon}</div>
+      <div style={{display:"inline-block",background:`rgba(${col},.12)`,border:`1px solid rgba(${col},.25)`,borderRadius:100,padding:"4px 14px",fontSize:11,color:`rgb(${col})`,fontWeight:700,letterSpacing:"0.1em",marginBottom:12}}>NIVEL {b.nivel}</div>
+      <h2 style={{...H1,fontSize:24,textAlign:"center",marginBottom:8,color:`rgb(${col})`}}>{b.titulo}</h2>
+      <p style={{...SUB,textAlign:"center",maxWidth:320,margin:"8px auto 0"}}>{b.intro}</p>
+    </div></div>);
+  }
+
+  // ── QUIZ ──
+  if(fase==="quiz"&&bloque&&pregunta){
+    const pct=(pregActual/totalPregs)*100, col=colMap[bloqueIdx]||"78,205,196";
+    const areaBadge=pregunta.area?(()=>{const ai=AREAS_INFO_E[pregunta.area];if(!ai)return null;return(<div style={{display:"inline-flex",alignItems:"center",gap:6,background:`rgba(${ai.col},.1)`,border:`1px solid rgba(${ai.col},.25)`,borderRadius:100,padding:"4px 12px",marginBottom:10}}><span style={{fontSize:12}}>{ai.icon}</span><span style={{fontSize:10,color:`rgb(${ai.col})`,fontWeight:700,letterSpacing:"0.08em"}}>{ai.nombre.toUpperCase()}</span></div>);})():null;
+
+    const renderSino=()=>(<div style={{display:"flex",flexDirection:"column",gap:10}}><div style={{display:"flex",gap:10}}>
+      {["si","no"].map(v=>{const isS=sel===v,isSi=v==="si",bc=isSi?"46,204,113":"255,107,107";return(<button key={v} className="no" onClick={()=>responder(v)} style={{flex:1,background:isS?`rgba(${bc},.18)`:CARD,border:`2px solid ${isS?`rgb(${bc})`:"rgba(78,205,196,0.15)"}`,borderRadius:18,padding:"24px 16px",cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",gap:8,boxShadow:isS?`0 0 0 4px rgba(${bc},.15)`:"none"}}><span style={{fontSize:36}}>{isSi?"✅":"❌"}</span><span style={{fontFamily:ff,fontSize:20,fontWeight:900,color:isS?`rgb(${bc})`:TEXT}}>{isSi?"SÍ":"NO"}</span></button>);})}
+    </div>{bloque.id==="diagnostico"&&<p style={{textAlign:"center",fontSize:11,color:MUT,margin:0}}>Pregunta {pregIdx+1} de {bloque.preguntas.length} en diagnóstico organizacional</p>}</div>);
+
+    const renderEscala=()=>(<div><div style={{display:"flex",justifyContent:"space-between",marginBottom:8}}><span style={{fontSize:10,color:MUT,fontWeight:600,maxWidth:"42%",lineHeight:1.4}}>{pregunta.escalaMin}</span><span style={{fontSize:10,color:MUT,fontWeight:600,maxWidth:"42%",textAlign:"right",lineHeight:1.4}}>{pregunta.escalaMax}</span></div><div style={{display:"flex",gap:8,justifyContent:"center"}}>{pregunta.opciones.map(o=>{const isS=sel===o.v;return(<button key={o.v} className="no" onClick={()=>responder(o.v)} style={{flex:1,aspectRatio:"1",background:isS?`rgba(${col},.22)`:CARD,border:`2px solid ${isS?`rgb(${col})`:"rgba(78,205,196,0.15)"}`,borderRadius:14,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",fontFamily:ff,fontSize:20,fontWeight:900,color:isS?`rgb(${col})`:MUT,boxShadow:isS?`0 0 0 4px rgba(${col},.15)`:"none"}}>{o.v}</button>);})}</div></div>);
+
+    const renderNumero=()=>(<div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:8}}>{pregunta.opciones.map(o=>{const isS=sel===o.v;return(<button key={o.v} className="no" onClick={()=>responder(o.v)} style={{background:isS?`rgba(${col},.2)`:CARD,border:`2px solid ${isS?`rgb(${col})`:"rgba(78,205,196,0.15)"}`,borderRadius:14,padding:"16px 8px",cursor:"pointer",textAlign:"center",boxShadow:isS?`0 0 0 4px rgba(${col},.15)`:"none"}}><div style={{fontFamily:ff,fontSize:28,fontWeight:900,color:isS?`rgb(${col})`:TEXT,marginBottom:4}}>{o.label}</div><div style={{fontSize:10,color:MUT,lineHeight:1.3}}>{o.sub}</div></button>);})}</div>);
+
+    const renderOpcion=()=>(<div style={{display:"flex",flexDirection:"column",gap:7}}>{pregunta.opciones.map((o,i)=>{const isS=sel===o.v;return(<button key={i} className="no" onClick={()=>responder(o.v)} style={{background:isS?`rgba(${col},.15)`:CARD,border:`1.5px solid ${isS?`rgb(${col})`:CARDB}`,borderRadius:13,padding:"13px 15px",fontSize:13,color:isS?`rgb(${col})`:TEXT,cursor:"pointer",textAlign:"left",lineHeight:1.4,fontFamily:fb,width:"100%",boxShadow:isS?`0 0 0 3px rgba(${col},.1)`:"none"}}><span style={{fontWeight:700,display:"block",marginBottom:o.sub?2:0}}>{o.label}</span>{o.sub&&<span style={{fontSize:11,opacity:.65,fontWeight:400}}>{o.sub}</span>}</button>);})}</div>);
+
+    return(<div style={W}><div style={INN} className="nf">
+      <Logo/>
+      <div style={{marginBottom:20}}>
+        <div style={{display:"flex",justifyContent:"space-between",marginBottom:7}}><span style={{fontSize:11,color:`rgb(${col})`,fontWeight:700,letterSpacing:"0.1em"}}>{bloque.icon} {bloque.titulo.toUpperCase()}</span><span style={{fontSize:11,color:MUT,fontWeight:600}}>{pregActual+1}/{totalPregs}</span></div>
+        <div style={{height:3,background:"rgba(255,255,255,0.06)",borderRadius:2}}><div style={{height:"100%",width:`${pct}%`,background:`linear-gradient(90deg,rgb(${col}),${AC2})`,borderRadius:2,transition:"width .4s ease"}}/></div>
+      </div>
+      {areaBadge}
+      {pregunta.hint&&<div style={{background:`rgba(${col},.07)`,border:`1px solid rgba(${col},.15)`,borderRadius:10,padding:"9px 13px",marginBottom:14,fontSize:12,color:`rgb(${col})`,lineHeight:1.5,fontStyle:"italic"}}>{pregunta.hint}</div>}
+      <h2 style={{...H1,fontSize:"clamp(15px,4.5vw,20px)",marginBottom:22,fontStyle:pregunta.tipo==="escala"?"italic":"normal"}}>{pregunta.texto}</h2>
+      {pregunta.tipo==="sino"&&renderSino()}
+      {pregunta.tipo==="escala"&&renderEscala()}
+      {pregunta.tipo==="numero"&&renderNumero()}
+      {pregunta.tipo==="opcion"&&renderOpcion()}
+    </div></div>);
+  }
+
+  // ── GENERANDO ──
+  if(fase==="generando") return(<div style={{...W,justifyContent:"center",textAlign:"center"}}><div className="nf">
+    <Logo/>
+    <div style={{fontSize:52,marginBottom:14}}>🔍</div>
+    <h2 style={{...H1,fontSize:22,textAlign:"center",marginBottom:10}}>Analizando el perfil<br/>de su empresa</h2>
+    <p style={{...SUB,textAlign:"center",fontSize:13,minHeight:20}}>{lmsg}</p>
+    <div style={{marginTop:24,display:"flex",justifyContent:"center",gap:8}}>
+      {[0,1,2].map(i=><div key={i} style={{width:7,height:7,borderRadius:"50%",background:`linear-gradient(135deg,${AC},${AC2})`,animation:"pulse 1.4s ease infinite",animationDelay:`${i*0.22}s`}}/>)}
+    </div>
+  </div></div>);
+
+  // ── RESULTADO ──
+  if(fase==="resultado"&&reporte){
+    const emp=reporte.empresa, match=reporte.match, proy=reporte.proyecto;
+    const gaps=calcGaps(resp);
+    const iaScore=[resp.eia2,resp.eia3,resp.eia4,resp.eia6,resp.eia7].map(v=>parseInt(v)||0).reduce((a,b)=>a+b,0);
+    const iaColor=iaScore>=20?"46,204,113":iaScore>=13?"78,205,196":iaScore>=7?"255,159,28":"255,107,107";
+    const nivelIA=iaScore>=20?"Lista para liderar IA":iaScore>=13?"En adopción activa":iaScore>=7?"Iniciando camino en IA":"Etapa pre-digital";
+    const matchArea=match?.area_chaside_ideal||"I", matchData=MATCH_CHASIDE[matchArea]||MATCH_CHASIDE.I;
+    const semanas=[{n:"S1",texto:proy?.semana1,col:"255,107,107"},{n:"S2",texto:proy?.semana2,col:"255,159,28"},{n:"S3",texto:proy?.semana3,col:"78,205,196"},{n:"S4",texto:proy?.semana4,col:"46,204,113"}];
+
+    const PdfBtn = ({top}) => (
+      <button className="nb" onClick={descargarPDF} disabled={pdfLoading}
+        style={{background:pdfLoading?"rgba(78,205,196,0.1)":"linear-gradient(135deg,rgba(78,205,196,.18),rgba(155,135,245,.14))",color:pdfLoading?MUT:AC,border:"1.5px solid rgba(78,205,196,0.4)",borderRadius:12,padding:"13px",fontSize:14,fontWeight:800,cursor:pdfLoading?"not-allowed":"pointer",width:"100%",fontFamily:ff,marginBottom:top?16:0,display:"flex",alignItems:"center",justifyContent:"center",gap:8}}>
+        <span style={{fontSize:18}}>{pdfLoading?"⏳":"📄"}</span>
+        {pdfLoading?"Preparando reporte…":"⬇️ Descargar Reporte (Guardar como PDF)"}
+      </button>
+    );
+
+    return(<div style={W}><div style={INN} className="nf">
+      <Logo/>
+      <div style={{background:"rgba(78,205,196,0.06)",border:"1px solid rgba(78,205,196,0.15)",borderRadius:14,padding:"14px 16px",marginBottom:16}}>
+        <p style={{margin:0,fontSize:10,color:MUT,fontWeight:700,letterSpacing:"0.1em",marginBottom:6}}>EMPRESA CARACTERIZADA</p>
+        <p style={{margin:0,fontFamily:ff,fontSize:17,fontWeight:900,color:TEXT,marginBottom:2}}>{datos.empresa}</p>
+        <p style={{margin:0,fontSize:12,color:MUT}}>{datos.calificacion} · {datos.empleados} empleados · {datos.sector}</p>
+      </div>
+
+      <PdfBtn top={true}/>
+
+      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:4,marginBottom:20,background:"rgba(255,255,255,0.04)",borderRadius:12,padding:4}}>
+        {[{id:"empresa",l:"🏢 Empresa"},{id:"brecha",l:"📊 Brechas"},{id:"match",l:"🤝 Match"}].map(t=>(
+          <button key={t.id} className="nb" onClick={()=>setVista(t.id)} style={{background:vista===t.id?"linear-gradient(135deg,#4ECDC4,#9B87F5)":"transparent",border:"none",borderRadius:9,padding:"10px 4px",color:vista===t.id?"#fff":MUT,fontFamily:ff,fontSize:12,fontWeight:800,cursor:"pointer"}}>{t.l}</button>
         ))}
+      </div>
 
-        {/* Sector */}
-        <div style={{ marginBottom:14 }}>
-          <label style={{ display:"block", fontSize:11, fontWeight:700, color:AC, letterSpacing:"0.1em", marginBottom:6 }}>🏭 SECTOR</label>
-          <select value={datos.sector} onChange={e=>setDatos(p=>({...p,sector:e.target.value}))}
-            style={{ width:"100%", background:"rgba(255,255,255,0.06)", border:`1.5px solid ${errores.sector?"#FF6B6B":"rgba(78,205,196,0.2)"}`, borderRadius:12, padding:"13px 14px", fontSize:14, color:datos.sector?TEXT:MUT, fontFamily:fb, boxSizing:"border-box", cursor:"pointer" }}>
-            <option value="">Selecciona el sector</option>
-            {SECTORES.map(s=><option key={s} value={s}>{s}</option>)}
-          </select>
-          {errores.sector && <p style={{ margin:"4px 0 0", fontSize:11, color:"#FF6B6B" }}>{errores.sector}</p>}
+      {/* EMPRESA */}
+      {vista==="empresa"&&<div className="fi">
+        <div style={{textAlign:"center",marginBottom:18}}>
+          <div style={{fontSize:44,marginBottom:8}}>🏢</div>
+          <h1 style={{...H1,textAlign:"center",background:"linear-gradient(135deg,#4ECDC4,#9B87F5)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",backgroundClip:"text",fontSize:"clamp(20px,6vw,28px)",marginBottom:6}}>{emp.nombre_perfil}</h1>
+          <p style={{fontFamily:ff,fontSize:14,fontWeight:700,color:MUT,margin:0,fontStyle:"italic"}}>"{emp.frase}"</p>
         </div>
-
-        {/* Empleados */}
-        <div style={{ marginBottom:14 }}>
-          <label style={{ display:"block", fontSize:11, fontWeight:700, color:AC, letterSpacing:"0.1em", marginBottom:6 }}>👥 NÚMERO DE EMPLEADOS</label>
-          <select value={datos.empleados} onChange={e=>setDatos(p=>({...p,empleados:e.target.value}))}
-            style={{ width:"100%", background:"rgba(255,255,255,0.06)", border:`1.5px solid ${errores.empleados?"#FF6B6B":"rgba(78,205,196,0.2)"}`, borderRadius:12, padding:"13px 14px", fontSize:14, color:datos.empleados?TEXT:MUT, fontFamily:fb, boxSizing:"border-box", cursor:"pointer" }}>
-            <option value="">Selecciona el rango</option>
-            {["1-5","6-10","11-20","21-50","51-100","101-200"].map(r=><option key={r} value={r}>{r} empleados</option>)}
-          </select>
-          {errores.empleados && <p style={{ margin:"4px 0 0", fontSize:11, color:"#FF6B6B" }}>{errores.empleados}</p>}
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8,marginBottom:10}}>
+          <div style={CD}><p style={{fontSize:10,color:AC,fontWeight:700,letterSpacing:"0.12em",margin:"0 0 6px"}}>MADUREZ ORG.</p><p style={{margin:0,fontSize:12,fontWeight:700,lineHeight:1.4}}>{emp.nivel_madurez}</p></div>
+          <div style={CD}><p style={{fontSize:10,color:AC2,fontWeight:700,letterSpacing:"0.12em",margin:"0 0 6px"}}>CULTURA</p><p style={{margin:0,fontSize:12,fontWeight:700,lineHeight:1.4}}>{emp.cultura}</p></div>
         </div>
-
-        {/* Calificación */}
-        <div style={{ marginBottom:24 }}>
-          <label style={{ display:"block", fontSize:11, fontWeight:700, color:AC, letterSpacing:"0.1em", marginBottom:8 }}>📊 CALIFICACIÓN EMPRESARIAL</label>
-          <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr 1fr", gap:8 }}>
-            {[
-              { v:"Microempresa", icon:"🌱", sub:"Hasta 10 empleados" },
-              { v:"Pequeña",      icon:"🌿", sub:"11 a 50 empleados"  },
-              { v:"Mediana",      icon:"🌳", sub:"51 a 200 empleados" },
-            ].map(c => {
-              const isS = datos.calificacion === c.v;
-              return (
-                <button key={c.v} type="button" onClick={() => setDatos(p=>({...p,calificacion:c.v}))}
-                  style={{ background:isS?"rgba(78,205,196,0.2)":"rgba(255,255,255,0.06)", border:`1.5px solid ${isS?"#4ECDC4":"rgba(78,205,196,0.2)"}`, borderRadius:12, padding:"14px 8px", cursor:"pointer", color:isS?"#4ECDC4":"#F5F0FF", fontFamily:ff, textAlign:"center", transition:"all .2s" }}>
-                  <div style={{ fontSize:20, marginBottom:4 }}>{c.icon}</div>
-                  <div style={{ fontSize:12, fontWeight:800 }}>{c.v}</div>
-                  <div style={{ fontSize:10, color:MUT, marginTop:2, lineHeight:1.3 }}>{c.sub}</div>
-                </button>
-              );
-            })}
+        <div style={{...CD,marginBottom:10,background:"rgba(46,204,113,0.04)",border:"1px solid rgba(46,204,113,0.2)"}}>
+          <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:8}}>
+            <p style={{fontSize:10,color:"#2ECC71",fontWeight:700,letterSpacing:"0.12em",margin:0}}>🤖 PERFIL DE IA</p>
+            <div style={{background:`rgba(${iaColor},.15)`,border:`1px solid rgba(${iaColor},.3)`,borderRadius:100,padding:"2px 10px",fontSize:10,color:`rgb(${iaColor})`,fontWeight:700,whiteSpace:"nowrap",marginLeft:8}}>{iaScore}/25</div>
           </div>
-          {errores.calificacion && <p style={{ margin:"4px 0 0", fontSize:11, color:"#FF6B6B" }}>{errores.calificacion}</p>}
-        </div>
-
-        <GBtn onClick={async () => {
-          if (!validar()) return;
-          try {
-            await fetch("/.netlify/functions/apimake", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                webhook: "https://hook.us2.make.com/htsw06w8iidx49m60r3fkmo4dx6iiryi",
-                data: {
-                  nombre:     datos.contacto || "",
-                  empresa:    datos.empresa  || "",
-                  sector:     datos.sector   || "",
-                  correo:     datos.correo   || "",
-                  telefono:   datos.telefono || "",
-                  empleados:  datos.empleados|| "",
-                  fecha:      new Date().toLocaleString('es-CO'),
-                  formulario: "empresa"
-                }
-              })
-            });
-          } catch (err) { console.warn('Webhook empresa failed:', err); }
-          setFase("quiz");
-        }}>Continuar al diagnóstico →</GBtn>
-        <button className="nb" onClick={() => setFase("bienvenida")} style={{ background:"transparent", color:MUT, border:"none", padding:"12px", fontSize:13, cursor:"pointer", width:"100%", marginTop:6, fontFamily:fb }}>
-          ← Volver
-        </button>
-      </div>
-    </div>
-  );
-
-  // ── TRANSICIÓN ──────────────────────────────────────────────────────────────
-  if (fase === "transicion") {
-    const b = BLOQUES_E[bloqueIdx];
-    const col = colMap[bloqueIdx] || "78,205,196";
-    return (
-      <div style={{ ...W, justifyContent:"center", textAlign:"center" }}>
-        <div className="nf">
-          <Logo/>
-          <div style={{ fontSize:56, lineHeight:1, marginBottom:14 }}>{b.icon}</div>
-          <div style={{ display:"inline-block", background:`rgba(${col},.12)`, border:`1px solid rgba(${col},.25)`, borderRadius:100, padding:"4px 14px", fontSize:11, color:`rgb(${col})`, fontWeight:700, letterSpacing:"0.1em", marginBottom:12 }}>
-            NIVEL {b.nivel}
-          </div>
-          <h2 style={{ ...H1, fontSize:24, textAlign:"center", marginBottom:8, color:`rgb(${col})` }}>{b.titulo}</h2>
-          <p style={{ ...SUB, textAlign:"center", maxWidth:320, margin:"8px auto 0" }}>{b.intro}</p>
-        </div>
-      </div>
-    );
-  }
-
-  // ── QUIZ ────────────────────────────────────────────────────────────────────
-  if (fase === "quiz" && bloque && pregunta) {
-    const pct = (pregActual / totalPregs) * 100;
-    const col = colMap[bloqueIdx] || "78,205,196";
-
-    const areaBadge = pregunta.area ? (() => {
-      const ai = AREAS_INFO_E[pregunta.area];
-      if (!ai) return null;
-      return (
-        <div style={{ display:"inline-flex", alignItems:"center", gap:6, background:`rgba(${ai.col},.1)`, border:`1px solid rgba(${ai.col},.25)`, borderRadius:100, padding:"4px 12px", marginBottom:10 }}>
-          <span style={{ fontSize:12 }}>{ai.icon}</span>
-          <span style={{ fontSize:10, color:`rgb(${ai.col})`, fontWeight:700, letterSpacing:"0.08em" }}>{ai.nombre.toUpperCase()}</span>
-        </div>
-      );
-    })() : null;
-
-    const renderSino = () => (
-      <div style={{ display:"flex", flexDirection:"column", gap:10 }}>
-        <div style={{ display:"flex", gap:10 }}>
-          {["si","no"].map(v => {
-            const isS = sel===v;
-            const isSi = v==="si";
-            const bc = isSi?"46,204,113":"255,107,107";
-            return (
-              <button key={v} className="no" onClick={() => responder(v)} style={{
-                flex:1, background:isS?`rgba(${bc},.18)`:CARD,
-                border:`2px solid ${isS?`rgb(${bc})`:"rgba(78,205,196,0.15)"}`,
-                borderRadius:18, padding:"24px 16px", cursor:"pointer",
-                display:"flex", flexDirection:"column", alignItems:"center", gap:8,
-                boxShadow:isS?`0 0 0 4px rgba(${bc},.15)`:"none"
-              }}>
-                <span style={{ fontSize:36 }}>{isSi?"✅":"❌"}</span>
-                <span style={{ fontFamily:ff, fontSize:20, fontWeight:900, color:isS?`rgb(${bc})`:TEXT }}>{isSi?"SÍ":"NO"}</span>
-              </button>
-            );
-          })}
-        </div>
-        {bloque.id==="diagnostico" && (
-          <p style={{ textAlign:"center", fontSize:11, color:MUT, margin:0 }}>
-            Pregunta {pregIdx+1} de {bloque.preguntas.length} en diagnóstico organizacional
-          </p>
-        )}
-      </div>
-    );
-
-    const renderEscala = () => (
-      <div>
-        <div style={{ display:"flex", justifyContent:"space-between", marginBottom:8 }}>
-          <span style={{ fontSize:10, color:MUT, fontWeight:600, maxWidth:"42%", lineHeight:1.4 }}>{pregunta.escalaMin}</span>
-          <span style={{ fontSize:10, color:MUT, fontWeight:600, maxWidth:"42%", textAlign:"right", lineHeight:1.4 }}>{pregunta.escalaMax}</span>
-        </div>
-        <div style={{ display:"flex", gap:8, justifyContent:"center" }}>
-          {pregunta.opciones.map(o => {
-            const isS = sel===o.v;
-            return (
-              <button key={o.v} className="no" onClick={() => responder(o.v)} style={{
-                flex:1, aspectRatio:"1", background:isS?`rgba(${col},.22)`:CARD,
-                border:`2px solid ${isS?`rgb(${col})`:"rgba(78,205,196,0.15)"}`,
-                borderRadius:14, cursor:"pointer", display:"flex", alignItems:"center", justifyContent:"center",
-                fontFamily:ff, fontSize:20, fontWeight:900, color:isS?`rgb(${col})`:MUT,
-                boxShadow:isS?`0 0 0 4px rgba(${col},.15)`:"none"
-              }}>{o.v}</button>
-            );
-          })}
-        </div>
-      </div>
-    );
-
-    const renderNumero = () => (
-      <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:8 }}>
-        {pregunta.opciones.map(o => {
-          const isS = sel===o.v;
-          return (
-            <button key={o.v} className="no" onClick={() => responder(o.v)} style={{
-              background:isS?`rgba(${col},.2)`:CARD,
-              border:`2px solid ${isS?`rgb(${col})`:"rgba(78,205,196,0.15)"}`,
-              borderRadius:14, padding:"16px 8px", cursor:"pointer", textAlign:"center",
-              boxShadow:isS?`0 0 0 4px rgba(${col},.15)`:"none"
-            }}>
-              <div style={{ fontFamily:ff, fontSize:28, fontWeight:900, color:isS?`rgb(${col})`:TEXT, marginBottom:4 }}>{o.label}</div>
-              <div style={{ fontSize:10, color:MUT, lineHeight:1.3 }}>{o.sub}</div>
-            </button>
-          );
-        })}
-      </div>
-    );
-
-    const renderOpcion = () => (
-      <div style={{ display:"flex", flexDirection:"column", gap:7 }}>
-        {pregunta.opciones.map((o,i) => {
-          const isS = sel===o.v;
-          return (
-            <button key={i} className="no" onClick={() => responder(o.v)} style={{
-              background:isS?`rgba(${col},.15)`:CARD,
-              border:`1.5px solid ${isS?`rgb(${col})`:CARDB}`,
-              borderRadius:13, padding:"13px 15px", fontSize:13, color:isS?`rgb(${col})`:TEXT,
-              cursor:"pointer", textAlign:"left", lineHeight:1.4, fontFamily:fb, width:"100%",
-              boxShadow:isS?`0 0 0 3px rgba(${col},.1)`:"none"
-            }}>
-              <span style={{ fontWeight:700, display:"block", marginBottom:o.sub?2:0 }}>{o.label}</span>
-              {o.sub && <span style={{ fontSize:11, opacity:.65, fontWeight:400 }}>{o.sub}</span>}
-            </button>
-          );
-        })}
-      </div>
-    );
-
-    return (
-      <div style={W}>
-        <div style={INN} className="nf">
-          <Logo/>
-          <div style={{ marginBottom:20 }}>
-            <div style={{ display:"flex", justifyContent:"space-between", marginBottom:7 }}>
-              <span style={{ fontSize:11, color:`rgb(${col})`, fontWeight:700, letterSpacing:"0.1em" }}>
-                {bloque.icon} {bloque.titulo.toUpperCase()}
-              </span>
-              <span style={{ fontSize:11, color:MUT, fontWeight:600 }}>{pregActual+1}/{totalPregs}</span>
-            </div>
-            <div style={{ height:3, background:"rgba(255,255,255,0.06)", borderRadius:2 }}>
-              <div style={{ height:"100%", width:`${pct}%`, background:`linear-gradient(90deg,rgb(${col}),${AC2})`, borderRadius:2, transition:"width .4s ease" }}/>
-            </div>
-          </div>
-
-          {areaBadge}
-          {pregunta.hint && (
-            <div style={{ background:`rgba(${col},.07)`, border:`1px solid rgba(${col},.15)`, borderRadius:10, padding:"9px 13px", marginBottom:14, fontSize:12, color:`rgb(${col})`, lineHeight:1.5, fontStyle:"italic" }}>
-              {pregunta.hint}
-            </div>
-          )}
-          <h2 style={{ ...H1, fontSize:"clamp(15px,4.5vw,20px)", marginBottom:22, fontStyle:pregunta.tipo==="escala"?"italic":"normal" }}>
-            {pregunta.texto}
-          </h2>
-
-          {pregunta.tipo==="sino"   && renderSino()}
-          {pregunta.tipo==="escala" && renderEscala()}
-          {pregunta.tipo==="numero" && renderNumero()}
-          {pregunta.tipo==="opcion" && renderOpcion()}
-        </div>
-      </div>
-    );
-  }
-
-  // ── GENERANDO ───────────────────────────────────────────────────────────────
-  if (fase === "generando") return (
-    <div style={{ ...W, justifyContent:"center", textAlign:"center" }}>
-      <div className="nf">
-        <Logo/>
-        <div style={{ fontSize:52, marginBottom:14 }}>🔍</div>
-        <h2 style={{ ...H1, fontSize:22, textAlign:"center", marginBottom:10 }}>Analizando el perfil<br/>de su empresa</h2>
-        <p style={{ ...SUB, textAlign:"center", fontSize:13, minHeight:20 }}>{lmsg}</p>
-        <div style={{ marginTop:24, display:"flex", justifyContent:"center", gap:8 }}>
-          {[0,1,2].map(i => (
-            <div key={i} style={{ width:7, height:7, borderRadius:"50%", background:`linear-gradient(135deg,${AC},${AC2})`, animation:"pulse 1.4s ease infinite", animationDelay:`${i*0.22}s` }}/>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-
-  // ── RESULTADO ───────────────────────────────────────────────────────────────
-  if (fase === "resultado" && reporte) {
-    const emp   = reporte.empresa;
-    const match = reporte.match;
-    const proy  = reporte.proyecto;
-    const gaps  = calcGaps(resp);
-    const iaScore = [resp.eia2,resp.eia3,resp.eia4,resp.eia6,resp.eia7].map(v=>parseInt(v)||0).reduce((a,b)=>a+b,0);
-    const iaColor = iaScore>=20?"46,204,113":iaScore>=13?"78,205,196":iaScore>=7?"255,159,28":"255,107,107";
-    const nivelIA = iaScore>=20?"Empresa lista para liderar IA":iaScore>=13?"En adopción activa de IA":iaScore>=7?"Iniciando camino en IA":"Etapa pre-digital";
-    const matchArea = match?.area_chaside_ideal||"I";
-    const matchData = MATCH_CHASIDE[matchArea]||MATCH_CHASIDE.I;
-    const semanas = [
-      { n:"S1", texto:proy?.semana1, col:"255,107,107" },
-      { n:"S2", texto:proy?.semana2, col:"255,159,28"  },
-      { n:"S3", texto:proy?.semana3, col:"78,205,196"  },
-      { n:"S4", texto:proy?.semana4, col:"46,204,113"  },
-    ];
-
-    return (
-      <div style={W}>
-        <div style={INN} className="nf">
-          <Logo/>
-
-          {/* Banner empresa */}
-          <div style={{ background:"rgba(78,205,196,0.06)", border:"1px solid rgba(78,205,196,0.15)", borderRadius:14, padding:"14px 16px", marginBottom:16 }}>
-            <p style={{ margin:0, fontSize:10, color:MUT, fontWeight:700, letterSpacing:"0.1em", marginBottom:6 }}>EMPRESA CARACTERIZADA</p>
-            <p style={{ margin:0, fontFamily:ff, fontSize:17, fontWeight:900, color:TEXT, marginBottom:2 }}>{datos.empresa}</p>
-            <p style={{ margin:0, fontSize:12, color:MUT }}>{datos.calificacion} · {datos.empleados} empleados · {datos.sector}</p>
-            <p style={{ margin:0, fontSize:12, color:MUT }}>Contacto: {datos.contacto} · {datos.correo}</p>
-          </div>
-
-          {/* Tabs */}
-          <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr 1fr", gap:4, marginBottom:20, background:"rgba(255,255,255,0.04)", borderRadius:12, padding:4 }}>
-            {[{ id:"empresa", l:"🏢 Empresa" },{ id:"brecha", l:"📊 Brechas" },{ id:"match", l:"🤝 Match" }].map(t => (
-              <button key={t.id} className="nb" onClick={() => setVista(t.id)} style={{ background:vista===t.id?"linear-gradient(135deg,#4ECDC4,#9B87F5)":"transparent", border:"none", borderRadius:9, padding:"10px 4px", color:vista===t.id?"#fff":MUT, fontFamily:ff, fontSize:12, fontWeight:800, cursor:"pointer" }}>
-                {t.l}
-              </button>
+          <p style={{margin:"0 0 10px",fontSize:12,color:`rgb(${iaColor})`,fontWeight:700}}>{nivelIA}</p>
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:6}}>
+            {[{label:"Herramientas hoy",val:resp.eia1||"0"},{label:"Disp. al cambio",val:`${resp.eia4||"?"}/5`},{label:"Acepta estudiante",val:`${resp.eia7||"?"}/5`},{label:"Tolera frustración",val:`${resp.eia6||"?"}/5`}].map((m,i)=>(
+              <div key={i} style={{background:"rgba(0,0,0,0.2)",borderRadius:10,padding:"8px 10px"}}>
+                <p style={{margin:0,fontSize:9,color:MUT,fontWeight:700,letterSpacing:"0.08em"}}>{m.label.toUpperCase()}</p>
+                <p style={{margin:0,fontFamily:ff,fontSize:15,fontWeight:900,color:"#2ECC71"}}>{m.val}</p>
+              </div>
             ))}
           </div>
+        </div>
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8,marginBottom:10}}>
+          <div style={{...CD,background:"rgba(46,204,113,0.05)",border:"1px solid rgba(46,204,113,0.2)"}}><p style={{fontSize:10,color:"#2ECC71",fontWeight:700,letterSpacing:"0.1em",margin:"0 0 6px"}}>💎 FORTALEZA OCULTA</p><p style={{margin:0,fontSize:12,lineHeight:1.4}}>{emp.fortaleza_oculta}</p></div>
+          <div style={{...CD,background:"rgba(255,107,107,0.05)",border:"1px solid rgba(255,107,107,0.2)"}}><p style={{fontSize:10,color:"#FF6B6B",fontWeight:700,letterSpacing:"0.1em",margin:"0 0 6px"}}>⚠️ RIESGO</p><p style={{margin:0,fontSize:12,lineHeight:1.4}}>{emp.riesgo_match}</p></div>
+        </div>
+        <div style={{background:"linear-gradient(135deg,rgba(78,205,196,.1),rgba(155,135,245,.07))",border:"1.5px solid rgba(78,205,196,.3)",borderRadius:14,padding:"16px",marginBottom:16}}>
+          <p style={{fontSize:10,color:AC,fontWeight:700,letterSpacing:"0.12em",margin:"0 0 8px"}}>🚀 OPORTUNIDAD PRINCIPAL CON IA</p>
+          <p style={{margin:0,fontSize:14,fontWeight:600,lineHeight:1.55}}>{emp.oportunidad_ia}</p>
+        </div>
+        <button className="nb" onClick={()=>setVista("brecha")} style={{background:"rgba(78,205,196,0.1)",color:AC,border:"1.5px solid rgba(78,205,196,0.3)",borderRadius:12,padding:"13px",fontSize:13,fontWeight:700,cursor:"pointer",width:"100%",fontFamily:ff}}>📊 Ver análisis de brechas →</button>
+      </div>}
 
-          {/* ── VISTA EMPRESA ── */}
-          {vista === "empresa" && <div className="fi">
-            <div style={{ textAlign:"center", marginBottom:18 }}>
-              <div style={{ fontSize:44, marginBottom:8 }}>🏢</div>
-              <h1 style={{ ...H1, textAlign:"center", background:"linear-gradient(135deg,#4ECDC4,#9B87F5)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", backgroundClip:"text", fontSize:"clamp(20px,6vw,28px)", marginBottom:6 }}>
-                {emp.nombre_perfil}
-              </h1>
-              <p style={{ fontFamily:ff, fontSize:14, fontWeight:700, color:MUT, margin:0, fontStyle:"italic" }}>"{emp.frase}"</p>
-            </div>
-
-            <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8, marginBottom:10 }}>
-              <div style={CD}>
-                <p style={{ fontSize:10, color:AC, fontWeight:700, letterSpacing:"0.12em", margin:"0 0 6px" }}>MADUREZ ORG.</p>
-                <p style={{ margin:0, fontSize:12, fontWeight:700, lineHeight:1.4 }}>{emp.nivel_madurez}</p>
-              </div>
-              <div style={CD}>
-                <p style={{ fontSize:10, color:AC2, fontWeight:700, letterSpacing:"0.12em", margin:"0 0 6px" }}>CULTURA</p>
-                <p style={{ margin:0, fontSize:12, fontWeight:700, lineHeight:1.4 }}>{emp.cultura}</p>
-              </div>
-            </div>
-
-            {/* Perfil IA */}
-            <div style={{ ...CD, marginBottom:10, background:"rgba(46,204,113,0.04)", border:"1px solid rgba(46,204,113,0.2)" }}>
-              <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:8 }}>
-                <p style={{ fontSize:10, color:"#2ECC71", fontWeight:700, letterSpacing:"0.12em", margin:0 }}>🤖 PERFIL DE INTELIGENCIA ARTIFICIAL</p>
-                <div style={{ background:`rgba(${iaColor},.15)`, border:`1px solid rgba(${iaColor},.3)`, borderRadius:100, padding:"2px 10px", fontSize:10, color:`rgb(${iaColor})`, fontWeight:700, whiteSpace:"nowrap", marginLeft:8 }}>{iaScore}/25</div>
-              </div>
-              <p style={{ margin:"0 0 10px", fontSize:12, color:`rgb(${iaColor})`, fontWeight:700 }}>{nivelIA}</p>
-              <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:6 }}>
-                {[
-                  { label:"Herramientas hoy",   val:resp.eia1||"0"     },
-                  { label:"Disp. al cambio",     val:`${resp.eia4||"?"}/5` },
-                  { label:"Acepta estudiante",   val:`${resp.eia7||"?"}/5` },
-                  { label:"Tolera frustración",  val:`${resp.eia6||"?"}/5` },
-                ].map((m,i) => (
-                  <div key={i} style={{ background:"rgba(0,0,0,0.2)", borderRadius:10, padding:"8px 10px" }}>
-                    <p style={{ margin:0, fontSize:9, color:MUT, fontWeight:700, letterSpacing:"0.08em" }}>{m.label.toUpperCase()}</p>
-                    <p style={{ margin:0, fontFamily:ff, fontSize:15, fontWeight:900, color:"#2ECC71" }}>{m.val}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Fortaleza + Riesgo */}
-            <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8, marginBottom:10 }}>
-              <div style={{ ...CD, background:"rgba(46,204,113,0.05)", border:"1px solid rgba(46,204,113,0.2)" }}>
-                <p style={{ fontSize:10, color:"#2ECC71", fontWeight:700, letterSpacing:"0.1em", margin:"0 0 6px" }}>💎 FORTALEZA OCULTA</p>
-                <p style={{ margin:0, fontSize:12, lineHeight:1.4 }}>{emp.fortaleza_oculta}</p>
-              </div>
-              <div style={{ ...CD, background:"rgba(255,107,107,0.05)", border:"1px solid rgba(255,107,107,0.2)" }}>
-                <p style={{ fontSize:10, color:"#FF6B6B", fontWeight:700, letterSpacing:"0.1em", margin:"0 0 6px" }}>⚠️ RIESGO</p>
-                <p style={{ margin:0, fontSize:12, lineHeight:1.4 }}>{emp.riesgo_match}</p>
-              </div>
-            </div>
-
-            {/* Oportunidad IA */}
-            <div style={{ background:"linear-gradient(135deg,rgba(78,205,196,.1),rgba(155,135,245,.07))", border:"1.5px solid rgba(78,205,196,.3)", borderRadius:14, padding:"16px", marginBottom:16 }}>
-              <p style={{ fontSize:10, color:AC, fontWeight:700, letterSpacing:"0.12em", margin:"0 0 8px" }}>🚀 OPORTUNIDAD PRINCIPAL CON IA</p>
-              <p style={{ margin:0, fontSize:14, fontWeight:600, lineHeight:1.55 }}>{emp.oportunidad_ia}</p>
-            </div>
-
-            <button className="nb" onClick={() => setVista("brecha")} style={{ background:`rgba(78,205,196,0.1)`, color:AC, border:`1.5px solid rgba(78,205,196,0.3)`, borderRadius:12, padding:"13px", fontSize:13, fontWeight:700, cursor:"pointer", width:"100%", fontFamily:ff }}>
-              📊 Ver análisis de brechas →
-            </button>
-          </div>}
-
-          {/* ── VISTA BRECHAS ── */}
-          {vista === "brecha" && <div className="fi">
-            <div style={{ ...CD, marginBottom:12 }}>
-              <p style={{ fontSize:10, color:AC, fontWeight:700, letterSpacing:"0.12em", margin:"0 0 12px" }}>🔍 MAPA DE BRECHAS ORGANIZACIONALES</p>
-              <p style={{ margin:"0 0 16px", fontSize:12, color:MUT, lineHeight:1.5 }}>14 preguntas de diagnóstico. Cada área muestra cuántos procesos críticos NO están implementados hoy.</p>
-              <div style={{ display:"flex", flexDirection:"column", gap:14 }}>
-                {Object.entries(gaps).sort((a,b)=>b[1]-a[1]).map(([area,score]) => {
-                  const ai = AREAS_INFO_E[area];
-                  const pct = (score/2)*100;
-                  const urgency = score===2?"CRÍTICO":score===1?"MODERADO":"CONSOLIDADO";
-                  const urgCol  = score===2?"255,107,107":score===1?"255,159,28":"46,204,113";
-                  return (
-                    <div key={area}>
-                      <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:6 }}>
-                        <span style={{ fontSize:12, fontWeight:600 }}>{ai.icon} {ai.nombre}</span>
-                        <span style={{ fontSize:10, fontWeight:800, color:`rgb(${urgCol})`, background:`rgba(${urgCol},.1)`, padding:"2px 8px", borderRadius:100 }}>{urgency}</span>
-                      </div>
-                      <div style={{ height:5, background:"rgba(255,255,255,0.06)", borderRadius:3, marginBottom:4 }}>
-                        <div style={{ height:"100%", width:`${pct}%`, background:`rgb(${ai.col})`, borderRadius:3, transition:"width .8s ease" }}/>
-                      </div>
-                      <p style={{ margin:0, fontSize:10, color:MUT }}>{score===2?"Ninguno de los 2 procesos está implementado":score===1?"1 de 2 procesos necesita atención":"Ambos procesos están cubiertos ✓"}</p>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Brecha principal */}
-            <div style={{ background:"rgba(255,107,107,0.06)", border:"1.5px solid rgba(255,107,107,0.25)", borderRadius:14, padding:"16px", marginBottom:12 }}>
-              <p style={{ fontSize:10, color:"#FF6B6B", fontWeight:700, letterSpacing:"0.12em", margin:"0 0 8px" }}>🚨 BRECHA MÁS URGENTE</p>
-              <p style={{ margin:0, fontSize:14, fontWeight:700, lineHeight:1.5 }}>{emp.brecha_principal}</p>
-            </div>
-
-            {/* Detalle SÍ/NO */}
-            <div style={{ ...CD, marginBottom:16 }}>
-              <p style={{ fontSize:10, color:MUT, fontWeight:700, letterSpacing:"0.12em", margin:"0 0 12px" }}>DETALLE COMPLETO DEL DIAGNÓSTICO</p>
-              <div style={{ display:"flex", flexDirection:"column", gap:6 }}>
-                {DIAG_Q.map(q => {
-                  const isOk = resp[q.id]==="si";
-                  const ai = AREAS_INFO_E[q.area];
-                  return (
-                    <div key={q.id} style={{ display:"flex", gap:10, alignItems:"flex-start", padding:"8px", background:`rgba(${isOk?"46,204,113":"255,107,107"},.05)`, borderRadius:8, border:`1px solid rgba(${isOk?"46,204,113":"255,107,107"},.1)` }}>
-                      <span style={{ fontSize:14, flexShrink:0 }}>{isOk?"✅":"❌"}</span>
-                      <div>
-                        <span style={{ fontSize:9, color:`rgb(${ai.col})`, fontWeight:700, letterSpacing:"0.08em" }}>{ai.nombre} · </span>
-                        <span style={{ fontSize:11, color:"rgba(200,185,255,.8)", lineHeight:1.4 }}>{q.texto}</span>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            <button className="nb" onClick={() => setVista("match")} style={{ background:`rgba(78,205,196,0.1)`, color:AC, border:`1.5px solid rgba(78,205,196,0.3)`, borderRadius:12, padding:"13px", fontSize:13, fontWeight:700, cursor:"pointer", width:"100%", fontFamily:ff }}>
-              🤝 Ver estudiante ideal y plan →
-            </button>
-          </div>}
-
-          {/* ── VISTA MATCH ── */}
-          {vista === "match" && <div className="fi">
-
-            {/* Perfil ideal */}
-            <div style={{ background:`linear-gradient(135deg,rgba(${matchData.col},.15),rgba(${matchData.col},.05))`, border:`2px solid rgba(${matchData.col},.35)`, borderRadius:18, padding:"20px", marginBottom:12, textAlign:"center" }}>
-              <div style={{ fontSize:48, marginBottom:8 }}>{matchData.icon}</div>
-              <p style={{ margin:"0 0 4px", fontSize:10, color:`rgb(${matchData.col})`, fontWeight:700, letterSpacing:"0.12em" }}>PERFIL CHASIDE IDEAL PARA SU EMPRESA</p>
-              <h2 style={{ margin:"0 0 10px", fontFamily:ff, fontSize:"clamp(16px,5vw,22px)", fontWeight:900, color:TEXT, lineHeight:1.2 }}>{matchData.area}</h2>
-              <p style={{ margin:0, fontSize:13, lineHeight:1.6, color:"rgba(200,185,255,.85)" }}>{match.perfil_ideal}</p>
-            </div>
-
-            {/* Por qué encaja */}
-            <div style={{ ...CD, marginBottom:10 }}>
-              <p style={{ fontSize:10, color:AC, fontWeight:700, letterSpacing:"0.12em", margin:"0 0 8px" }}>💡 POR QUÉ ESTE PERFIL ES EL CORRECTO</p>
-              <p style={{ margin:"0 0 10px", fontSize:13, lineHeight:1.55 }}>{match.por_que_encaja}</p>
-              <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8 }}>
-                <div style={{ background:"rgba(0,0,0,0.2)", borderRadius:10, padding:"10px" }}>
-                  <p style={{ margin:0, fontSize:9, color:MUT, fontWeight:700, letterSpacing:"0.08em", marginBottom:4 }}>NIVEL IA REQUERIDO</p>
-                  <p style={{ margin:0, fontSize:12, fontWeight:600, lineHeight:1.4 }}>{match.nivel_ia_requerido}</p>
+      {/* BRECHAS */}
+      {vista==="brecha"&&<div className="fi">
+        <div style={{...CD,marginBottom:12}}>
+          <p style={{fontSize:10,color:AC,fontWeight:700,letterSpacing:"0.12em",margin:"0 0 12px"}}>🔍 MAPA DE BRECHAS ORGANIZACIONALES</p>
+          <p style={{margin:"0 0 16px",fontSize:12,color:MUT,lineHeight:1.5}}>14 preguntas de diagnóstico. Mayor cantidad de NOs = mayor brecha = mayor oportunidad para el proyecto NEXO.</p>
+          <div style={{display:"flex",flexDirection:"column",gap:14}}>
+            {Object.entries(gaps).sort((a,b)=>b[1]-a[1]).map(([area,score])=>{
+              const ai=AREAS_INFO_E[area],pct=(score/2)*100;
+              const urgency=score===2?"CRÍTICO":score===1?"MODERADO":"CONSOLIDADO";
+              const urgCol=score===2?"255,107,107":score===1?"255,159,28":"46,204,113";
+              return(<div key={area}>
+                <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}>
+                  <span style={{fontSize:12,fontWeight:600}}>{ai.icon} {ai.nombre}</span>
+                  <span style={{fontSize:10,fontWeight:800,color:`rgb(${urgCol})`,background:`rgba(${urgCol},.1)`,padding:"2px 8px",borderRadius:100}}>{urgency}</span>
                 </div>
-                <div style={{ background:"rgba(0,0,0,0.2)", borderRadius:10, padding:"10px" }}>
-                  <p style={{ margin:0, fontSize:9, color:MUT, fontWeight:700, letterSpacing:"0.08em", marginBottom:4 }}>AMBIENTE IDEAL</p>
-                  <p style={{ margin:0, fontSize:12, fontWeight:600, lineHeight:1.4 }}>{match.ambiente_ideal}</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Proyecto */}
-            <div style={{ background:"linear-gradient(135deg,rgba(78,205,196,.08),rgba(155,135,245,.05))", border:"1.5px solid rgba(78,205,196,.25)", borderRadius:14, padding:"16px", marginBottom:10 }}>
-              <p style={{ fontSize:10, color:AC, fontWeight:700, letterSpacing:"0.12em", margin:"0 0 6px" }}>🎯 PROYECTO NEXO</p>
-              <h3 style={{ fontFamily:ff, fontSize:16, fontWeight:900, margin:"0 0 6px", color:TEXT }}>{proy.titulo}</h3>
-              <p style={{ margin:"0 0 8px", fontSize:12, color:MUT, lineHeight:1.5 }}><strong>Objetivo:</strong> {proy.objetivo}</p>
-              <p style={{ margin:0, fontSize:12, lineHeight:1.5 }}><strong>Entregable:</strong> {proy.entregable}</p>
-            </div>
-
-            {/* Plan 4 semanas */}
-            <div style={{ ...CD, marginBottom:10 }}>
-              <p style={{ fontSize:10, color:MUT, fontWeight:700, letterSpacing:"0.12em", margin:"0 0 12px" }}>PLAN DE 4 SEMANAS</p>
-              {semanas.map((s,i) => (
-                <div key={i} style={{ display:"flex", gap:10, marginBottom:i<3?12:0, alignItems:"flex-start" }}>
-                  <div style={{ width:28, height:28, borderRadius:7, background:`rgba(${s.col},.15)`, border:`1.5px solid rgba(${s.col},.3)`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:10, fontWeight:900, color:`rgb(${s.col})`, flexShrink:0, fontFamily:ff }}>
-                    {s.n}
-                  </div>
-                  <p style={{ margin:0, fontSize:12, lineHeight:1.5 }}>{s.texto}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* Herramientas */}
-            <div style={{ ...CD, marginBottom:10 }}>
-              <p style={{ fontSize:10, color:AC, fontWeight:700, letterSpacing:"0.12em", margin:"0 0 10px" }}>🛠️ HERRAMIENTAS DE IA A IMPLEMENTAR</p>
-              {[proy.herramienta1,proy.herramienta2,proy.herramienta3].filter(Boolean).map((h,i) => (
-                <div key={i} style={{ display:"flex", gap:10, marginBottom:i<2?8:0, alignItems:"flex-start" }}>
-                  <div style={{ width:24, height:24, borderRadius:7, background:"rgba(78,205,196,.15)", border:"1.5px solid rgba(78,205,196,.3)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:10, fontWeight:900, color:AC, flexShrink:0, fontFamily:ff }}>{i+1}</div>
-                  <p style={{ margin:0, fontSize:12, lineHeight:1.5 }}>{h}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* KPI */}
-            <div style={{ background:"rgba(46,204,113,0.07)", border:"1px solid rgba(46,204,113,0.2)", borderRadius:12, padding:"12px 14px", marginBottom:16 }}>
-              <p style={{ fontSize:10, color:"#2ECC71", fontWeight:700, letterSpacing:"0.1em", margin:"0 0 5px" }}>📏 KPI DE ÉXITO A 4 SEMANAS</p>
-              <p style={{ margin:0, fontSize:13, fontWeight:600, lineHeight:1.5 }}>{proy.kpi_exito}</p>
-            </div>
-
-            <button style={{ background:"linear-gradient(135deg,#4ECDC4,#9B87F5)", color:"#fff", border:"none", borderRadius:13, padding:"16px", fontFamily:ff, fontSize:15, fontWeight:900, cursor:"pointer", width:"100%", marginBottom:8 }}>
-              ✅ ACEPTO EL MATCH NEXO
-            </button>
-            <p style={{ fontSize:11, color:MUT, textAlign:"center", margin:"0 0 14px", lineHeight:1.4 }}>
-              NEXO coordinará el inicio del proyecto con el estudiante asignado
-            </p>
-          </div>}
-
-          <div style={{ marginTop:14 }}>
-            <GBtn onClick={reset} outline small>← Nueva caracterización</GBtn>
+                <div style={{height:5,background:"rgba(255,255,255,0.06)",borderRadius:3,marginBottom:4}}><div style={{height:"100%",width:`${pct}%`,background:`rgb(${ai.col})`,borderRadius:3,transition:"width .8s ease"}}/></div>
+                <p style={{margin:0,fontSize:10,color:MUT}}>{score===2?"Ninguno de los 2 procesos implementado":score===1?"1 de 2 necesita atención":"Ambos procesos cubiertos ✓"}</p>
+              </div>);
+            })}
           </div>
         </div>
+        <div style={{background:"rgba(255,107,107,0.06)",border:"1.5px solid rgba(255,107,107,0.25)",borderRadius:14,padding:"16px",marginBottom:12}}>
+          <p style={{fontSize:10,color:"#FF6B6B",fontWeight:700,letterSpacing:"0.12em",margin:"0 0 8px"}}>🚨 BRECHA MÁS URGENTE</p>
+          <p style={{margin:0,fontSize:14,fontWeight:700,lineHeight:1.5}}>{emp.brecha_principal}</p>
+        </div>
+        <div style={{...CD,marginBottom:16}}>
+          <p style={{fontSize:10,color:MUT,fontWeight:700,letterSpacing:"0.12em",margin:"0 0 12px"}}>DETALLE COMPLETO DEL DIAGNÓSTICO</p>
+          <div style={{display:"flex",flexDirection:"column",gap:6}}>
+            {DIAG_Q.map(q=>{
+              const isOk=resp[q.id]==="si",ai=AREAS_INFO_E[q.area];
+              return(<div key={q.id} style={{display:"flex",gap:10,alignItems:"flex-start",padding:"8px",background:`rgba(${isOk?"46,204,113":"255,107,107"},.05)`,borderRadius:8,border:`1px solid rgba(${isOk?"46,204,113":"255,107,107"},.1)`}}>
+                <span style={{fontSize:14,flexShrink:0}}>{isOk?"✅":"❌"}</span>
+                <div><span style={{fontSize:9,color:`rgb(${ai.col})`,fontWeight:700,letterSpacing:"0.08em"}}>{ai.nombre} · </span><span style={{fontSize:11,color:"rgba(200,185,255,.8)",lineHeight:1.4}}>{q.texto}</span></div>
+              </div>);
+            })}
+          </div>
+        </div>
+        <button className="nb" onClick={()=>setVista("match")} style={{background:"rgba(78,205,196,0.1)",color:AC,border:"1.5px solid rgba(78,205,196,0.3)",borderRadius:12,padding:"13px",fontSize:13,fontWeight:700,cursor:"pointer",width:"100%",fontFamily:ff}}>🤝 Ver estudiante ideal y plan →</button>
+      </div>}
+
+      {/* MATCH */}
+      {vista==="match"&&<div className="fi">
+        <div style={{background:`linear-gradient(135deg,rgba(${matchData.col},.15),rgba(${matchData.col},.05))`,border:`2px solid rgba(${matchData.col},.35)`,borderRadius:18,padding:"20px",marginBottom:12,textAlign:"center"}}>
+          <div style={{fontSize:48,marginBottom:8}}>{matchData.icon}</div>
+          <p style={{margin:"0 0 4px",fontSize:10,color:`rgb(${matchData.col})`,fontWeight:700,letterSpacing:"0.12em"}}>PERFIL CHASIDE IDEAL PARA SU EMPRESA</p>
+          <h2 style={{margin:"0 0 10px",fontFamily:ff,fontSize:"clamp(16px,5vw,22px)",fontWeight:900,color:TEXT,lineHeight:1.2}}>{matchData.area}</h2>
+          <p style={{margin:0,fontSize:13,lineHeight:1.6,color:"rgba(200,185,255,.85)"}}>{match.perfil_ideal}</p>
+        </div>
+        <div style={{...CD,marginBottom:10}}>
+          <p style={{fontSize:10,color:AC,fontWeight:700,letterSpacing:"0.12em",margin:"0 0 8px"}}>💡 POR QUÉ ESTE PERFIL ES EL CORRECTO</p>
+          <p style={{margin:"0 0 10px",fontSize:13,lineHeight:1.55}}>{match.por_que_encaja}</p>
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
+            <div style={{background:"rgba(0,0,0,0.2)",borderRadius:10,padding:"10px"}}><p style={{margin:0,fontSize:9,color:MUT,fontWeight:700,letterSpacing:"0.08em",marginBottom:4}}>NIVEL IA REQUERIDO</p><p style={{margin:0,fontSize:12,fontWeight:600,lineHeight:1.4}}>{match.nivel_ia_requerido}</p></div>
+            <div style={{background:"rgba(0,0,0,0.2)",borderRadius:10,padding:"10px"}}><p style={{margin:0,fontSize:9,color:MUT,fontWeight:700,letterSpacing:"0.08em",marginBottom:4}}>AMBIENTE IDEAL</p><p style={{margin:0,fontSize:12,fontWeight:600,lineHeight:1.4}}>{match.ambiente_ideal}</p></div>
+          </div>
+        </div>
+        <div style={{background:"linear-gradient(135deg,rgba(78,205,196,.08),rgba(155,135,245,.05))",border:"1.5px solid rgba(78,205,196,.25)",borderRadius:14,padding:"16px",marginBottom:10}}>
+          <p style={{fontSize:10,color:AC,fontWeight:700,letterSpacing:"0.12em",margin:"0 0 6px"}}>🎯 PROYECTO NEXO</p>
+          <h3 style={{fontFamily:ff,fontSize:16,fontWeight:900,margin:"0 0 6px",color:TEXT}}>{proy.titulo}</h3>
+          <p style={{margin:"0 0 8px",fontSize:12,color:MUT,lineHeight:1.5}}><strong>Objetivo:</strong> {proy.objetivo}</p>
+          <p style={{margin:0,fontSize:12,lineHeight:1.5}}><strong>Entregable:</strong> {proy.entregable}</p>
+        </div>
+        <div style={{...CD,marginBottom:10}}>
+          <p style={{fontSize:10,color:MUT,fontWeight:700,letterSpacing:"0.12em",margin:"0 0 12px"}}>PLAN DE 4 SEMANAS</p>
+          {semanas.map((s,i)=>(<div key={i} style={{display:"flex",gap:10,marginBottom:i<3?12:0,alignItems:"flex-start"}}>
+            <div style={{width:28,height:28,borderRadius:7,background:`rgba(${s.col},.15)`,border:`1.5px solid rgba(${s.col},.3)`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:10,fontWeight:900,color:`rgb(${s.col})`,flexShrink:0,fontFamily:ff}}>{s.n}</div>
+            <p style={{margin:0,fontSize:12,lineHeight:1.5}}>{s.texto}</p>
+          </div>))}
+        </div>
+        <div style={{...CD,marginBottom:10}}>
+          <p style={{fontSize:10,color:AC,fontWeight:700,letterSpacing:"0.12em",margin:"0 0 10px"}}>🛠️ HERRAMIENTAS DE IA</p>
+          {[proy.herramienta1,proy.herramienta2,proy.herramienta3].filter(Boolean).map((h,i)=>(<div key={i} style={{display:"flex",gap:10,marginBottom:i<2?8:0,alignItems:"flex-start"}}><div style={{width:24,height:24,borderRadius:7,background:"rgba(78,205,196,.15)",border:"1.5px solid rgba(78,205,196,.3)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:10,fontWeight:900,color:AC,flexShrink:0,fontFamily:ff}}>{i+1}</div><p style={{margin:0,fontSize:12,lineHeight:1.5}}>{h}</p></div>))}
+        </div>
+        <div style={{background:"rgba(46,204,113,0.07)",border:"1px solid rgba(46,204,113,0.2)",borderRadius:12,padding:"12px 14px",marginBottom:16}}>
+          <p style={{fontSize:10,color:"#2ECC71",fontWeight:700,letterSpacing:"0.1em",margin:"0 0 5px"}}>📏 KPI DE ÉXITO A 4 SEMANAS</p>
+          <p style={{margin:0,fontSize:13,fontWeight:600,lineHeight:1.5}}>{proy.kpi_exito}</p>
+        </div>
+        <button style={{background:"linear-gradient(135deg,#4ECDC4,#9B87F5)",color:"#fff",border:"none",borderRadius:13,padding:"16px",fontFamily:ff,fontSize:15,fontWeight:900,cursor:"pointer",width:"100%",marginBottom:8}}>✅ ACEPTO EL MATCH NEXO</button>
+        <p style={{fontSize:11,color:MUT,textAlign:"center",margin:"0 0 14px",lineHeight:1.4}}>NEXO coordinará el inicio del proyecto con el estudiante asignado</p>
+      </div>}
+
+      <div style={{marginTop:14,display:"flex",flexDirection:"column",gap:8}}>
+        <PdfBtn top={false}/>
+        <button className="nb" onClick={reset} style={{background:"transparent",color:MUT,border:"1px solid rgba(155,135,245,.15)",borderRadius:12,padding:"12px",fontSize:13,fontWeight:600,cursor:"pointer",fontFamily:fb}}>← Nueva caracterización</button>
       </div>
-    );
+    </div></div>);
   }
 
   return null;
 }
-
 
 window.NexoEmpresa = NexoEmpresa;
 
